@@ -2,12 +2,12 @@ package view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import controler.MainControler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class ViewControler implements Initializable {
+public class ViewController implements Initializable {
 
     @FXML
     private Button startButton;

@@ -2,7 +2,7 @@ package program;
 
 import java.io.IOException;
 
-import controler.MainControler;
+import controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +16,7 @@ public class Akinator extends Application {
         Parent root;
         try {
             FXMLLoader chargeurFXML = new FXMLLoader (getClass().getResource("/view/MenuPrincipal.fxml"));
-            chargeurFXML.setController(new MainControler());
+            chargeurFXML.setController(new MainController());
             root = chargeurFXML.load();
 
             primaryStage.setTitle("I'M JARVIS");
