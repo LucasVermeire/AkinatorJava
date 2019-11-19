@@ -1,7 +1,13 @@
 {
-  "questions": {
-    "Personnage": "Lucas  Etudiant 1",
-    "Enonce": "Est ce que votre personnage est de petite taille ?",
-    "id": "Petit"
-  }
+  "questions": [
+    [
+      "est ce que votre personnage est un homme ? ",
+      [
+        {
+          "name": "Lucas",
+          "description": "Etudiant"
+        }
+      ]
+    ]
+  ]
 }

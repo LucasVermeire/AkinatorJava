@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 import interfaces.ITheme;
-import models.Character;
-import models.Question;
 
 public class QuestionTests {
 
@@ -28,7 +26,7 @@ public class QuestionTests {
 
 
     @Test
-    public void knowHisSetPersonnages() {
+    public void knowHisSetCharacters() {
 
         Set<ITheme> characters = new TreeSet<ITheme>();
 

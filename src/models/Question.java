@@ -31,6 +31,7 @@ public class Question implements IQuestion,Serializable {
         return statement.toLowerCase();
     }
 
+    @Override
     public Set<ITheme> getSetCharacters(){
         return characters;
     }

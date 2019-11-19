@@ -11,6 +11,8 @@ public class Repository implements IRepository {
 
     private Data data;
     private static Repository INSTANCE = new Repository();
+    private final String PATH_QUESTIONS = "rsc\\questions.json";
+    private final String PATH_CHARACTERS = "rsc\\personnages.json";
 
     private Repository() {
         data = new Data();
@@ -20,14 +22,22 @@ public class Repository implements IRepository {
         return INSTANCE;
     }
 
-    @Override
-    public void exportQuestions(List<IQuestion> bankQuestions,String path) {
-        data.exportQuestions(bankQuestions,"rsc\\questions.json");
+    public String getPATH_QUESTIONS(){
+        return PATH_QUESTIONS;
+    }
+
+    public String getPATH_CHARACTERS(){
+        return PATH_CHARACTERS;
     }
 
     @Override
-    public void exportCharacters(Set<ITheme> bankPersonnages,String path) {
-        data.exportPersonnage(bankPersonnages, "rsc\\personnages.json");
+    public void exportQuestions(List<IQuestion> bankQuestions,String path) {
+        data.exportQuestions(bankQuestions,PATH_QUESTIONS);
+    }
+
+    @Override
+    public void exportCharacters(Set<ITheme> bankCharacters,String path) {
+        data.exportCharacters(bankCharacters, PATH_CHARACTERS);
     }
 
     @Override
@@ -36,7 +46,7 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public void importCharacters(Set<ITheme>personnages,String path) {
-        data.importPersonnages(personnages, "rsc\\personnages.json");
+    public void importCharacters(Set<ITheme>characters,String path) {
+        data.importPersonnages(characters, "rsc\\personnages.json");
     }
 }

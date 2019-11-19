@@ -16,11 +16,11 @@ public class Anwser implements IAnswer{
 
     @Override
     public void answerYes (int index) {
-        setFinal = questions.getQuestionByIndex(index).answerYes(new TreeSet<ITheme>(characters.getBankPersonnages()));
+        setFinal = questions.getQuestionByIndex(index).answerYes(new TreeSet<ITheme>(characters.getBankCharacters()));
     }
 
     @Override
     public void answerNo(int index) {
-        setFinal = questions.getQuestionByIndex(index).answerNo(new TreeSet<ITheme>(characters.getBankPersonnages()));
+        setFinal = questions.getQuestionByIndex(index).answerNo(new TreeSet<ITheme>(characters.getBankCharacters()));
     }
 }

@@ -3,12 +3,8 @@ package models;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.*;
 import org.junit.jupiter.api.Test;
-
 import interfaces.IQuestion;
 import interfaces.ITheme;
-import models.BankQuestions;
-import models.Character;
-import models.Question;
 
 class BankQuestionsTests {
 
@@ -19,7 +15,6 @@ class BankQuestionsTests {
         BankQuestions BankQuestions = new BankQuestions("rsc\\questions.json");
 
         assertEquals(questions, BankQuestions.getBankQuestions());
-        //TODO
     }
 
     @Test
@@ -39,5 +34,4 @@ class BankQuestionsTests {
 
         assertEquals(questions,BankQuestions.getBankQuestions());
     }
-
 }

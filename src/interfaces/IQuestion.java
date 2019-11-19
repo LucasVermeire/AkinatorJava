@@ -6,4 +6,5 @@ public interface IQuestion {
     Set<ITheme> answerNo (Set<ITheme> p);
     Set<ITheme> answerYes (Set<ITheme> p);
     String getStatementOfQuestions();
+    Set<ITheme> getSetCharacters();
 }

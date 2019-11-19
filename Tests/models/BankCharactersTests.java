@@ -5,34 +5,30 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 import interfaces.ITheme;
-import models.BankCharacters;
-import models.Character;
 
 class BankCharactersTests {
 
     @Test
-    public void knowHisSetPersonnages() {
+    public void knowHisSetCharacters() {
         Set<ITheme> characters = new TreeSet<ITheme>();
 
-        BankCharacters bankPersonnages = new BankCharacters("rsc\\personnages.json");
+        BankCharacters bankCharacters = new BankCharacters("rsc\\personnages.json");
 
-        assertEquals(characters, bankPersonnages.getBankPersonnages());
-
-        //TODO
+        assertEquals(characters, bankCharacters.getBankCharacters());
     }
 
     @Test
-    public void addPersonnage() {
+    public void addCharacter() {
         Set<ITheme> characters = new TreeSet<ITheme>();
 
         Character c = new Character("Lucas","Etudiant");
 
         characters.add(c);
 
-        BankCharacters bankPersonnages = new BankCharacters("rsc\\personnages.json");
+        BankCharacters bankCharacters = new BankCharacters("rsc\\personnages.json");
 
-        bankPersonnages.addCharacter(c);
+        bankCharacters.addCharacter(c);
 
-        assertEquals(characters,bankPersonnages.getBankPersonnages());
+        assertEquals(characters,bankCharacters.getBankCharacters());
     }
 }

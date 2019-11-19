@@ -8,16 +8,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.FXMLController;
 
-public class Akinator extends Application {
+public class Jarvis extends Application {
 
     @Override
     public void start(Stage primaryStage){
         Parent root;
         try {
-            FXMLLoader chargeurFXML = new FXMLLoader (getClass().getResource("/view/MenuPrincipal.fxml"));
-            chargeurFXML.setController(new MainController());
-            root = chargeurFXML.load();
+            FXMLLoader chargerFXML = new FXMLLoader (getClass().getResource("/view/FXML/MenuPrincipal.fxml"));
+            MainController control = new MainController(primaryStage);
+            FXMLController FXMLControl = new FXMLController(control);
+            chargerFXML.setController(FXMLControl);
+            root = chargerFXML.load();
 
             primaryStage.setTitle("I'M JARVIS");
             Scene scene = new Scene(root,719,619);
