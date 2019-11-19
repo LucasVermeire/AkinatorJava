@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="266.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo/Accueil.PNG" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="30" />
+               </VBox.margin>
+            </ImageView>
+            <Label prefHeight="59.0" prefWidth="438.0" text="Choissisez un thème" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="37.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="35" />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER">
+               <children>
+                  <Button fx:id="modernCharacter" mnemonicParsing="false" onAction="#chooseView" prefHeight="29.0" prefWidth="217.0" styleClass="windows7" stylesheets="@../css/window7.css" text="Personnnages modernes">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#backView" styleClass="windows7" stylesheets="@../css/window7.css" text="Retour">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

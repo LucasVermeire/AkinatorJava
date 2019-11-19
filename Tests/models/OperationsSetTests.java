@@ -1,15 +1,11 @@
 package models;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.junit.jupiter.api.Test;
-
 import interfaces.ITheme;
-import models.OperationsSet;
-import models.Character;
+
 
 class OperationsSetTests {
 

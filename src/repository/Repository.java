@@ -42,11 +42,11 @@ public class Repository implements IRepository {
 
     @Override
     public void importQuestion(List<IQuestion>questions,String path) {
-        data.importQuestion(questions, "rsc\\questions.json");
+        data.importQuestions(questions,PATH_QUESTIONS);
     }
 
     @Override
     public void importCharacters(Set<ITheme>characters,String path) {
-        data.importPersonnages(characters, "rsc\\personnages.json");
+        data.importCharacters(characters,PATH_CHARACTERS);
     }
 }

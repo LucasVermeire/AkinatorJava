@@ -1,16 +1,10 @@
 package repository;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;
@@ -22,8 +16,7 @@ import interfaces.ITheme;
 @SuppressWarnings("unchecked")
 public class Data {
 
-
-    public void exportQuestions(List<IQuestion> bankQuestions,String path) {
+    public void exportQuestions(List<IQuestion> bankQuestions, String path) {
         JSONObject jsonObj = new JSONObject();
         JSONArray questionsArray = new JSONArray();
 
@@ -74,28 +67,20 @@ public class Data {
         return prettyJson;
     }
 
+    //-----------------------------------------------------------------------------
 
-    public void importQuestion(List<IQuestion>questions,String path){
-        questions = new ArrayList<IQuestion>();
-
-        String messageErreur = "Not found";
-
-
-        try(FileReader reader = new FileReader(path)){
-
+    public void importQuestions(List<IQuestion>questions, String path){
+        try (FileReader reader = new FileReader(path)) {
             //TODO
 
-        }catch(FileNotFoundException ex) {
-            System.out.println(messageErreur);
-        }catch(IOException ex) {
-            System.out.println(messageErreur);
+        } catch (IOException e) {
+            System.out.println("Fichier non trouv");
         }
+
     }
 
 
-    public void importPersonnages(Set<ITheme>personnages,String path){
-        personnages = new TreeSet<ITheme>();
-
+    public void importCharacters(Set<ITheme>characters, String path){
         try(BufferedReader input = Files.newBufferedReader(Paths.get(path))){
             //TODO
 

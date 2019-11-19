@@ -2,22 +2,17 @@ package repository;
 
 import interfaces.IQuestion;
 import interfaces.ITheme;
-import models.BankCharacters;
 import models.Character;
 import models.Question;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataTests {
 
@@ -26,9 +21,7 @@ public class DataTests {
         Data data = new Data();
 
         Set<ITheme> characters = new TreeSet<ITheme>();
-
         Character c = new Character("Lucas","Etudiant");
-
         characters.add(c);
 
         Question q = new Question("Est ce que votre personnage est un homme ? ", characters);
@@ -54,13 +47,31 @@ public class DataTests {
 
     @Test
     public void exportJsonQuestion(){
+        String path = "rsc/questionsTests.json";
+        File f = new File (path);
 
+        assertTrue(f.exists() && !f.isDirectory());
     }
 
     @Test
     public void exportJsonCharacters(){
+        String path = "rsc/personnagesTests.json";
+        File f = new File (path);
 
+        assertTrue(f.exists() && !f.isDirectory());
     }
 
+    @AfterEach
+    public void deleteFileQuestions(){
+        String pathQuestions = "rsc/questionsTests.json";
+        String pathCharacters = "rsc/personnagesTests.json";
+        File f1 = new File(pathQuestions);
+        File f2 = new File(pathCharacters);
 
+        if(f1.delete() && f2.delete()){
+            System.out.println("Fichier de test supprimé avec succès !");
+        }else{
+            System.out.println("Suppression a échoué !" );
+        }
+    }
 }
