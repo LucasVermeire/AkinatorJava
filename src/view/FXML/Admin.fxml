@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
@@ -28,17 +31,17 @@
                 </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button fx:id="exportBank" mnemonicParsing="false" onAction="#chooseView" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@../css/window7.css" text="Exporter la banque de connaissance">
+                        <Button fx:id="exportBank" mnemonicParsing="false" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@../css/window7.css" text="Exporter la banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="importBank" mnemonicParsing="false" onAction="#chooseView" styleClass="windows7" stylesheets="@../css/window7.css" text="Importer une banque de connaissance">
+                        <Button fx:id="importBank" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Importer une banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="15.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="backAdmin" mnemonicParsing="false" onAction="#backView" styleClass="windows7" stylesheets="@../css/window7.css" text="Quitter">
+                        <Button fx:id="backAdmin" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Retour">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>

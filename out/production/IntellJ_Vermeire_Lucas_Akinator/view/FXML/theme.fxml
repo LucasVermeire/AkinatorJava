@@ -18,9 +18,9 @@
                   <Insets bottom="30" />
                </VBox.margin>
             </ImageView>
-            <Label prefHeight="59.0" prefWidth="438.0" text="Choissisez un thème" textFill="WHITE">
+            <Label prefHeight="59.0" prefWidth="378.0" text="Choissisez un thème" textFill="WHITE">
                <font>
-                  <Font name="Verdana Bold" size="37.0" />
+                  <Font name="Verdana Bold" size="32.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="35" />
@@ -28,12 +28,12 @@
             </Label>
             <VBox alignment="CENTER">
                <children>
-                  <Button fx:id="modernCharacter" mnemonicParsing="false" onAction="#chooseView" prefHeight="29.0" prefWidth="217.0" styleClass="windows7" stylesheets="@../css/window7.css" text="Personnnages modernes">
+                  <Button fx:id="modernCharacter" mnemonicParsing="false" prefHeight="29.0" prefWidth="217.0" styleClass="windows7" stylesheets="@../css/window7.css" text="Personnnages modernes">
                      <VBox.margin>
                         <Insets bottom="50.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#backView" styleClass="windows7" stylesheets="@../css/window7.css" text="Retour">
+                  <Button fx:id="backButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Retour">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

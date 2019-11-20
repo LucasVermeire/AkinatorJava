@@ -30,17 +30,17 @@
             </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button fx:id="restartButton" mnemonicParsing="false" onAction="#chooseView" styleClass="windows7" stylesheets="@../css/window7.css" text="Rejouer">
+                        <Button fx:id="restartButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Rejouer">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="70.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="leaveButton" mnemonicParsing="false" onAction="#chooseView" styleClass="windows7" stylesheets="@../css/window7.css" text="Quitter">
+                        <Button fx:id="leaveButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Quitter">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="menuButton" mnemonicParsing="false" onAction="#chooseView" styleClass="windows7" stylesheets="@../css/window7.css" text="Menu principal">
+                        <Button fx:id="menuButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css/window7.css" text="Menu principal">
                             <VBox.margin>
                                 <Insets bottom="60.0" top="10.0" />
                             </VBox.margin>
