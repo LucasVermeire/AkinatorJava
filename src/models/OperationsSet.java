@@ -17,26 +17,13 @@ public class OperationsSet implements IOperationsSet {
         return characters;
     }
 
-    /**
-     * <p>La méthode Set<Personnage> intersection(Set<Personnage> p) permet de faire l'intersection
-     * entre l'ensemble de tout les personnages et l'ensemble de personnage de la question,
-     * si la réponse est "Oui"</p>
-     * @param Set<Personnage> p
-     * @return Set<Personnage>
-     */
     @Override
     public Set<ITheme> intersection(Set<ITheme>p){
         p.retainAll(characters);
         return p;
     }
 
-    /**
-     * <p>La méthode Set<Personnage> difference(Set<Personnage> p) permet de faire la différence
-     * entre l'ensemble de tout les personnages et l'ensemble de personnage de la question,
-     * si la réponse est "Non"</p>
-     * @param Set<Personnage> p
-     * @return Set<Personnage>
-     */
+
     @Override
     public Set<ITheme> difference(Set<ITheme>p){
         p.removeAll(characters);
