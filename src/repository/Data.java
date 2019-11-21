@@ -5,12 +5,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
+import models.Question;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import interfaces.IQuestion;
 import interfaces.ITheme;
+import javax.json.*;
 
 
 @SuppressWarnings("unchecked")
@@ -70,22 +73,40 @@ public class Data {
     //-----------------------------------------------------------------------------
 
     public void importQuestions(List<IQuestion>questions, String path){
-        try (FileReader reader = new FileReader(path)) {
-            //TODO
+        try (InputStream reader = new FileInputStream(path)) {
+            JsonReader rdr = Json.createReader(reader);
+            JsonObject jsonObj = rdr.readObject();
+
+            rdr.close();
+            addQuestions(jsonObj,questions);
 
         } catch (IOException e) {
-            System.out.println("Fichier non trouv");
+            System.out.println("Fichier non trouvé");
         }
-
     }
 
+    private void addQuestions(JsonObject jsonObj,List<IQuestion>questions) {
+        JsonArray array = jsonObj.getJsonArray("questions");
+        for (JsonValue value : array) {
+            JsonObject obj = (JsonObject) value;
+
+            JsonArray charactersArray = obj.getJsonArray("personnages");
+            Set<ITheme> charactersSet = new TreeSet<ITheme>();
+
+            for (JsonValue jsonValue : charactersArray) {
+                //TODO
+                /*charactersSet.add(new Character())*/
+            }
+            questions.add(new Question(obj.getString("content"), charactersSet));
+        }
+    }
 
     public void importCharacters(Set<ITheme>characters, String path){
         try(BufferedReader input = Files.newBufferedReader(Paths.get(path))){
             //TODO
 
         }catch(IOException ex) {
-            System.out.println("Not found");
+            System.out.println("Fichier non trouvé");
         }
     }
 }
