@@ -2,9 +2,8 @@ package repository;
 
 import java.util.List;
 import java.util.Set;
-import interfaces.IQuestion;
-import interfaces.IRepository;
-import interfaces.ITheme;
+import models.IQuestion;
+import models.ICharacter;
 
 
 public class Repository implements IRepository {
@@ -18,35 +17,27 @@ public class Repository implements IRepository {
         data = new Data();
     }
 
-    public Repository getInstance() {
+    public static Repository getInstance() {
         return INSTANCE;
     }
 
-    public String getPATH_QUESTIONS(){
-        return PATH_QUESTIONS;
-    }
-
-    public String getPATH_CHARACTERS(){
-        return PATH_CHARACTERS;
-    }
-
     @Override
-    public void exportQuestions(List<IQuestion> bankQuestions,String path) {
+    public void exportQuestions(List<IQuestion> bankQuestions) {
         data.exportQuestions(bankQuestions,PATH_QUESTIONS);
     }
 
     @Override
-    public void exportCharacters(Set<ITheme> bankCharacters,String path) {
+    public void exportCharacters(Set<ICharacter> bankCharacters) {
         data.exportCharacters(bankCharacters, PATH_CHARACTERS);
     }
 
     @Override
-    public void importQuestion(List<IQuestion>questions,String path) {
-        data.importQuestions(questions,PATH_QUESTIONS);
+    public List<IQuestion> importQuestion() {
+        return data.importQuestions(PATH_QUESTIONS);
     }
 
     @Override
-    public void importCharacters(Set<ITheme>characters,String path) {
-        data.importCharacters(characters,PATH_CHARACTERS);
+    public Set<ICharacter> importCharacters() {
+        return data.importCharacters(PATH_CHARACTERS);
     }
 }

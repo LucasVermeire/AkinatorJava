@@ -1,4 +1,4 @@
-package interfaces;
+package models;
 
 public interface IAnswer {
     void answerYes (int index);

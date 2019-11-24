@@ -1,8 +1,10 @@
 {
-  "personnages": [
-    [
-      "Lucas",
-      "Etudiant"
-    ]
+  "Description": [
+    "Etudiant",
+    "Etudiant2"
+  ],
+  "Name": [
+    "Lucas",
+    "Sam"
   ]
 }

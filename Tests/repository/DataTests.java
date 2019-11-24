@@ -1,17 +1,14 @@
 package repository;
 
-import interfaces.IQuestion;
-import interfaces.ITheme;
+import models.IQuestion;
+import models.ICharacter;
 import models.Character;
 import models.Question;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataTests {
@@ -20,48 +17,55 @@ public class DataTests {
     public void exportQuestion(){
         Data data = new Data();
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
-        Character c = new Character("Lucas","Etudiant");
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        Character c = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
         characters.add(c);
 
         Question q = new Question("Est ce que votre personnage est un homme ? ", characters);
+        Question q2 = new Question("Est ce que votre personnage est une femme ? ", characters);
 
         List<IQuestion> questions = new ArrayList<IQuestion>();
         questions.add(q);
+        questions.add(q2);
 
-        data.exportQuestions(questions,"rsc/questionsTests.json");
+        data.exportQuestions(questions,"rsc/questions.json");
     }
 
     @BeforeEach
     public void exportCharacters(){
         Data data = new Data();
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        Character character = new Character("Lucas","Etudiant");
+        Character character = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
+        Character character2 = new Character("Sam","Etudiant2","view/img/characters/Steve_Jobs.jpg");
 
         characters.add(character);
+        characters.add(character2);
 
-        data.exportCharacters(characters,"rsc/personnagesTests.json");
+        data.exportCharacters(characters,"rsc/personnages.json");
     }
 
     @Test
     public void exportJsonQuestion(){
-        String path = "rsc/questionsTests.json";
+        String path = "rsc/questions.json";
         File f = new File (path);
 
         assertTrue(f.exists() && !f.isDirectory());
     }
+
 
     @Test
     public void exportJsonCharacters(){
-        String path = "rsc/personnagesTests.json";
+        String path = "rsc/personnages.json";
         File f = new File (path);
 
         assertTrue(f.exists() && !f.isDirectory());
     }
 
-    @AfterEach
+
+/*
+   @AfterEach
     public void deleteFileQuestions(){
         String pathQuestions = "rsc/questionsTests.json";
         String pathCharacters = "rsc/personnagesTests.json";
@@ -73,5 +77,5 @@ public class DataTests {
         }else{
             System.out.println("Suppression a échoué !" );
         }
-    }
+    }*/
 }

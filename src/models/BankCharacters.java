@@ -2,8 +2,6 @@ package models;
 
 import java.util.*;
 
-import interfaces.IRepository;
-import interfaces.ITheme;
 import repository.Repository;
 
 /**
@@ -17,32 +15,31 @@ import repository.Repository;
  */
 public class BankCharacters {
 
-    private Set<ITheme> characters;
-    private Repository repository ;
-    private String path;
+    private Set<ICharacter> characters;
+    private Repository repository;
 
-    public BankCharacters (String path) {
-        this.path = path;
-        characters = new TreeSet<ITheme>();
-        //load();
+    public BankCharacters () {
+        characters = new TreeSet<ICharacter>();
+        repository = Repository.getInstance();
+        //characters = load();
     }
 
-    public Set<ITheme> getBankCharacters(){
+    public Set<ICharacter> getBankCharacters(){
         return characters;
     }
 
-    public void addCharacter(Character p) {
-        if(p != null) {
-            characters.add(p);
+    public void addCharacter(Character character) {
+        if(character != null) {
+            characters.add(character);
         }
         //export();
     }
 
-    private void load () {
-        repository.getInstance().importCharacters(characters, path);
+    private Set<ICharacter> load () {
+        return repository.importCharacters();
     }
 
     public void export () {
-        repository.exportCharacters(characters, path);
+        repository.exportCharacters(characters);
     }
 }

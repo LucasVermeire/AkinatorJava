@@ -4,56 +4,55 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Set;
 import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
-import interfaces.ITheme;
 
 
 class OperationsSetTests {
 
 
     @Test
-    public void intersectionSetPersonnage() {
+    public void intersectionSetCharacters() {
 
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
-        characters.add(new Character("Lucas","Etudiant 1"));
-        characters.add(new Character("Bernard","Etudiant 4"));
-        characters.add(new Character("Yann","Etudiant 7"));
-        characters.add(new Character("Sam","Etudiant 6"));
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        characters.add(new Character("Lucas","Etudiant 1", "view/img/characters/billGates.jpg"));
+        characters.add(new Character("Bernard","Etudiant 4", "view/img/characters/JeffBezos.jpg"));
+        characters.add(new Character("Yann","Etudiant 7","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Sam","Etudiant 6","view/img/characters/billGates.jpg"));
 
 
-        Set<ITheme>personnages2 = new TreeSet<ITheme>();
-        personnages2.add(new Character("Lucas","Etudiant 1"));
-        personnages2.add(new Character("Sam","Etudiant 6"));
+        Set<ICharacter>personnages2 = new TreeSet<ICharacter>();
+        personnages2.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        personnages2.add(new Character("Sam","Etudiant 6","view/img/characters/billGates.jpg"));
 
         OperationsSet operations = new OperationsSet(characters);
 
-        Set<ITheme> persoInters = operations.intersection(personnages2);
+        Set<ICharacter> persoInters = operations.intersection(personnages2);
 
-        assertTrue(persoInters.contains(new Character("Lucas","Etudiant 1")));
-        assertFalse(persoInters.contains(new Character("Bernard","Etudiant 4")));
-        assertFalse(persoInters.contains(new Character("Yann","Etudiant 7")));
-        assertTrue(persoInters.contains(new Character("Sam","Etudiant 6")));
+        assertTrue(persoInters.contains(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg")));
+        assertFalse(persoInters.contains(new Character("Bernard","Etudiant 4","view/img/characters/billGates.jpg")));
+        assertFalse(persoInters.contains(new Character("Yann","Etudiant 7","view/img/characters/billGates.jpg")));
+        assertTrue(persoInters.contains(new Character("Sam","Etudiant 6","view/img/characters/billGates.jpg")));
     }
 
     @Test
-    public void differenceSetPersonnage() {
+    public void differenceSetCharacters() {
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
-        characters.add(new Character("Lucas","Etudiant 1"));
-        characters.add(new Character("Bernard","Etudiant 4"));
-        characters.add(new Character("Yann","Etudiant 7"));
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Bernard","Etudiant 4","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Yann","Etudiant 7","view/img/characters/billGates.jpg"));
 
-        Set<ITheme>personnages2 = new TreeSet<ITheme>();
-        personnages2.add(new Character("Lucas","Etudiant 1"));
-        personnages2.add(new Character("Sam","Etudiant 6"));
+        Set<ICharacter>personnages2 = new TreeSet<ICharacter>();
+        personnages2.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        personnages2.add(new Character("Sam","Etudiant 6","view/img/characters/billGates.jpg"));
 
         OperationsSet operations = new OperationsSet(characters);
 
-        Set<ITheme> persoDiff = operations.difference(personnages2);
+        Set<ICharacter> persoDiff = operations.difference(personnages2);
 
-        assertFalse(persoDiff.contains(new Character("Lucas","Etudiant 1")));
-        assertFalse(persoDiff.contains(new Character("Bernard","Etudiant 4")));
-        assertFalse(persoDiff.contains(new Character("Yann","Etudiant 7")));
-        assertTrue(persoDiff.contains(new Character("Sam","Etudiant 6")));
+        assertFalse(persoDiff.contains(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg")));
+        assertFalse(persoDiff.contains(new Character("Bernard","Etudiant 4","view/img/characters/billGates.jpg")));
+        assertFalse(persoDiff.contains(new Character("Yann","Etudiant 7","view/img/characters/billGates.jpg")));
+        assertTrue(persoDiff.contains(new Character("Sam","Etudiant 6","view/img/characters/billGates.jpg")));
     }
 }

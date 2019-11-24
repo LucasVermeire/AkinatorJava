@@ -1,9 +1,8 @@
 package models;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.*;
-import interfaces.IQuestion;
-import interfaces.ITheme;
-import repository.Repository;
 
 /**
  * <p>La classe Knowledge définit la connaissance des différentes banques. Elle est composé d'une banque de personnages et d'une banque de questions</p>
@@ -16,21 +15,20 @@ public class Knowledge {
 
     private BankQuestions questions;
     private BankCharacters characters;
-    private Set<ITheme> setFinal;
-    private Anwser answer;
-    private Repository repository;
+    private Set<ICharacter> setFinal;
+    private Answer answer;
+    private PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
 
-
-    public Knowledge (Repository rep) {
-        this.repository = rep.getInstance();
-        questions = new BankQuestions(rep.getPATH_QUESTIONS());
-        characters = new BankCharacters(rep.getPATH_CHARACTERS());
+    public Knowledge () {
+        questions = new BankQuestions();
+        characters = new BankCharacters();
         setFinal = characters.getBankCharacters();
-        answer = new Anwser(setFinal);
+        answer = new Answer(setFinal);
+        myPcs.firePropertyChange("setFinal",5,setFinal);
     }
 
-    public Set<ITheme> getBankCharacters(){
-        return new HashSet<ITheme>(characters.getBankCharacters());
+    public Set<ICharacter> getBankCharacters(){
+        return new HashSet<ICharacter>(characters.getBankCharacters());
     }
 
 
@@ -38,7 +36,7 @@ public class Knowledge {
         return new HashSet<IQuestion>(questions.getBankQuestions());
     }
 
-    public Set<ITheme> getSetFinal(){
+    public Set<ICharacter> getSetFinal(){
         return setFinal;
     }
 
@@ -48,5 +46,9 @@ public class Knowledge {
 
     public void answerNo(int index) {
         answer.answerNo(index);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l){
+        myPcs.addPropertyChangeListener(l);
     }
 }

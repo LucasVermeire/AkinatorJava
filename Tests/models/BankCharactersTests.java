@@ -4,28 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Set;
 import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
-import interfaces.ITheme;
 
 class BankCharactersTests {
 
     @Test
     public void knowHisSetCharacters() {
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        BankCharacters bankCharacters = new BankCharacters("rsc\\personnages.json");
+        BankCharacters bankCharacters = new BankCharacters();
 
         assertEquals(characters, bankCharacters.getBankCharacters());
     }
 
     @Test
     public void addCharacter() {
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        Character c = new Character("Lucas","Etudiant");
+        Character c = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
 
         characters.add(c);
 
-        BankCharacters bankCharacters = new BankCharacters("rsc\\personnages.json");
+        BankCharacters bankCharacters = new BankCharacters();
 
         bankCharacters.addCharacter(c);
 

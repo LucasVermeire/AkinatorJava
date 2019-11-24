@@ -2,7 +2,6 @@ package models;
 
 import java.util.*;
 
-import interfaces.IQuestion;
 import repository.Repository;
 
 /**
@@ -16,13 +15,12 @@ import repository.Repository;
 public class BankQuestions {
 
     private List<IQuestion> questions;
-    private Repository repository ;
-    private String path;
+    private Repository repository;
 
-    public BankQuestions(String path) {
-        this.path = path;
+    public BankQuestions() {
         questions = new ArrayList<IQuestion>();
-        //load();
+        repository = Repository.getInstance();
+        //questions = load();
     }
 
     public List<IQuestion> getBankQuestions(){
@@ -33,18 +31,18 @@ public class BankQuestions {
         return questions.get(index);
     }
 
-    public void addQuestion(Question q) {
-        if(q != null) {
-            questions.add(q);
+    public void addQuestion(Question question) {
+        if(question != null) {
+            questions.add(question);
         }
         //export();
     }
 
-    private void load () {
-        repository.getInstance().importQuestion(questions, path);
+    private List<IQuestion> load () {
+        return repository.importQuestion();
     }
 
     public void export() {
-        repository.getInstance().exportQuestions(questions, path);
+        repository.exportQuestions(questions);
     }
 }

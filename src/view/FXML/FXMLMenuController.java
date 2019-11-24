@@ -1,35 +1,19 @@
 package view.FXML;
 
-import java.io.IOException;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import controllers.MainController;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
 
-
-public class FXMLMenuController implements Initializable {
-
-    @FXML
-    private Button startButton;
-
-    @FXML
-    private Button leaveButton;
-
-    @FXML
-    private Button adminButton;
-
-    @FXML
-    private BorderPane borderPane;
+public class FXMLMenuController extends FXMLSwitchView implements Initializable, PropertyChangeListener {
 
     private MainController controller;
 
     public FXMLMenuController(MainController controller){
+        super();
         this.controller = controller;
     }
 
@@ -38,34 +22,8 @@ public class FXMLMenuController implements Initializable {
 
     }
 
-    @FXML
-    protected void switchView(ActionEvent event) {
-        startButton = (Button) event.getSource();
-        String buttonId = startButton.getId();
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
 
-        switch (buttonId) {
-            case "startButton":
-                loadView("/view/FXML/theme.fxml");
-                break;
-            case "leaveButton":
-                System.exit(0);
-                break;
-            case "adminButton":
-                loadView("/view/FXML/Admin.fxml");
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void loadView(String pathFXML) {
-        Parent root ;
-        try{
-            root = FXMLLoader.load(getClass().getResource(pathFXML));
-            borderPane.getScene().setRoot(root);
-
-        }catch(IOException ex){
-            System.err.println(ex.getMessage());
-        }
     }
 }

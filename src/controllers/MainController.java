@@ -1,8 +1,12 @@
 package controllers;
 
+import models.Knowledge;
+
 public class MainController {
 
-    public MainController(){
+    private Knowledge knowledge;
 
+    public MainController(){
+        knowledge = new Knowledge();
     }
 }

@@ -2,31 +2,24 @@ package models;
 
 import java.util.*;
 
-import interfaces.IOperationsSet;
-import interfaces.ITheme;
-
 public class OperationsSet implements IOperationsSet {
 
-    private Set<ITheme> characters;
+    private Set<ICharacter> characters;
 
-    public OperationsSet(Set<ITheme> characters) {
+    public OperationsSet(Set<ICharacter> characters) {
         this.characters = characters;
     }
 
-    public Set<ITheme> getSetCharacters(){
+    @Override
+    public Set<ICharacter> intersection(Set<ICharacter>characters){
+        characters.retainAll(this.characters);
         return characters;
     }
 
-    @Override
-    public Set<ITheme> intersection(Set<ITheme>p){
-        p.retainAll(characters);
-        return p;
-    }
-
 
     @Override
-    public Set<ITheme> difference(Set<ITheme>p){
-        p.removeAll(characters);
-        return p;
+    public Set<ICharacter> difference(Set<ICharacter>characters){
+        characters.removeAll(this.characters);
+        return characters;
     }
 }

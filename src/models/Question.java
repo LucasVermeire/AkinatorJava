@@ -2,8 +2,9 @@ package models;
 
 import java.io.Serializable;
 import java.util.Set;
-import interfaces.IQuestion;
-import interfaces.ITheme;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * <p>La classe Question définit une question qui est composé d'une clé,d'un énoncé, d'un ensemble de personnage et d'une opération</p>
@@ -14,12 +15,17 @@ import interfaces.ITheme;
  */
 public class Question implements IQuestion,Serializable {
 
-    private static final long serialVersionUID = 1L;
+    @SerializedName("Statement")
+    @Expose
     private String statement;
-    private Set<ITheme> characters;
+
+    @SerializedName("Personnages")
+    @Expose
+    private Set<ICharacter> characters;
+
     private OperationsSet operations;
 
-    public Question(String statement,Set<ITheme> characters) {
+    public Question(String statement,Set<ICharacter> characters) {
         this.statement = statement;
         this.characters = characters;
         operations = new OperationsSet(characters);
@@ -28,26 +34,32 @@ public class Question implements IQuestion,Serializable {
 
     @Override
     public String getStatementOfQuestions() {
-        return statement.toLowerCase();
+        return statement;
     }
 
     @Override
-    public Set<ITheme> getSetCharacters(){
+    public Set<ICharacter> getSetCharacters(){
         return characters;
     }
 
     @Override
     public boolean equals(Object question) {
-        return ((IQuestion) question).getStatementOfQuestions().equals(getStatementOfQuestions());
+        try{
+            String statement = ((IQuestion) question).getStatementOfQuestions();
+            return statement.equals(getStatementOfQuestions());
+        }catch (IllegalArgumentException ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
-    public Set<ITheme> answerNo(Set<ITheme> p) {
-        return operations.difference(p);
+    public Set<ICharacter> answerNo(Set<ICharacter> characters) {
+        return operations.difference(characters);
     }
 
     @Override
-    public Set<ITheme> answerYes(Set<ITheme> p) {
-        return operations.intersection(p);
+    public Set<ICharacter> answerYes(Set<ICharacter> characters) {
+        return operations.intersection(characters);
     }
 }

@@ -1,6 +1,9 @@
 package models;
 
-import interfaces.ITheme;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 
 /**
  * <p>La classe Personnage qui implémente l'interface ITheme, définit un personnage qui est composé d'un nom, d'une description</p>
@@ -8,14 +11,22 @@ import interfaces.ITheme;
  * @author Lucas Vermeire
  * @version 1.0
  */
-public class Character implements ITheme {
+public class Character implements ICharacter, Serializable {
 
+    @SerializedName("Name")
+    @Expose
     private String name;
+
+    @SerializedName("Description")
+    @Expose
     private String description;
 
-    public Character(String name,String description) {
+    private String pathImg;
+
+    public Character(String name,String description,String pathImg) {
         this.description = description;
         this.name = name;
+        this.pathImg = pathImg;
     }
 
     @Override
@@ -30,17 +41,17 @@ public class Character implements ITheme {
 
     @Override
     public boolean equals(Object character) {
-        return name.equals(((Character)character).getName());
+        try{
+            return name.equals(((Character)character).getName());
+        }catch (IllegalArgumentException ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
-    public int compareTo(ITheme t) {
-        try {
-            return name.compareTo(t.getName());
-        }catch(ClassCastException ex) {
-            System.out.println("Erreur de comparaison");
-        }
-        return 0;
+    public int compareTo(ICharacter character) {
+        return name.compareTo(character.getName());
     }
 
     @Override

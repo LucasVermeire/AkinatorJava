@@ -3,8 +3,6 @@ package models;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.*;
 import org.junit.jupiter.api.Test;
-import interfaces.IQuestion;
-import interfaces.ITheme;
 
 class BankQuestionsTests {
 
@@ -12,15 +10,15 @@ class BankQuestionsTests {
     public void knowHisSetQuestions() {
         List<IQuestion> questions = new ArrayList<IQuestion>();
 
-        BankQuestions BankQuestions = new BankQuestions("rsc\\questions.json");
+        BankQuestions BankQuestions = new BankQuestions();
 
         assertEquals(questions, BankQuestions.getBankQuestions());
     }
 
     @Test
     public void addQuestions() {
-        Set<ITheme> characters = new TreeSet<ITheme>();
-        characters.add(new Character("Lucas","Etudiant 1"));
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
 
         List<IQuestion> questions = new ArrayList<IQuestion>();
 
@@ -28,7 +26,7 @@ class BankQuestionsTests {
 
         questions.add(q);
 
-        BankQuestions BankQuestions = new BankQuestions("rsc\\questions.json");
+        BankQuestions BankQuestions = new BankQuestions();
 
         BankQuestions.addQuestion(q);
 

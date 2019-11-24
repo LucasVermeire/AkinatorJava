@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.*;
 import org.junit.jupiter.api.Test;
-import interfaces.ITheme;
 
 public class QuestionTests {
 
@@ -13,13 +12,13 @@ public class QuestionTests {
     @Test
     public void knowHisStatement() {
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1"));
+        characters.add(new Character("Lucas","Etudiant 1", "view/img/characters/billGates.jpg"));
 
         Question q = new Question("Est ce que votre personnage est un homme?",characters);
 
-        String enonce = "est ce que votre personnage est un homme?";
+        String enonce = "Est ce que votre personnage est un homme?";
 
         assertEquals(enonce,q.getStatementOfQuestions());
     }
@@ -28,16 +27,16 @@ public class QuestionTests {
     @Test
     public void knowHisSetCharacters() {
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1"));
+        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
 
         Question q = new Question("Est ce que votre personnage est un vieil homme?",characters);
 
 
         Set<Character> personnages2 = new TreeSet<Character>();
 
-        personnages2.add(new Character("Lucas","Etudiant 1"));
+        personnages2.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
 
         assertEquals(personnages2,q.getSetCharacters());
     }
@@ -46,9 +45,9 @@ public class QuestionTests {
     @Test
     public void question1EqualsQuestion2() {
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1"));
+        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
 
         Question q1 = new Question("Est ce que votre personnage est petit?",characters);
         Question q2 = new Question("Est ce que votre personnage est petit?",characters);
@@ -59,9 +58,9 @@ public class QuestionTests {
     @Test
     public void question1NotEqualsQuestion2() {
 
-        Set<ITheme> characters = new TreeSet<ITheme>();
+        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1"));
+        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
 
         Question q1 = new Question("Est ce que votre personnage est petit?",characters);
         Question q2 = new Question("Est ce que votre personnage est grand",characters);

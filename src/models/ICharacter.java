@@ -1,4 +1,4 @@
-package interfaces;
+package models;
 
 /**
  * <p>L'interface ITheme hérite de Comparable. Elle est composé de 2 signatures de méthodes</p>
@@ -7,7 +7,7 @@ package interfaces;
  * @version 1.0
  *
  */
-public interface ITheme extends Comparable<ITheme> {
+public interface ICharacter extends Comparable<ICharacter> {
     String getName();
     String getDescription();
 }
