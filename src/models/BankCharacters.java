@@ -1,18 +1,8 @@
 package models;
 
 import java.util.*;
-
 import repository.Repository;
 
-/**
- * <p>La classe BankCharacters définit une banque de personnages.
- * Elle est composé d'un ensemble de personnages</p>
- *
- *
- * @author Lucas Vermeire
- * @version 1.0
- *
- */
 public class BankCharacters {
 
     private Set<ICharacter> characters;

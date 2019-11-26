@@ -1,22 +1,32 @@
 {
-  "Characters": [
-    [
-      {
-        "Name": "Lucas",
-        "Description": "Etudiant",
-        "pathImg": "view/img/characters/billGates.jpg"
-      }
-    ],
-    [
-      {
-        "Name": "Lucas",
-        "Description": "Etudiant",
-        "pathImg": "view/img/characters/billGates.jpg"
-      }
-    ]
-  ],
-  "questions": [
-    "Est ce que votre personnage est un homme ? ",
-    "Est ce que votre personnage est une femme ? "
+  "question": [
+    {
+      "statement": "Est ce que votre personnage est un homme ?",
+      "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs"]
+    },
+    {
+      "statement": "Est ce que votre personnage est vivant ?",
+      "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Emma Watson", "Michelle Obama", "Rihanna"]
+    },
+    {
+      "statement": "Est-t-il marié actuellement ?",
+      "characters": ["Bill Gates","Mark Zuckerberg","Michelle Obama", "Rihanna"]
+    },
+    {
+      "statement": "Est-ce que votre personnage a plus de 50 ans ?",
+      "characters": ["Bill Gates","Jeff Bezos","Michelle Obama"]
+    },
+    {
+      "statement": "Est ce que votre personnage est une femme ?",
+      "characters": ["Emma Watson", "Michelle Obama", "Rihanna"]
+    },
+    {
+      "statement": "Est-ce que votre personnage a moins de 40 ans ?",
+      "characters": ["Emma Watson", "Rihanna", "Mark Zuckerberg"]
+    },
+    {
+      "statement": "Est ce que votre personnage a joué dans un film ?",
+      "characters": ["Emma Watson"]
+    }
   ]
 }

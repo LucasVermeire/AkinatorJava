@@ -6,13 +6,7 @@ import java.util.Set;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * <p>La classe Question définit une question qui est composé d'une clé,d'un énoncé, d'un ensemble de personnage et d'une opération</p>
- *
- * @author Lucas Vermeire
- * @version 1.0
- *
- */
+
 public class Question implements IQuestion,Serializable {
 
     @SerializedName("Statement")

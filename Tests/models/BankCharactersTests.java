@@ -20,7 +20,7 @@ class BankCharactersTests {
     public void addCharacter() {
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        Character c = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
+        Character c = new Character("Lucas");
 
         characters.add(c);
 

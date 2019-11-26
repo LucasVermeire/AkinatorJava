@@ -18,7 +18,7 @@ class BankQuestionsTests {
     @Test
     public void addQuestions() {
         Set<ICharacter> characters = new TreeSet<ICharacter>();
-        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Lucas"));
 
         List<IQuestion> questions = new ArrayList<IQuestion>();
 

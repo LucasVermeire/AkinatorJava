@@ -1,16 +1,9 @@
 package models;
 
-import java.beans.PropertyChangeListener;
+
 import java.beans.PropertyChangeSupport;
 import java.util.*;
 
-/**
- * <p>La classe Knowledge définit la connaissance des différentes banques. Elle est composé d'une banque de personnages et d'une banque de questions</p>
- *
- * @author Lucas Vermeire
- * @version 1.0
- *
- */
 public class Knowledge {
 
     private BankQuestions questions;
@@ -18,37 +11,73 @@ public class Knowledge {
     private Set<ICharacter> setFinal;
     private Answer answer;
     private PropertyChangeSupport myPcs = new PropertyChangeSupport(this);
+    private int index;
 
     public Knowledge () {
         questions = new BankQuestions();
         characters = new BankCharacters();
         setFinal = characters.getBankCharacters();
         answer = new Answer(setFinal);
-        myPcs.firePropertyChange("setFinal",5,setFinal);
+        index = 0;
     }
 
     public Set<ICharacter> getBankCharacters(){
         return new HashSet<ICharacter>(characters.getBankCharacters());
     }
 
-
     public Set<IQuestion> getBankQuestions(){
         return new HashSet<IQuestion>(questions.getBankQuestions());
+    }
+
+    private ICharacter getCharacter(){
+        if(knowCharacterFinal()){
+            List<ICharacter> characterArrayList = new ArrayList<ICharacter>(setFinal);
+
+            return characterArrayList.get(0);
+        }else return new Character("****");
+    }
+
+    public String getPathImg(){
+        return getCharacter().getPathImg();
+    }
+
+    public String getQuestion(){
+        return questions.questionToString(index);
+    }
+
+    public int knowNumberOfQuestions(){
+        return questions.getBankQuestions().size();
     }
 
     public Set<ICharacter> getSetFinal(){
         return setFinal;
     }
 
-    public void answerYes (int index) {
-        answer.answerYes(index);
+    public void answerYes (int i) {
+        answer.answerYes(i);
+        index++;
     }
 
-    public void answerNo(int index) {
-        answer.answerNo(index);
+    public void answerNo(int i) {
+        answer.answerNo(i);
+        index++;
     }
 
-    public void addPropertyChangeListener(PropertyChangeListener l){
-        myPcs.addPropertyChangeListener(l);
+    public void answerIDK(){
+        index++;
+    }
+
+    public boolean knowCharacterFinal(){
+        if(setFinal.size()==1)
+            return true;
+        else
+            return false;
+    }
+
+    public String setFinalToList(){
+        List<ICharacter> list = new ArrayList<ICharacter>(setFinal);
+        StringBuilder charactersFinal = new StringBuilder();
+        for (ICharacter p : list) charactersFinal.append(p.getName()).append("\n");
+        return charactersFinal.toString();
     }
 }

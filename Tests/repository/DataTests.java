@@ -4,7 +4,6 @@ import models.IQuestion;
 import models.ICharacter;
 import models.Character;
 import models.Question;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -18,7 +17,7 @@ public class DataTests {
         Data data = new Data();
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
-        Character c = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
+        Character c = new Character("Lucas");
         characters.add(c);
 
         Question q = new Question("Est ce que votre personnage est un homme ? ", characters);
@@ -31,20 +30,21 @@ public class DataTests {
         data.exportQuestions(questions,"rsc/questions.json");
     }
 
+    /*
     @BeforeEach
     public void exportCharacters(){
         Data data = new Data();
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        Character character = new Character("Lucas","Etudiant","view/img/characters/billGates.jpg");
-        Character character2 = new Character("Sam","Etudiant2","view/img/characters/Steve_Jobs.jpg");
+        Character character = new Character("Lucas");
+        Character character2 = new Character("Sam");
 
         characters.add(character);
         characters.add(character2);
 
         data.exportCharacters(characters,"rsc/personnages.json");
-    }
+    }*/
 
     @Test
     public void exportJsonQuestion(){
@@ -54,14 +54,21 @@ public class DataTests {
         assertTrue(f.exists() && !f.isDirectory());
     }
 
+    @Test
+    public void importQuestion(){
+        Data data = new Data();
 
+        data.importCharacters("rsc/questions.json");
+    }
+
+/*
     @Test
     public void exportJsonCharacters(){
         String path = "rsc/personnages.json";
         File f = new File (path);
 
         assertTrue(f.exists() && !f.isDirectory());
-    }
+    }*/
 
 
 /*

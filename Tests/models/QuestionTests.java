@@ -14,7 +14,7 @@ public class QuestionTests {
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1", "view/img/characters/billGates.jpg"));
+        characters.add(new Character("Lucas"));
 
         Question q = new Question("Est ce que votre personnage est un homme?",characters);
 
@@ -29,14 +29,14 @@ public class QuestionTests {
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Lucas"));
 
         Question q = new Question("Est ce que votre personnage est un vieil homme?",characters);
 
 
         Set<Character> personnages2 = new TreeSet<Character>();
 
-        personnages2.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        personnages2.add(new Character("Lucas"));
 
         assertEquals(personnages2,q.getSetCharacters());
     }
@@ -47,7 +47,7 @@ public class QuestionTests {
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Lucas"));
 
         Question q1 = new Question("Est ce que votre personnage est petit?",characters);
         Question q2 = new Question("Est ce que votre personnage est petit?",characters);
@@ -60,7 +60,7 @@ public class QuestionTests {
 
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        characters.add(new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg"));
+        characters.add(new Character("Lucas"));
 
         Question q1 = new Question("Est ce que votre personnage est petit?",characters);
         Question q2 = new Question("Est ce que votre personnage est grand",characters);

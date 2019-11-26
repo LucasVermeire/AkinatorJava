@@ -1,59 +1,48 @@
 package models;
 
 import org.junit.jupiter.api.Test;
-import models.Character;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTests {
 
     @Test
     public void knowCharacterName() {
-        Character perso = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
+        Character character = new Character("Lucas");
 
         String nom = "Lucas";
 
-        assertEquals(nom, perso.getName());
+        assertEquals(nom, character.getName());
     }
 
     @Test
-    public void knowCharacterDescription() {
-        Character perso = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
+    public void character1EqualsCharacter2() {
+        Character character1 = new Character("Lucas");
+        Character character2 = new Character("Lucas");
 
-        String description = "Etudiant 1";
-
-        assertEquals(description, perso.getDescription());
-    }
-
-
-    @Test
-    public void personnage1EqualsPersonnage2() {
-        Character perso1 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
-        Character perso2 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
-
-        assertTrue(perso1.equals(perso2));
+        assertTrue(character1.equals(character2));
     }
 
     @Test
-    public void personnage1NotEqualsPersonnage2() {
-        Character perso1 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
-        Character perso2 = new Character("Tom","Etudiant 3","view/img/characters/billGates.jpg");
-
-        assertFalse(perso1.equals(perso2));
+    public void character1NotEqualsCharacter2() {
+        Character character1 = new Character("Lucas");
+        Character character2 = new Character("Tom");
+        assertFalse(character1.equals(character2));
     }
 
     @Test
-    public void personnage1CompareToPersonnage2() {
-        Character perso1 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
-        Character perso2 = new Character("Tom","Etudiant 3","view/img/characters/billGates.jpg");
+    public void character1CompareToCharacter2() {
+        Character character1 = new Character("Lucas");
+        Character character2 = new Character("Tom");
 
-        assertEquals(-8,perso1.compareTo(perso2));
+        assertEquals(-8,character1.compareTo(character2));
     }
 
     @Test
-    public void personnage3CompareToPersonnage4() {
-        Character perso3 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
-        Character perso4 = new Character("Lucas","Etudiant 1","view/img/characters/billGates.jpg");
+    public void character3CompareToCharacter4() {
+        Character character3 = new Character("Lucas");
+        Character character4 = new Character("Lucas");
 
-        assertEquals(0,perso3.compareTo(perso4));
+        assertEquals(0,character3.compareTo(character4));
     }
 }

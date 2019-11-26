@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import view.FXML.FXMLMenuController;
+import views.FXMLMenuController;
 
 public class Jarvis extends Application {
 
@@ -16,14 +16,14 @@ public class Jarvis extends Application {
     public void start(Stage primaryStage){
         Parent root;
         try {
-            FXMLLoader chargerFXML = new FXMLLoader (getClass().getResource("/view/FXML/MenuPrincipal.fxml"));
+            FXMLLoader chargerFXML = new FXMLLoader (getClass().getResource("/views/MenuPrincipal.fxml"));
             MainController control = new MainController();
             FXMLMenuController FXMLControl = new FXMLMenuController(control);
             chargerFXML.setController(FXMLControl);
             root = chargerFXML.load();
 
             primaryStage.setTitle("I'M JARVIS");
-            primaryStage.getIcons().add(new Image("/view/img/logo/Accueil.PNG"));
+            primaryStage.getIcons().add(new Image("/img/logo/Accueil.PNG"));
             Scene scene = new Scene(root,719,619);
             primaryStage.setScene(scene);
             primaryStage.show();

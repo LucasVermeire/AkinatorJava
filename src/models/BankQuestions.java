@@ -1,17 +1,9 @@
 package models;
 
 import java.util.*;
-
 import repository.Repository;
 
-/**
- * <p>La classe BankQuestions définit une banque de question.
- * Elle est composé d'un ensemble de questions</p>
- *
- * @author Lucas Vermeire
- * @version 1.0
- *
- */
+
 public class BankQuestions {
 
     private List<IQuestion> questions;
@@ -20,7 +12,7 @@ public class BankQuestions {
     public BankQuestions() {
         questions = new ArrayList<IQuestion>();
         repository = Repository.getInstance();
-        //questions = load();
+        questions = load();
     }
 
     public List<IQuestion> getBankQuestions(){
@@ -37,6 +29,12 @@ public class BankQuestions {
         }
         //export();
     }
+
+    public String questionToString(int index) {
+        IQuestion question = questions.get(index);
+        return question.getStatementOfQuestions();
+    }
+
 
     private List<IQuestion> load () {
         return repository.importQuestion();

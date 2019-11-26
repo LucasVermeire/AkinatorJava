@@ -1,12 +1,19 @@
 package repository;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonValue;
+import models.Character;
 import models.Question;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,9 +21,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import models.IQuestion;
 import models.ICharacter;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import javax.json.*;
 
 
@@ -50,7 +54,6 @@ public class Data {
 
         for(ICharacter item : characters) {
             NamesArray.add(item.getName());
-            DescriptionArray.add(item.getDescription());
         }
         jsonObj.put("Name", NamesArray);
         jsonObj.put("Description", DescriptionArray);
@@ -78,22 +81,38 @@ public class Data {
 
     //-----------------------------------------------------------------------------
 
-    public List<IQuestion> importQuestions(String path){
-        List<IQuestion> questions = new ArrayList<IQuestion>();
+    public List<IQuestion> importQuestions(List<IQuestion> questions,String path){
+        try (InputStream reader = new FileInputStream(path)) {
+            JsonReader rdr = Json.createReader(reader);
+            JsonObject jsonObj = rdr.readObject();
 
-        try(FileReader reader = new FileReader(path)){
-            Object obj = new JSONParser().parse(reader);
+            rdr.close();
+            reader.close();
 
-            JSONObject jo = (JSONObject) obj;
+            addQuestionToList(jsonObj,questions);
 
-            String firstName = (String) jo.get("questions");
-
-        }catch(Exception ex){
-            ex.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Fichier non trouvé");
         }
-
         return questions;
     }
+
+    private void addQuestionToList(JsonObject jsonObj,List<IQuestion> questions) {
+        JsonArray arrayQuestion = jsonObj.getJsonArray("question");
+        for (JsonValue value : arrayQuestion) {
+            JsonObject obj = (JsonObject) value;
+
+            JsonArray charactersArray = obj.getJsonArray("personnages");
+            Set<ICharacter> characterSet = new TreeSet<ICharacter>();
+
+            for (JsonValue jsonValue : charactersArray) {
+                characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
+            }
+
+            questions.add(new Question(obj.getString("statement"), characterSet));
+        }
+    }
+
 
 
     public Set<ICharacter> importCharacters(String path){

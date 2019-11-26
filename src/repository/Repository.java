@@ -1,5 +1,6 @@
 package repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import models.IQuestion;
@@ -33,7 +34,7 @@ public class Repository implements IRepository {
 
     @Override
     public List<IQuestion> importQuestion() {
-        return data.importQuestions(PATH_QUESTIONS);
+        return  data.importQuestions(new ArrayList<>(), PATH_QUESTIONS);
     }
 
     @Override

@@ -6,10 +6,10 @@ public class Answer implements IAnswer{
 
     private BankQuestions questions;
     private BankCharacters characters;
-    private Set<ICharacter> setFinal;
+    private Set<ICharacter> setFinal ;
 
     public Answer(Set<ICharacter>setFinal) {
-        setFinal = new TreeSet<ICharacter>();
+        this.setFinal = setFinal;
     }
 
     @Override

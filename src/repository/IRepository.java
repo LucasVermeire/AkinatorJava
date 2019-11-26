@@ -2,6 +2,7 @@ package repository;
 
 import models.ICharacter;
 import models.IQuestion;
+import models.Question;
 
 import java.util.List;
 import java.util.Set;
