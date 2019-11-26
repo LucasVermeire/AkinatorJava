@@ -1,4 +1,4 @@
-package views.MenuPrincipal;
+package views.MainMenu;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

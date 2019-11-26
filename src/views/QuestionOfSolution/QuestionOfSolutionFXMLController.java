@@ -1,7 +1,6 @@
-package views.Admin;
+package views.QuestionOfSolution;
 
 import controllers.IMainController;
-import controllers.MainController;
 import javafx.fxml.Initializable;
 
 import java.beans.PropertyChangeEvent;
@@ -9,21 +8,22 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminFXMLController implements Initializable, PropertyChangeListener {
+public class QuestionOfSolutionFXMLController implements Initializable, PropertyChangeListener {
 
     private IMainController controller;
 
-    public AdminFXMLController(MainController controller) {
+    public QuestionOfSolutionFXMLController(IMainController controller) {
         this.controller = controller;
+    }
+
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
 
     }
 }

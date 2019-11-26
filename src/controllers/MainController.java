@@ -2,7 +2,7 @@ package controllers;
 
 import models.Knowledge;
 import views.*;
-import views.MenuPrincipal.MenuFXMLController;
+import views.MainMenu.MenuFXMLController;
 import views.Question.QuestionFXMLController;
 import views.Themes.ThemeFXMLController;
 
