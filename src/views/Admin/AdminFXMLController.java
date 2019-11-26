@@ -1,4 +1,4 @@
-package views;
+package views.Admin;
 
 import controllers.IMainController;
 import controllers.MainController;
@@ -7,11 +7,11 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FXMLAdminController implements Initializable {
+public class AdminFXMLController implements Initializable {
 
     private IMainController controller;
 
-    public FXMLAdminController(MainController controller) {
+    public AdminFXMLController(MainController controller) {
         this.controller = controller;
     }
 

@@ -2,6 +2,10 @@ package controllers;
 
 import models.Knowledge;
 import views.*;
+import views.MenuPrincipal.MenuFXMLController;
+import views.Question.QuestionFXMLController;
+import views.Themes.ThemeFXMLController;
+
 import java.util.HashMap;
 
 public class MainController implements IMainController {
@@ -12,9 +16,9 @@ public class MainController implements IMainController {
 
     public MainController(SwitchView view){
         controllers = new HashMap<>();
-        controllers.put("MenuPrincipal", new FXMLMenuController(this));
-        controllers.put("Themes", new FXMLThemeController(this));
-        controllers.put("Question", new FXMLQuestionController(this));
+        controllers.put("MenuPrincipal", new MenuFXMLController(this));
+        controllers.put("Themes", new ThemeFXMLController(this));
+        controllers.put("Question", new QuestionFXMLController(this));
 
         this.view = view;
     }

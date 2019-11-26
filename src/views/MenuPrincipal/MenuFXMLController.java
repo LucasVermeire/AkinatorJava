@@ -1,23 +1,19 @@
-package views;
+package views.MenuPrincipal;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import controllers.IMainController;
-import controllers.MainController;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
-import models.Knowledge;
 
-public class FXMLMenuController implements Initializable, PropertyChangeListener {
+public class MenuFXMLController implements Initializable, PropertyChangeListener {
 
     private IMainController controller;
 
 
-    public FXMLMenuController(IMainController controller){
+    public MenuFXMLController(IMainController controller){
         this.controller = controller;
     }
 

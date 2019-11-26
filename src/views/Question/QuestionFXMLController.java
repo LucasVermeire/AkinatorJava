@@ -1,26 +1,20 @@
-package views;
+package views.Question;
 
 import controllers.IMainController;
+import controllers.MainController;
 import javafx.fxml.Initializable;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FXMLThemeController implements Initializable , PropertyChangeListener {
+public class QuestionFXMLController implements Initializable , PropertyChangeListener {
 
     private IMainController controller;
 
-    public FXMLThemeController(IMainController controller){
+    public QuestionFXMLController(MainController controller){
         this.controller = controller;
-    }
-
-    public void chooseCharacter(){
-        controller.switchView("Question");
-    }
-
-    public void backToMenu(){
-        controller.switchView("MenuPrincipal");
     }
 
     @Override

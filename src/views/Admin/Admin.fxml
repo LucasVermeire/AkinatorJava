@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" fx:controller="views.FXMLAdminController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" fx:controller="views.Admin.AdminFXMLController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
             <ImageView fitHeight="183.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../img/logo/Accueil.PNG" />
+                    <Image url="@../../img/logo/Accueil.PNG" />
                 </image>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -31,17 +31,17 @@
                 </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@window7.css" text="Exporter la banque de connaissance">
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@../window7.css" text="Exporter la banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@window7.css" text="Importer une banque de connaissance">
+                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Importer une banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="15.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@window7.css" text="Retour">
+                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Retour">
                             <VBox.margin>
                                 <Insets top="50.0" />
                             </VBox.margin>

@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="266.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/logo/Accueil.PNG" />
+                  <Image url="@../../img/logo/Accueil.PNG" />
                </image>
                <VBox.margin>
                   <Insets bottom="30" />
@@ -31,12 +31,12 @@
             </Label>
             <VBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#chooseCharacter" prefHeight="29.0" prefWidth="217.0" styleClass="windows7" stylesheets="@window7.css" text="Personnnages modernes">
+                  <Button mnemonicParsing="false" onAction="#chooseCharacter" prefHeight="29.0" prefWidth="217.0" styleClass="windows7" stylesheets="@../window7.css" text="Personnnages modernes">
                      <VBox.margin>
                         <Insets bottom="50.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#backToMenu" styleClass="windows7" stylesheets="@window7.css" text="Retour">
+                  <Button mnemonicParsing="false" onAction="#backToMenu" styleClass="windows7" stylesheets="@../window7.css" text="Retour">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

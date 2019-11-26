@@ -30,7 +30,7 @@ public class SwitchView implements Initializable {
         try {
             Object controller = controllers.get(pathFXML);
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../views/" + pathFXML + ".fxml"));
+            loader.setLocation(getClass().getResource("../views/" + pathFXML + "/" + pathFXML + ".fxml"));
             loader.setController(controller);
             root = loader.load();
             stage.getScene().setRoot(root);

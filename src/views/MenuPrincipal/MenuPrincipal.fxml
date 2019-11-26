@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="266.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/logo/Accueil.PNG" />
+                  <Image url="@../../img/logo/Accueil.PNG" />
                </image>
             </ImageView>
             <Label text="I'M JARVIS" textFill="WHITE">
@@ -33,17 +33,17 @@
             </Label>
             <VBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#start" styleClass="windows7" stylesheets="@window7.css" text="Lancer">
+                  <Button mnemonicParsing="false" onAction="#start" styleClass="windows7" stylesheets="@../window7.css" text="Lancer">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#exit" styleClass="windows7" stylesheets="@window7.css" text="Quitter">
+                  <Button mnemonicParsing="false" onAction="#exit" styleClass="windows7" stylesheets="@../window7.css" text="Quitter">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#admin" styleClass="windows7" stylesheets="@window7.css" text="Administrateur">
+                  <Button mnemonicParsing="false" onAction="#admin" styleClass="windows7" stylesheets="@../window7.css" text="Administrateur">
                      <VBox.margin>
                         <Insets bottom="60.0" top="20.0" />
                      </VBox.margin>
