@@ -9,7 +9,6 @@ public class BankCharacters {
     private Repository repository;
 
     public BankCharacters () {
-        characters = new TreeSet<ICharacter>();
         repository = Repository.getInstance();
         characters = load();
     }

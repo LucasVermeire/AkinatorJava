@@ -10,7 +10,6 @@ public class BankQuestions {
     private Repository repository;
 
     public BankQuestions() {
-        questions = new ArrayList<IQuestion>();
         repository = Repository.getInstance();
         questions = load();
     }

@@ -2,8 +2,6 @@ package views.Themes;
 
 import controllers.IMainController;
 import javafx.fxml.Initializable;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 

@@ -1,11 +1,14 @@
 package controllers;
 
+import models.IKnowledge;
+import models.Knowledge;
 import views.*;
 import views.MainMenu.MenuFXMLController;
 import views.Question.QuestionFXMLController;
 import views.QuestionOfSolution.QuestionOfSolutionFXMLController;
 import views.Themes.ThemesFXMLController;
 
+import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 
 public class MainController implements IMainController {
@@ -35,8 +38,7 @@ public class MainController implements IMainController {
     }
 
     private void resetBankOfKnowledge(){
-        /*IKnowledge knowledge = new Knowledge();
+        Knowledge knowledge = new Knowledge();
         knowledge.addPropertyChangeListener((PropertyChangeListener) controllers.get("Question"));
-        System.out.println("OKOKOKOKO");*/
     }
 }
