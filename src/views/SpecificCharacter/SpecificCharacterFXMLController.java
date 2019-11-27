@@ -1,19 +1,15 @@
-package views.Admin;
+package views.SpecificCharacter;
 
 import controllers.IMainController;
-import controllers.MainController;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- *
- */
-public class AdminFXMLController implements Initializable {
+public class SpecificCharacterFXMLController implements Initializable {
 
     private IMainController controller;
 
-    public AdminFXMLController(MainController controller) {
+    public SpecificCharacterFXMLController(IMainController controller) {
         this.controller = controller;
     }
 
@@ -22,8 +18,15 @@ public class AdminFXMLController implements Initializable {
 
     }
 
+    public void validate(){
+
+    }
+
+    public void exit(){
+        controller.exit();
+    }
+
     public void mainMenu(){
         controller.switchView("MainMenu");
     }
-
 }

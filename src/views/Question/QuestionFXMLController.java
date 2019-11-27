@@ -5,7 +5,6 @@ import controllers.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import models.Knowledge;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
@@ -20,6 +19,10 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
 
     public QuestionFXMLController(MainController controller){
         this.controller = controller;
+    }
+
+    public void questionOfSolution(){
+        controller.switchView("QuestionOfSolution");
     }
 
     @Override

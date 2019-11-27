@@ -2,9 +2,6 @@ package views.CharacterNotFound;
 
 import controllers.IMainController;
 import javafx.fxml.Initializable;
-
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,5 +16,17 @@ public class CharacterNotFoundFXMLController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void restart(){
+        controller.switchView("Question");
+    }
+
+    public void exit(){
+        controller.exit();
+    }
+
+    public void mainMenu(){
+        controller.switchView("MainMenu");
     }
 }

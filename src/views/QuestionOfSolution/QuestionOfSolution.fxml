@@ -20,24 +20,18 @@
                         <Font name="Verdana" size="35.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgCharacter" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="" />
+                  <Image url="@../../img/logo/Solution.PNG" />
                </image>
                <VBox.margin>
                   <Insets bottom="20.0" top="20.0" />
                </VBox.margin></ImageView>
-                <Label text="Elon Musk" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets bottom="20.0" />
-                    </VBox.margin>
+                <Label fx:id="label" textFill="WHITE">
                 </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Oui">
+                   <Button mnemonicParsing="false" onAction="#characterNotFound" styleClass="windows7" stylesheets="@../window7.css" text="Non">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
@@ -45,12 +39,12 @@
                         <Insets left="120.0" right="50.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Continuer">
+                  <Button mnemonicParsing="false" onAction="#continueQuestion" styleClass="windows7" stylesheets="@../window7.css" text="Continuer">
                      <HBox.margin>
                         <Insets left="50.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Non">
+                   <Button mnemonicParsing="false" onAction="#characterFound" styleClass="windows7" stylesheets="@../window7.css" text="Oui">
                      <HBox.margin>
                         <Insets left="90.0" top="30.0" />
                      </HBox.margin></Button>

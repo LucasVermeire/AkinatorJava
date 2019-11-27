@@ -2,7 +2,6 @@ package views.ListOfCharacters;
 
 import controllers.IMainController;
 import javafx.fxml.Initializable;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
@@ -17,12 +16,18 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
     }
 
     @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void describeThisCharacter(){
+        controller.switchView("SpecificCharacter");
+    }
+
+    @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 }

@@ -24,43 +24,30 @@ import models.ICharacter;
 
 public class Data {
 
+    /**
+     *
+     * @param bankQuestions
+     * @param path
+     */
     public void exportQuestions(List<IQuestion> bankQuestions, String path) {
-        /*JSONObject jsonObj = new JSONObject();
-        JSONArray questionsArray = new JSONArray();
-        JSONArray CharactersArray = new JSONArray();
 
-        try{
-            for(IQuestion item : bankQuestions) {
-                questionsArray.add(item.getStatementOfQuestions());
-                CharactersArray.add(item.getSetCharacters());
-            }
-            jsonObj.put("questions", questionsArray);
-            jsonObj.put("Characters", CharactersArray);
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-        save(path,jsonObj);
-
-        System.out.println("Questions exporté avec succès !");*/
     }
 
+    /**
+     *
+     * @param characters
+     * @param path
+     */
     public void exportCharacters(Set<ICharacter> characters, String path) {
-        /*JSONObject jsonObj = new JSONObject();
-        JSONArray NamesArray = new JSONArray();
-        JSONArray DescriptionArray = new JSONArray();
 
-        for(ICharacter item : characters) {
-            NamesArray.add(item.getName());
-        }
-        jsonObj.put("Name", NamesArray);
-        jsonObj.put("Description", DescriptionArray);
-        save(path,jsonObj);
 
-        System.out.println("Personnages exporté avec succès !");*/
     }
 
-
+    /**
+     *
+     * @param path
+     * @param questionObj
+     */
     private void save (String path,JSONObject questionObj) {
         try(FileWriter file = new FileWriter(path)){
             file.write(toPrettyFormat(questionObj));
@@ -77,41 +64,68 @@ public class Data {
         return prettyJson;
     }
 
-    //-----------------------------------------------------------------------------
+    //#################################################
 
+    /**
+     *
+     * @param path
+     * @return
+     */
     public List<IQuestion> importQuestions(String path){
         List<IQuestion> questions = new ArrayList<IQuestion>();
 
         try (InputStream reader = new FileInputStream(path)) {
-            JsonReader rdr = Json.createReader(reader);
-            JsonObject jsonObj = rdr.readObject();
+            JsonReader jsonReader = Json.createReader(reader);
+            JsonObject readObject = jsonReader.readObject();
 
-            rdr.close();
+            jsonReader.close();
             reader.close();
 
-            questionsToList(jsonObj,questions);
+            questionsToList(readObject,questions);
 
         } catch (IOException e) {
-            System.out.println("Fichier non trouvé");
+            e.printStackTrace();
         }
         return questions;
     }
 
-    private void questionsToList(JsonObject jsonObj, List<IQuestion> questions) {
-        JsonArray arrayQuestion = jsonObj.getJsonArray("questions");
-        for (JsonValue value : arrayQuestion) {
-            JsonObject obj = (JsonObject) value;
+    /**
+     *
+     * @param jsonObject
+     * @param questions
+     */
+    private void questionsToList(JsonObject jsonObject, List<IQuestion> questions) {
+        JsonArray arrayQuestions = jsonObject.getJsonArray("questions");
 
-            JsonArray charactersArray = obj.getJsonArray("characters");
+        for (JsonValue item : arrayQuestions) {
+            JsonObject object = (JsonObject) item;
+
             Set<ICharacter> characterSet = new TreeSet<ICharacter>();
 
-            for (JsonValue jsonValue : charactersArray) {
-                characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
-            }
-            questions.add(new Question(obj.getString("statement"), characterSet));
+            setArrayCharacters(object,characterSet);
+
+            questions.add(new Question(object.getString("statement"), characterSet));
         }
     }
 
+    /**
+     *
+     * @param object
+     * @param characterSet
+     */
+    private void setArrayCharacters (JsonObject object, Set<ICharacter> characterSet ){
+        JsonArray arrayCharacters = object.getJsonArray("characters");
+
+        for (JsonValue jsonValue : arrayCharacters) {
+            characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
+        }
+    }
+
+    /**
+     *
+     * @param path
+     * @return
+     */
     public Set<ICharacter> importCharacters(String path){
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
@@ -125,7 +139,6 @@ public class Data {
         }catch (IOException ex){
             ex.printStackTrace();
         }
-
         return characters;
     }
 }

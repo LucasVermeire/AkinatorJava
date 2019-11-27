@@ -1,11 +1,20 @@
 package controllers;
 
+/**
+ *
+ */
 public interface IMainController {
+    String getQuestion();
+    String getPathImg();
+    String getSolution();
+
     void switchView(String fileFXML);
     void exit();
-    void notifyQuestion();
+
     void answerYes();
     void answerNo();
     void answerIDK();
-    String getQuestion();
+
+    void notifyQuestion();
+    void notifySolution();
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="719.0" style="-fx-background-color: #455A75;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
@@ -113,12 +113,17 @@
             </VBox>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Valider">
+                        <Button mnemonicParsing="false" onAction="#validate" styleClass="windows7" stylesheets="@../window7.css" text="Valider">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Quitter">
+                        <Button mnemonicParsing="false" onAction="#exit" styleClass="windows7" stylesheets="@../window7.css" text="Quitter">
+                            <VBox.margin>
+                                <Insets bottom="10.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#mainMenu" styleClass="windows7" stylesheets="@../window7.css" text="Menu Principal">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>

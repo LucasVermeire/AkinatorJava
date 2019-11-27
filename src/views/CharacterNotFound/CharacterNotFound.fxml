@@ -12,7 +12,7 @@
             <children>
                 <ImageView fitHeight="252.0" fitWidth="293.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../img/logo/erreur.PNG" />
+                        <Image url="@../../img/logo/NotFound.PNG" />
                     </image>
                 </ImageView>
                 <Label prefHeight="41.0" prefWidth="301.0" text="! Erreur système !" textFill="WHITE">
@@ -30,17 +30,17 @@
             </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button fx:id="restartButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Rejouer">
+                        <Button mnemonicParsing="false" onAction="#restart" styleClass="windows7" stylesheets="@../window7.css" text="Rejouer">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="70.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="leaveButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Quitter">
+                        <Button mnemonicParsing="false" onAction="#exit" styleClass="windows7" stylesheets="@../window7.css" text="Quitter">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="menuButton" mnemonicParsing="false" styleClass="windows7" stylesheets="@../css.css" text="Menu principal">
+                        <Button mnemonicParsing="false" onAction="#mainMenu" styleClass="windows7" stylesheets="@../window7.css" text="Menu Principale">
                             <VBox.margin>
                                 <Insets bottom="60.0" top="10.0" />
                             </VBox.margin>

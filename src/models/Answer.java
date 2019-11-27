@@ -2,29 +2,41 @@ package models;
 
 import java.util.*;
 
+/**
+ *
+ */
 public class Answer implements IAnswer{
 
-    private BankQuestions questions;
-    private BankCharacters characters;
+    //#################################
+    private BankQuestions questions =  new BankQuestions();
     private Set<ICharacter> setFinal ;
+    //#################################
 
-    public Answer(Set<ICharacter>setFinal) {
-        this.setFinal = setFinal;
-        questions = new BankQuestions();
-        characters = new BankCharacters();
+    /**
+     *
+     * @param characters
+     */
+    public Answer(Set<ICharacter> characters) {
+        this.setFinal = characters;
     }
 
+    /**
+     *
+     * @param index
+     */
     @Override
     public void answerYes (int index) {
         IQuestion question = questions.getQuestionByIndex(index);
-        setFinal = question.answerYes(new TreeSet<ICharacter>(characters.getBankCharacters()));
+        setFinal = question.answerYes(setFinal);
     }
 
+    /**
+     *
+     * @param index
+     */
     @Override
     public void answerNo(int index) {
         IQuestion question = questions.getQuestionByIndex(index);
-        setFinal = question.answerNo(new TreeSet<ICharacter>(characters.getBankCharacters()));
+        setFinal = question.answerNo(setFinal);
     }
-
-
 }

@@ -5,6 +5,9 @@ import models.IQuestion;
 import java.util.List;
 import java.util.Set;
 
+/**
+ *
+ */
 public interface IRepository {
 
     void exportQuestions(List<IQuestion> questions);

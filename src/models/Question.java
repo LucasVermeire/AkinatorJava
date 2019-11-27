@@ -1,35 +1,42 @@
 package models;
 
-import java.io.Serializable;
 import java.util.Set;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
+/**
+ *
+ */
+public class Question implements IQuestion {
 
-public class Question implements IQuestion,Serializable {
-
-    @SerializedName("Statement")
-    @Expose
+    //########################
     private String statement;
-
-    @SerializedName("Personnages")
-    @Expose
     private Set<ICharacter> characters;
-
     private OperationsSet operations;
+    //########################
 
+    /**
+     *
+     * @param statement
+     * @param characters
+     */
     public Question(String statement,Set<ICharacter> characters) {
         this.statement = statement;
         this.characters = characters;
         operations = new OperationsSet(characters);
     }
 
-
+    /**
+     *
+     * @return
+     */
     @Override
     public String getStatementOfQuestions() {
         return statement;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Set<ICharacter> getSetCharacters(){
         return characters;
@@ -46,11 +53,21 @@ public class Question implements IQuestion,Serializable {
         return false;
     }
 
+    /**
+     *
+     * @param characters
+     * @return
+     */
     @Override
     public Set<ICharacter> answerNo(Set<ICharacter> characters) {
         return operations.difference(characters);
     }
 
+    /**
+     *
+     * @param characters
+     * @return
+     */
     @Override
     public Set<ICharacter> answerYes(Set<ICharacter> characters) {
         return operations.intersection(characters);
