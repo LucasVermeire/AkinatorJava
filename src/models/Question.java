@@ -2,7 +2,6 @@ package models;
 
 import java.io.Serializable;
 import java.util.Set;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

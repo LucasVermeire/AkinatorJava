@@ -5,7 +5,6 @@ import controllers.MainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import models.IKnowledge;
 import models.Knowledge;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -17,21 +16,31 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
     @FXML
     private Label label;
 
-    private Knowledge knowledge;
     private IMainController controller;
 
     public QuestionFXMLController(MainController controller){
         this.controller = controller;
-        knowledge = new Knowledge();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        controller.notifyQuestion();
+    }
 
+    public void answerYes(){
+        controller.answerYes();
+    }
+
+    public void answerNo(){
+        controller.answerNo();
+    }
+
+    public void answerIDK(){
+        controller.answerIDK();
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        label.setText(knowledge.getQuestion());
+        label.setText(controller.getQuestion());
     }
 }

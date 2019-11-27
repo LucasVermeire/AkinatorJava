@@ -28,17 +28,17 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="87.0" styleClass="windows7" stylesheets="@../window7.css" text="Oui">
+                  <Button mnemonicParsing="false" onAction="#answerYes" prefHeight="29.0" prefWidth="87.0" styleClass="windows7" stylesheets="@../window7.css" text="Oui">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" styleClass="windows7" stylesheets="@../window7.css" text="Non">
+                  <Button mnemonicParsing="false" onAction="#answerNo" prefHeight="28.0" prefWidth="90.0" styleClass="windows7" stylesheets="@../window7.css" text="Non">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="135.0" styleClass="windows7" stylesheets="@../window7.css" text="Ne sais pas">
+                  <Button mnemonicParsing="false" onAction="#answerIDK" prefHeight="28.0" prefWidth="133.0" styleClass="windows7" stylesheets="@../window7.css" text="Ne sais pas">
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin>

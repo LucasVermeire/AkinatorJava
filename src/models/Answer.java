@@ -10,6 +10,8 @@ public class Answer implements IAnswer{
 
     public Answer(Set<ICharacter>setFinal) {
         this.setFinal = setFinal;
+        questions = new BankQuestions();
+        characters = new BankCharacters();
     }
 
     @Override
@@ -23,4 +25,6 @@ public class Answer implements IAnswer{
         IQuestion question = questions.getQuestionByIndex(index);
         setFinal = question.answerNo(new TreeSet<ICharacter>(characters.getBankCharacters()));
     }
+
+
 }

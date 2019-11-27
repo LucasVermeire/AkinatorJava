@@ -32,7 +32,7 @@ public class Repository implements IRepository {
 
     @Override
     public List<IQuestion> importQuestion() {
-        return  data.importQuestions(PATH_QUESTIONS);
+        return data.importQuestions(PATH_QUESTIONS);
     }
 
     @Override

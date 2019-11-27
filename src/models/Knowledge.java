@@ -1,6 +1,5 @@
 package models;
 
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
@@ -54,8 +53,8 @@ public class Knowledge implements IKnowledge {
         return setFinal;
     }
 
-    public void answerYes (int i) {
-        answer.answerYes(i);
+    public void answerYes () {
+        answer.answerYes(index);
         String oldQuestion = getQuestion();
         index++;
         if(index != knowNumberOfQuestions()){
@@ -63,8 +62,8 @@ public class Knowledge implements IKnowledge {
         }
     }
 
-    public void answerNo(int i) {
-        answer.answerNo(i);
+    public void answerNo() {
+        answer.answerNo(index);
         String oldQuestion = getQuestion();
         index++;
         if(index != knowNumberOfQuestions()){
@@ -99,5 +98,10 @@ public class Knowledge implements IKnowledge {
     }
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         myPcs.removePropertyChangeListener(listener);
+    }
+
+    @Override
+    public void notifyQuestion() {
+        myPcs.firePropertyChange("Question","",getQuestion());
     }
 }

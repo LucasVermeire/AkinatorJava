@@ -10,11 +10,12 @@ public interface IKnowledge {
     String getQuestion();
     int knowNumberOfQuestions();
     Set<ICharacter> getSetFinal();
-    void answerYes (int i);
-    void answerNo(int i);
+    void answerYes ();
+    void answerNo();
     void answerIDK();
     boolean knowCharacterFinal();
     String setFinalToList();
     void addPropertyChangeListener(PropertyChangeListener listener);
     void removePropertyChangeListener(PropertyChangeListener listener);
+    void notifyQuestion();
 }
