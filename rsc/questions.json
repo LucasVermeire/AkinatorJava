@@ -1,5 +1,5 @@
 {
-  "question": [
+  "questions": [
     {
       "statement": "Est ce que votre personnage est un homme ?",
       "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs"]

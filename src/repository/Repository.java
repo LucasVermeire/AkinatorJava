@@ -1,18 +1,16 @@
 package repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import models.IQuestion;
 import models.ICharacter;
-
 
 public class Repository implements IRepository {
 
     private Data data;
     private static Repository INSTANCE = new Repository();
     private final String PATH_QUESTIONS = "rsc\\questions.json";
-    private final String PATH_CHARACTERS = "rsc\\personnages.json";
+    private final String PATH_CHARACTERS = "rsc\\personnages.txt";
 
     private Repository() {
         data = new Data();
@@ -23,18 +21,18 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public void exportQuestions(List<IQuestion> bankQuestions) {
-        data.exportQuestions(bankQuestions,PATH_QUESTIONS);
+    public void exportQuestions(List<IQuestion> questions) {
+        data.exportQuestions(questions,PATH_QUESTIONS);
     }
 
     @Override
-    public void exportCharacters(Set<ICharacter> bankCharacters) {
-        data.exportCharacters(bankCharacters, PATH_CHARACTERS);
+    public void exportCharacters(Set<ICharacter> characters) {
+        data.exportCharacters(characters, PATH_CHARACTERS);
     }
 
     @Override
     public List<IQuestion> importQuestion() {
-        return  data.importQuestions(new ArrayList<>(), PATH_QUESTIONS);
+        return  data.importQuestions(PATH_QUESTIONS);
     }
 
     @Override

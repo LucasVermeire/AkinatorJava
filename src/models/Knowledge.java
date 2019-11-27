@@ -1,10 +1,11 @@
 package models;
 
 
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
 
-public class Knowledge {
+public class Knowledge implements IKnowledge {
 
     private BankQuestions questions;
     private BankCharacters characters;
@@ -55,16 +56,28 @@ public class Knowledge {
 
     public void answerYes (int i) {
         answer.answerYes(i);
+        String oldQuestion = getQuestion();
         index++;
+        if(index != knowNumberOfQuestions()){
+            myPcs.firePropertyChange("Question",oldQuestion,getQuestion());
+        }
     }
 
     public void answerNo(int i) {
         answer.answerNo(i);
+        String oldQuestion = getQuestion();
         index++;
+        if(index != knowNumberOfQuestions()){
+            myPcs.firePropertyChange("Question",oldQuestion,getQuestion());
+        }
     }
 
     public void answerIDK(){
+        String oldQuestion = getQuestion();
         index++;
+        if(index != knowNumberOfQuestions()){
+            myPcs.firePropertyChange("Question",oldQuestion,getQuestion());
+        }
     }
 
     public boolean knowCharacterFinal(){
@@ -79,5 +92,12 @@ public class Knowledge {
         StringBuilder charactersFinal = new StringBuilder();
         for (ICharacter p : list) charactersFinal.append(p.getName()).append("\n");
         return charactersFinal.toString();
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        myPcs.addPropertyChangeListener(listener);
+    }
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        myPcs.removePropertyChangeListener(listener);
     }
 }

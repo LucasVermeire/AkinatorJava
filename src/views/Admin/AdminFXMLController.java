@@ -9,7 +9,7 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminFXMLController implements Initializable, PropertyChangeListener {
+public class AdminFXMLController implements Initializable {
 
     private IMainController controller;
 
@@ -22,8 +22,4 @@ public class AdminFXMLController implements Initializable, PropertyChangeListene
 
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-
-    }
 }

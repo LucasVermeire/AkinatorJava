@@ -11,7 +11,7 @@ public class BankCharacters {
     public BankCharacters () {
         characters = new TreeSet<ICharacter>();
         repository = Repository.getInstance();
-        //characters = load();
+        characters = load();
     }
 
     public Set<ICharacter> getBankCharacters(){

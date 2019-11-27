@@ -7,11 +7,11 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ThemeFXMLController implements Initializable , PropertyChangeListener {
+public class ThemesFXMLController implements Initializable  {
 
     private IMainController controller;
 
-    public ThemeFXMLController(IMainController controller){
+    public ThemesFXMLController(IMainController controller){
         this.controller = controller;
     }
 
@@ -20,16 +20,11 @@ public class ThemeFXMLController implements Initializable , PropertyChangeListen
     }
 
     public void backToMenu(){
-        controller.switchView("MenuPrincipal");
+        controller.switchView("MainMenu");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
 
     }
 }

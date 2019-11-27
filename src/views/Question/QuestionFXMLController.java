@@ -2,8 +2,9 @@ package views.Question;
 
 import controllers.IMainController;
 import controllers.MainController;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
@@ -15,6 +16,7 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
 
     public QuestionFXMLController(MainController controller){
         this.controller = controller;
+
     }
 
     @Override

@@ -15,19 +15,17 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 import models.Character;
 import models.Question;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import models.IQuestion;
 import models.ICharacter;
-import javax.json.*;
 
 
 public class Data {
 
     public void exportQuestions(List<IQuestion> bankQuestions, String path) {
-        JSONObject jsonObj = new JSONObject();
+        /*JSONObject jsonObj = new JSONObject();
         JSONArray questionsArray = new JSONArray();
         JSONArray CharactersArray = new JSONArray();
 
@@ -44,11 +42,11 @@ public class Data {
 
         save(path,jsonObj);
 
-        System.out.println("Questions exporté avec succès !");
+        System.out.println("Questions exporté avec succès !");*/
     }
 
     public void exportCharacters(Set<ICharacter> characters, String path) {
-        JSONObject jsonObj = new JSONObject();
+        /*JSONObject jsonObj = new JSONObject();
         JSONArray NamesArray = new JSONArray();
         JSONArray DescriptionArray = new JSONArray();
 
@@ -59,7 +57,7 @@ public class Data {
         jsonObj.put("Description", DescriptionArray);
         save(path,jsonObj);
 
-        System.out.println("Personnages exporté avec succès !");
+        System.out.println("Personnages exporté avec succès !");*/
     }
 
 
@@ -81,7 +79,9 @@ public class Data {
 
     //-----------------------------------------------------------------------------
 
-    public List<IQuestion> importQuestions(List<IQuestion> questions,String path){
+    public List<IQuestion> importQuestions(String path){
+        List<IQuestion> questions = new ArrayList<IQuestion>();
+
         try (InputStream reader = new FileInputStream(path)) {
             JsonReader rdr = Json.createReader(reader);
             JsonObject jsonObj = rdr.readObject();
@@ -89,7 +89,7 @@ public class Data {
             rdr.close();
             reader.close();
 
-            addQuestionToList(jsonObj,questions);
+            questionsToList(jsonObj,questions);
 
         } catch (IOException e) {
             System.out.println("Fichier non trouvé");
@@ -97,27 +97,34 @@ public class Data {
         return questions;
     }
 
-    private void addQuestionToList(JsonObject jsonObj,List<IQuestion> questions) {
-        JsonArray arrayQuestion = jsonObj.getJsonArray("question");
+    private void questionsToList(JsonObject jsonObj, List<IQuestion> questions) {
+        JsonArray arrayQuestion = jsonObj.getJsonArray("questions");
         for (JsonValue value : arrayQuestion) {
             JsonObject obj = (JsonObject) value;
 
-            JsonArray charactersArray = obj.getJsonArray("personnages");
+            JsonArray charactersArray = obj.getJsonArray("characters");
             Set<ICharacter> characterSet = new TreeSet<ICharacter>();
 
             for (JsonValue jsonValue : charactersArray) {
                 characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
             }
-
             questions.add(new Question(obj.getString("statement"), characterSet));
         }
     }
 
-
-
     public Set<ICharacter> importCharacters(String path){
         Set<ICharacter> characters = new TreeSet<ICharacter>();
 
+        try(BufferedReader br = new BufferedReader(new FileReader(path))){
+            String line = br.readLine();
+            String [] charactersToList = line.split(";");
+
+            for(String item : charactersToList){
+                characters.add(new Character(item));
+            }
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
 
         return characters;
     }

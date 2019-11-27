@@ -8,17 +8,12 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CharacterFoundFXMLController implements Initializable, PropertyChangeListener {
+public class CharacterFoundFXMLController implements Initializable {
 
     private IMainController controller;
 
     public CharacterFoundFXMLController(IMainController controller) {
         this.controller = controller;
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-
     }
 
     @Override

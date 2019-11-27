@@ -31,7 +31,7 @@ public class Jarvis extends Application {
             primaryStage.show();
 
         }catch(IOException ex) {
-            System.err.println(ex.getStackTrace());
+            System.err.println(ex.getMessage());
         }
     }
 

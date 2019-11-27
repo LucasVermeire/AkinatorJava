@@ -18,7 +18,7 @@
                   <Insets bottom="40.0" />
                </VBox.margin>
             </ImageView>
-            <Label fx:id="label" textFill="WHITE">
+            <Label fx:id="labelQuestion" textFill="WHITE">
                <font>
                   <Font name="Verdana Bold" size="23.0" />
                </font>
