@@ -15,7 +15,6 @@ import views.Question.QuestionFXMLController;
 import views.QuestionOfSolution.QuestionOfSolutionFXMLController;
 import views.SpecificCharacter.SpecificCharacterFXMLController;
 import views.Themes.ThemesFXMLController;
-
 import java.util.*;
 
 /**
@@ -169,8 +168,7 @@ public class MainController implements IMainController {
     }
 
     private boolean ifNoMoreCharacters(){
-        if(knowledge.getSetFinal().size()==0) return true;
-        else return false;
+        return knowledge.getSetFinal().size() == 0;
     }
 
     private void firstRemoveAndAddPropertyChangeListener(String key1, String key2){
