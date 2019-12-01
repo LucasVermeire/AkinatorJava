@@ -21,10 +21,6 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
         this.controller = controller;
     }
 
-    public void questionOfSolution(){
-        controller.switchView("QuestionOfSolution");
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controller.notifyQuestion();
@@ -43,6 +39,11 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
     @FXML
     private void answerIDK(){
         controller.answerIDK();
+    }
+
+    @FXML
+    private void questionOfSolution(){
+        controller.switchView("QuestionOfSolution");
     }
 
     @Override

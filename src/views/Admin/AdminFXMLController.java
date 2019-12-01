@@ -22,10 +22,7 @@ public class AdminFXMLController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    @FXML
-    private void addCharacter(){
-        controller.switchView("AddCharacter");
-    }
+
 
     @FXML
     private void mainMenu(){

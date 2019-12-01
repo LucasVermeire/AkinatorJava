@@ -1,35 +1,25 @@
 package models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import java.util.*;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import repository.Repository;
 
 class BankQuestionsTests {
 
     @Test
     public void knowHisSetQuestions() {
-        List<IQuestion> questions = new ArrayList<IQuestion>();
+        Repository repository = Repository.getInstance();
 
-        BankQuestions BankQuestions = new BankQuestions();
+        List<IQuestion> questions = repository.importQuestion();
 
-        assertEquals(questions, BankQuestions.getBankQuestions());
+        BankQuestions bankQuestions = new BankQuestions();
+
+        assertEquals(questions,bankQuestions.getBankQuestions());
     }
 
     @Test
     public void addQuestions() {
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
-        characters.add(new Character("Lucas"));
 
-        List<IQuestion> questions = new ArrayList<IQuestion>();
-
-        Question q = new Question("Est ce un homme ?",characters);
-
-        questions.add(q);
-
-        BankQuestions BankQuestions = new BankQuestions();
-
-        BankQuestions.addQuestion(q);
-
-        assertEquals(questions,BankQuestions.getBankQuestions());
     }
 }

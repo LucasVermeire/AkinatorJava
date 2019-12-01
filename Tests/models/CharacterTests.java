@@ -16,6 +16,15 @@ class CharacterTests {
     }
 
     @Test
+    public void knowImg(){
+        Character character = new Character("Lucas Vermeire");
+
+        String img = "Lucas_Vermeire.jpg";
+
+        assertEquals(img,character.getPathImg());
+    }
+
+    @Test
     public void character1EqualsCharacter2() {
         Character character1 = new Character("Lucas");
         Character character2 = new Character("Lucas");

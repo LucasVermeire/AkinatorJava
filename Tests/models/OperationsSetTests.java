@@ -8,51 +8,49 @@ import org.junit.jupiter.api.Test;
 
 class OperationsSetTests {
 
-
     @Test
     public void intersectionSetCharacters() {
 
+        Set<ICharacter> characters1 = new TreeSet<ICharacter>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
+        characters1.add(new Character("Sam"));
 
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
-        characters.add(new Character("Lucas"));
-        characters.add(new Character("Bernard"));
-        characters.add(new Character("Yann"));
-        characters.add(new Character("Sam"));
 
+        Set<ICharacter>characters2 = new TreeSet<ICharacter>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
 
-        Set<ICharacter>personnages2 = new TreeSet<ICharacter>();
-        personnages2.add(new Character("Lucas"));
-        personnages2.add(new Character("Sam"));
+        OperationsSet operations = new OperationsSet(characters1);
 
-        OperationsSet operations = new OperationsSet(characters);
+        Set<ICharacter> intersection = operations.intersection(characters2);
 
-        Set<ICharacter> persoInters = operations.intersection(personnages2);
-
-        assertTrue(persoInters.contains(new Character("Lucas")));
-        assertFalse(persoInters.contains(new Character("Bernard")));
-        assertFalse(persoInters.contains(new Character("Yann")));
-        assertTrue(persoInters.contains(new Character("Sam")));
+        assertTrue(intersection.contains(new Character("Lucas")));
+        assertFalse(intersection.contains(new Character("Bernard")));
+        assertFalse(intersection.contains(new Character("Yann")));
+        assertTrue(intersection.contains(new Character("Sam")));
     }
 
     @Test
     public void differenceSetCharacters() {
 
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
-        characters.add(new Character("Lucas"));
-        characters.add(new Character("Bernard"));
-        characters.add(new Character("Yann"));
+        Set<ICharacter> characters1 = new TreeSet<ICharacter>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
 
-        Set<ICharacter>personnages2 = new TreeSet<ICharacter>();
-        personnages2.add(new Character("Lucas"));
-        personnages2.add(new Character("Sam"));
+        Set<ICharacter>characters2 = new TreeSet<ICharacter>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
 
-        OperationsSet operations = new OperationsSet(characters);
+        OperationsSet operations = new OperationsSet(characters1);
 
-        Set<ICharacter> persoDiff = operations.difference(personnages2);
+        Set<ICharacter> difference = operations.difference(characters2);
 
-        assertFalse(persoDiff.contains(new Character("Lucas")));
-        assertFalse(persoDiff.contains(new Character("Bernard")));
-        assertFalse(persoDiff.contains(new Character("Yann")));
-        assertTrue(persoDiff.contains(new Character("Sam")));
+        assertFalse(difference.contains(new Character("Lucas")));
+        assertFalse(difference.contains(new Character("Bernard")));
+        assertFalse(difference.contains(new Character("Yann")));
+        assertTrue(difference.contains(new Character("Sam")));
     }
 }

@@ -2,32 +2,24 @@ package models;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Set;
-import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
+import repository.Repository;
 
 class BankCharactersTests {
 
     @Test
     public void knowHisSetCharacters() {
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        Repository repository = Repository.getInstance();
+
+        Set<ICharacter> characters = repository.importCharacters();
 
         BankCharacters bankCharacters = new BankCharacters();
 
-        assertEquals(characters, bankCharacters.getBankCharacters());
+        assertEquals(characters,bankCharacters.getBankCharacters());
     }
 
     @Test
     public void addCharacter() {
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
 
-        Character c = new Character("Lucas");
-
-        characters.add(c);
-
-        BankCharacters bankCharacters = new BankCharacters();
-
-        bankCharacters.addCharacter(c);
-
-        assertEquals(characters,bankCharacters.getBankCharacters());
     }
 }

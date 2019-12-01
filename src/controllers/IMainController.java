@@ -1,5 +1,7 @@
 package controllers;
 
+import models.BankCharacters;
+
 /**
  *
  */
@@ -7,6 +9,8 @@ public interface IMainController {
     String getQuestion();
     String getPathImg();
     String getSolution();
+    BankCharacters getCharacters();
+    String[] getListCharacters();
 
     void switchView(String fileFXML);
     void exit();
@@ -18,5 +22,5 @@ public interface IMainController {
     void notifyQuestion();
     void notifySolution();
 
-    void addCharacter(String name);
+    //void addCharacter(String name);
 }

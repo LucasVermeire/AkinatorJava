@@ -2,6 +2,7 @@ package repository;
 
 import models.*;
 import models.Character;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataTests {
 
+/*
     @BeforeEach
     public void exportQuestion(){
         Data data = new Data();
@@ -25,10 +27,10 @@ public class DataTests {
         questions.add(q);
         questions.add(q2);
 
-        data.exportQuestions(questions,"rsc/questions.json");
-    }
+        data.exportQuestions(questions,"rsc/questionsTests.json");
+    }*/
 
-    /*
+
     @BeforeEach
     public void exportCharacters(){
         Data data = new Data();
@@ -41,8 +43,8 @@ public class DataTests {
         characters.add(character);
         characters.add(character2);
 
-        data.exportCharacters(characters,"rsc/personnages.txt");
-    }*/
+        data.exportCharacters(characters,"rsc/personnagesTests.txt");
+    }
 
     @Test
     public void exportJsonQuestion(){
@@ -52,13 +54,13 @@ public class DataTests {
         assertTrue(f.exists() && !f.isDirectory());
     }
 
-
+/*
     @Test
     public void importQuestion(){
         Data data = new Data();
 
-        data.importCharacters("rsc/questions.json");
-    }
+        data.importCharacters("rsc/questionsTests.json");
+    }*/
 
 
     @Test
@@ -80,18 +82,18 @@ public class DataTests {
 
         assertTrue(f.exists() && !f.isDirectory());
     }
-/*
+
    @AfterEach
-    public void deleteFileQuestions(){
-        String pathQuestions = "rsc/questionsTests.json";
+    public void deleteFile(){
+        //String pathQuestions = "rsc/questionsTests.json";
         String pathCharacters = "rsc/personnagesTests.txt";
-        File f1 = new File(pathQuestions);
+        //File f1 = new File(pathQuestions);
         File f2 = new File(pathCharacters);
 
-        if(f1.delete() && f2.delete()){
+        if(f2.delete()){
             System.out.println("Fichier de test supprimé avec succès !");
         }else{
             System.out.println("Suppression a échoué !" );
         }
-    }*/
+    }
 }

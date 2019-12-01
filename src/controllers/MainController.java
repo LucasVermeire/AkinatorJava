@@ -1,11 +1,10 @@
 package controllers;
 
 import models.BankCharacters;
-import models.Character;
+import models.ICharacter;
 import models.IKnowledge;
 import models.Knowledge;
 import views.*;
-import views.AddCharacter.AddCharacterFXMLController;
 import views.Admin.AdminFXMLController;
 import views.CharacterFound.CharacterFoundFXMLController;
 import views.CharacterNotFound.CharacterNotFoundFXMLController;
@@ -16,7 +15,8 @@ import views.Question.QuestionFXMLController;
 import views.QuestionOfSolution.QuestionOfSolutionFXMLController;
 import views.SpecificCharacter.SpecificCharacterFXMLController;
 import views.Themes.ThemesFXMLController;
-import java.util.HashMap;
+
+import java.util.*;
 
 /**
  * The MainController class is the main controller of my MVC architecture. It implements the IMainController interface.
@@ -41,7 +41,6 @@ public class MainController implements IMainController {
         controllers = new HashMap<>();
         controllers.put("MainMenu", new MenuFXMLController(this));
         controllers.put("Admin", new AdminFXMLController(this));
-        controllers.put("AddCharacter", new AddCharacterFXMLController(this));
         controllers.put("Themes", new ThemesFXMLController(this));
         controllers.put("Question", new QuestionFXMLController(this));
         controllers.put("QuestionOfSolution", new QuestionOfSolutionFXMLController(this));
@@ -70,7 +69,28 @@ public class MainController implements IMainController {
 
     @Override
     public String getPathImg(){
-        return "img/characters/"+knowledge.getPathImg();
+        return "img/characters/"+knowledge.getImgLastCharacter();
+    }
+
+    @Override
+    public BankCharacters getCharacters(){
+        return knowledge.getBankCharacter();
+    }
+
+    @Override
+    public String[] getListCharacters(){
+        int length = (getCharacters().getBankCharacters().size());
+        String [] arrayFinalCharacters = new String[length];
+        int i = 0;
+
+        for(ICharacter item : getCharacters().getBankCharacters()){
+            if(!item.equals(knowledge.getLastCharacter())){
+                arrayFinalCharacters[i] = item.getName();
+            }
+            i++;
+        }
+        return arrayFinalCharacters;
+
     }
 
     //##########################################################
@@ -86,12 +106,12 @@ public class MainController implements IMainController {
     @Override
     public void switchView(String fileFXML){
         if(fileFXML.equals("Question")){
-            resetBankOfKnowledge();
+            restartBankOfKnowledge();
         }
         view.loadView(fileFXML,controllers);
     }
 
-    private void resetBankOfKnowledge(){
+    private void restartBankOfKnowledge(){
         this.knowledge = new Knowledge();
         knowledge.addPropertyChangeListener((QuestionFXMLController) controllers.get("Question"));
     }
@@ -179,8 +199,9 @@ public class MainController implements IMainController {
 
     //########################################################
 
-    @Override
+   /* @Override
     public void addCharacter(String name){
         knowledge.addCharacter(name);
     }
+    */
 }

@@ -31,7 +31,7 @@ public class Knowledge implements IKnowledge {
 
     //##########################################
 
-    private ICharacter getCharacter(){
+    public ICharacter getLastCharacter(){
         if(knowCharacterFinal()){
             List<ICharacter> characterArrayList = new ArrayList<ICharacter>(setFinal);
 
@@ -40,8 +40,8 @@ public class Knowledge implements IKnowledge {
     }
 
     @Override
-    public String getPathImg(){
-        return getCharacter().getPathImg();
+    public String getImgLastCharacter(){
+        return getLastCharacter().getPathImg();
     }
 
     @Override
@@ -63,6 +63,7 @@ public class Knowledge implements IKnowledge {
     public BankCharacters getBankCharacter(){
         return characters;
     }
+
 
     //##########################################
 
@@ -135,8 +136,12 @@ public class Knowledge implements IKnowledge {
         myPcs.firePropertyChange("Solution","", characterFinalToString());
     }
 
+    //#########################################
+/*
     @Override
     public void addCharacter(String name) {
         characters.addCharacter(new Character(name));
     }
+
+ */
 }
