@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import models.IKnowledge;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
@@ -38,7 +36,7 @@ public class QuestionOfSolutionFXMLController implements Initializable, Property
     }
 
     @FXML
-    private void CharacterIdea(){
+    private void characterIdea(){
         controller.switchView("CharacterIdea");
     }
 

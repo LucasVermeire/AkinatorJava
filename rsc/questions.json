@@ -18,11 +18,11 @@
     },
     {
       "statement": "Est ce que votre personnage est une femme ?",
-      "characters": ["Emma Watson", "Michelle Obama", "Rihanna"]
+      "characters": ["Emma Watson", "Michelle Obama", "Rihanna","Marilyn Monroe"]
     },
     {
       "statement": "Est ce que votre personnage est une chanteuse ?",
-      "characters": ["Rihanna"]
+      "characters": ["Rihanna","Marilyn Monroe"]
     },
     {
       "statement": "Est-ce que votre personnage a moins de 40 ans ?",
@@ -30,7 +30,7 @@
     },
     {
       "statement": "Est ce que votre personnage a joué dans un film ?",
-      "characters": ["Emma Watson"]
+      "characters": ["Emma Watson","Marilyn Monroe"]
     }
   ]
 }
