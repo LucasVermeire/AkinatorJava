@@ -1,9 +1,7 @@
 package repository;
 
-import models.IQuestion;
-import models.ICharacter;
+import models.*;
 import models.Character;
-import models.Question;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.File;
@@ -43,7 +41,7 @@ public class DataTests {
         characters.add(character);
         characters.add(character2);
 
-        data.exportCharacters(characters,"rsc/personnages.json");
+        data.exportCharacters(characters,"rsc/personnages.txt");
     }*/
 
     @Test
@@ -54,6 +52,7 @@ public class DataTests {
         assertTrue(f.exists() && !f.isDirectory());
     }
 
+
     @Test
     public void importQuestion(){
         Data data = new Data();
@@ -61,21 +60,31 @@ public class DataTests {
         data.importCharacters("rsc/questions.json");
     }
 
-/*
+
     @Test
     public void exportJsonCharacters(){
-        String path = "rsc/personnages.json";
+        String path = "rsc/personnages.txt";
         File f = new File (path);
 
+        Data data = new Data();
+
+        Character character3 = new Character("Tom");
+
+        BankCharacters bankCharacters = new BankCharacters();
+
+        data.exportCharacters(bankCharacters.getBankCharacters(),path);
+
+        bankCharacters.addCharacter(character3);
+
+        data.exportCharacters(bankCharacters.getBankCharacters(),path);
+
         assertTrue(f.exists() && !f.isDirectory());
-    }*/
-
-
+    }
 /*
    @AfterEach
     public void deleteFileQuestions(){
         String pathQuestions = "rsc/questionsTests.json";
-        String pathCharacters = "rsc/personnagesTests.json";
+        String pathCharacters = "rsc/personnagesTests.txt";
         File f1 = new File(pathQuestions);
         File f2 = new File(pathCharacters);
 

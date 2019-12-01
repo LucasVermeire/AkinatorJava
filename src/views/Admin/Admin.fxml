@@ -31,12 +31,12 @@
                 </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@../window7.css" text="Exporter la banque de connaissance">
+                        <Button mnemonicParsing="false" onAction="#addCharacter" prefHeight="25.0" prefWidth="284.0" styleClass="windows7" stylesheets="@../window7.css" text="Ajouter un personnage">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Importer une banque de connaissance">
+                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Exporter une banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="15.0" />
                             </VBox.margin>

@@ -21,7 +21,6 @@ public class QuestionOfSolutionFXMLController implements Initializable, Property
     @FXML
     private ImageView imgCharacter;
 
-
     private IMainController controller;
 
     public QuestionOfSolutionFXMLController(IMainController controller) {
@@ -33,15 +32,18 @@ public class QuestionOfSolutionFXMLController implements Initializable, Property
         controller.notifySolution();
     }
 
-    public void characterFound(){
+    @FXML
+    private void characterFound(){
         controller.switchView("CharacterFound");
     }
 
-    public void characterNotFound(){
-        controller.switchView("CharacterNotFound");
+    @FXML
+    private void CharacterIdea(){
+        controller.switchView("CharacterIdea");
     }
 
-    public void continueQuestion(){
+    @FXML
+    private void continueQuestion(){
         controller.switchView("Question");
     }
 

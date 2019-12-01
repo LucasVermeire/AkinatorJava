@@ -1,6 +1,7 @@
 package views.CharacterNotFound;
 
 import controllers.IMainController;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,15 +19,18 @@ public class CharacterNotFoundFXMLController implements Initializable {
 
     }
 
-    public void restart(){
+    @FXML
+    private void restart(){
         controller.switchView("Question");
     }
 
-    public void exit(){
+    @FXML
+    private void exit(){
         controller.exit();
     }
 
-    public void mainMenu(){
+    @FXML
+    private void mainMenu(){
         controller.switchView("MainMenu");
     }
 }

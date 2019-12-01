@@ -1,10 +1,7 @@
 package repository;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,7 +37,31 @@ public class Data {
      */
     public void exportCharacters(Set<ICharacter> characters, String path) {
 
+        String[] arrayCharacters = charactersToArray(characters);
 
+        try {
+            File ff = new File("rsc/personnages.txt");
+            ff.createNewFile();
+            FileWriter ffw = new FileWriter(ff);
+
+            for (String item : arrayCharacters) {
+                ffw.write(new Character(item).getName()+";");
+            }
+            ffw.close();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private String[] charactersToArray(Set<ICharacter> characters){
+        String[] arrayCharacters = new String [characters.size()];
+        int i = 0;
+
+        for(ICharacter item : characters){
+            arrayCharacters[i] = item.getName();
+            i++;
+        }
+        return arrayCharacters;
     }
 
     /**

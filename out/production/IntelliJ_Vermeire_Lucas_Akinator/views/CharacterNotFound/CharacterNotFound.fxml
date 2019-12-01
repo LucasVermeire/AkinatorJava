@@ -15,7 +15,7 @@
                         <Image url="@../../img/logo/NotFound.PNG" />
                     </image>
                 </ImageView>
-                <Label prefHeight="41.0" prefWidth="301.0" text="! Erreur système !" textFill="WHITE">
+                <Label prefHeight="41.0" prefWidth="518.0" text="Félicitations ! Vous avez gagnez" textFill="WHITE">
                     <font>
                         <Font name="Verdana" size="32.0" />
                     </font>

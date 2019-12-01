@@ -5,6 +5,7 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import controllers.IMainController;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class MenuFXMLController implements Initializable, PropertyChangeListener {
@@ -15,21 +16,23 @@ public class MenuFXMLController implements Initializable, PropertyChangeListener
         this.controller = controller;
     }
 
-    public void start (){
-        controller.switchView("Themes");
-    }
-
-    public void exit(){
-        controller.exit();
-    }
-
-    public void admin(){
-        controller.switchView("Admin");
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+    }
+    @FXML
+    private void start (){
+        controller.switchView("Themes");
+    }
+
+    @FXML
+    private void exit(){
+        controller.exit();
+    }
+
+    @FXML
+    private void admin(){
+        controller.switchView("Admin");
     }
 
     @Override

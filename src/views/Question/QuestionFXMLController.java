@@ -30,15 +30,18 @@ public class QuestionFXMLController implements Initializable , PropertyChangeLis
         controller.notifyQuestion();
     }
 
-    public void answerYes(){
+    @FXML
+    private void answerYes(){
         controller.answerYes();
     }
 
-    public void answerNo(){
+    @FXML
+    private void answerNo(){
         controller.answerNo();
     }
 
-    public void answerIDK(){
+    @FXML
+    private void answerIDK(){
         controller.answerIDK();
     }
 

@@ -39,14 +39,17 @@ public class Knowledge implements IKnowledge {
         }else return new Character("");
     }
 
+    @Override
     public String getPathImg(){
         return getCharacter().getPathImg();
     }
 
+    @Override
     public String getQuestion(){
         return questions.questionToString(index);
     }
 
+    @Override
     public Set<ICharacter> getSetFinal(){
         return setFinal;
     }
@@ -54,6 +57,11 @@ public class Knowledge implements IKnowledge {
     @Override
     public int getIndex(){
         return index;
+    }
+
+    @Override
+    public BankCharacters getBankCharacter(){
+        return characters;
     }
 
     //##########################################
@@ -125,5 +133,10 @@ public class Knowledge implements IKnowledge {
     @Override
     public void notifySolution(){
         myPcs.firePropertyChange("Solution","", characterFinalToString());
+    }
+
+    @Override
+    public void addCharacter(String name) {
+        characters.addCharacter(new Character(name));
     }
 }

@@ -1,6 +1,7 @@
 package views.ListOfCharacters;
 
 import controllers.IMainController;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -20,9 +21,16 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
 
     }
 
-    public void describeThisCharacter(){
+    @FXML
+    private void describeThisCharacter(){
+        controller.switchView("CharacterNotFound");
+    }
+
+    @FXML
+    private void characterIsNotInTheList(){
         controller.switchView("SpecificCharacter");
     }
+
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

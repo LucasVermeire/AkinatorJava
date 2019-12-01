@@ -17,4 +17,6 @@ public interface IMainController {
 
     void notifyQuestion();
     void notifySolution();
+
+    void addCharacter(String name);
 }

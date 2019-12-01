@@ -37,7 +37,7 @@ public class BankCharacters {
         if(character != null) {
             characters.add(character);
         }
-        //export();
+        export();
     }
 
     /**

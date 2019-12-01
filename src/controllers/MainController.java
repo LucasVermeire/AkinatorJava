@@ -1,11 +1,15 @@
 package controllers;
 
+import models.BankCharacters;
+import models.Character;
 import models.IKnowledge;
 import models.Knowledge;
 import views.*;
+import views.AddCharacter.AddCharacterFXMLController;
 import views.Admin.AdminFXMLController;
 import views.CharacterFound.CharacterFoundFXMLController;
 import views.CharacterNotFound.CharacterNotFoundFXMLController;
+import views.CharacterIdea.CharacterIdeaFXMLController;
 import views.ListOfCharacters.ListOfCharactersFXMLController;
 import views.MainMenu.MenuFXMLController;
 import views.Question.QuestionFXMLController;
@@ -24,7 +28,7 @@ public class MainController implements IMainController {
     //###############################
     private SwitchView view;
     private HashMap<String, Object> controllers;
-    private IKnowledge knowledge;
+    private IKnowledge knowledge = new Knowledge();
     //###############################
 
     /**
@@ -37,10 +41,12 @@ public class MainController implements IMainController {
         controllers = new HashMap<>();
         controllers.put("MainMenu", new MenuFXMLController(this));
         controllers.put("Admin", new AdminFXMLController(this));
+        controllers.put("AddCharacter", new AddCharacterFXMLController(this));
         controllers.put("Themes", new ThemesFXMLController(this));
         controllers.put("Question", new QuestionFXMLController(this));
         controllers.put("QuestionOfSolution", new QuestionOfSolutionFXMLController(this));
         controllers.put("ListOfCharacters", new ListOfCharactersFXMLController(this));
+        controllers.put("CharacterIdea", new CharacterIdeaFXMLController(this));
         controllers.put("CharacterNotFound", new CharacterNotFoundFXMLController(this));
         controllers.put("CharacterFound", new CharacterFoundFXMLController(this));
         controllers.put("SpecificCharacter", new SpecificCharacterFXMLController(this));
@@ -138,7 +144,7 @@ public class MainController implements IMainController {
         }else if(knowledge.knowNumberOfQuestions() == knowledge.getIndex()){
             secondRemoveAndAddPropertyChangeListener("Question","ListOfCharacters");
         }else if(ifNoMoreCharacters()){
-            switchView("CharacterNotFound");
+            switchView("CharacterIdea");
         }
     }
 
@@ -161,7 +167,6 @@ public class MainController implements IMainController {
 
     //##########################################################
 
-
     @Override
     public void notifyQuestion() {
         knowledge.notifyQuestion();
@@ -170,5 +175,12 @@ public class MainController implements IMainController {
     @Override
     public void notifySolution(){
         knowledge.notifySolution();
+    }
+
+    //########################################################
+
+    @Override
+    public void addCharacter(String name){
+        knowledge.addCharacter(name);
     }
 }

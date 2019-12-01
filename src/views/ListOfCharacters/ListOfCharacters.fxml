@@ -31,48 +31,9 @@
                <content>
                   <BorderPane prefHeight="296.0" prefWidth="603.0" style="-fx-background-color: #455A75;">
                      <center>
-                        <VBox alignment="TOP_CENTER" prefHeight="301.0" prefWidth="593.0" BorderPane.alignment="CENTER">
+                        <VBox fx:id="VBox" alignment="TOP_CENTER" prefHeight="301.0" prefWidth="593.0" BorderPane.alignment="CENTER">
                            <children>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Bill Gates">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Elon Musk">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Emma Watson">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Jeff Bezos">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Mark Zuckerberg">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Michelle Obama">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Steve Jobs">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                               <Button mnemonicParsing="false" onAction="#describeThisCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Rihanna">
-                                   <VBox.margin>
-                                       <Insets top="10.0" />
-                                   </VBox.margin>
-                               </Button>
+
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -84,7 +45,7 @@
             </ScrollPane>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Mon personnage n'est pas dans la liste">
+                        <Button mnemonicParsing="false" onAction="characterIsNotInTheList" styleClass="windows7" stylesheets="@../window7.css" text="Mon personnage n'est pas dans la liste">
                             <VBox.margin>
                                 <Insets bottom="60.0" top="50.0" />
                             </VBox.margin>

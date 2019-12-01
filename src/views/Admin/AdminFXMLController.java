@@ -2,6 +2,7 @@ package views.Admin;
 
 import controllers.IMainController;
 import controllers.MainController;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,8 +22,13 @@ public class AdminFXMLController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    @FXML
+    private void addCharacter(){
+        controller.switchView("AddCharacter");
+    }
 
-    public void mainMenu(){
+    @FXML
+    private void mainMenu(){
         controller.switchView("MainMenu");
     }
 
