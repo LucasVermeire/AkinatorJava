@@ -137,11 +137,9 @@ public class Knowledge implements IKnowledge {
     }
 
     //#########################################
-/*
+
     @Override
     public void addCharacter(String name) {
-        characters.addCharacter(new Character(name));
-    }
 
- */
+    }
 }

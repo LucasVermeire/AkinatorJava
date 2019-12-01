@@ -29,15 +29,11 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String [] names = controller.getListCharacters();
-        ObservableList<String> values = FXCollections.observableArrayList();
-        values.addAll(names);
-        listCharacters.setItems(values);
-        listCharacters.setValue(names[0]);
+       controller.notifySolution();
     }
 
-    @FXML
-    private void ddescribeThisCharacter(){
+    public void addCharacter(){
+        controller.addCharacter(listCharacters.getSelectionModel().getSelectedItem());
         controller.switchView("CharacterNotFound");
     }
 
@@ -48,6 +44,10 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        String [] names = controller.getListCharacters();
+        ObservableList<String> values = FXCollections.observableArrayList();
+        values.addAll(names);
+        listCharacters.setItems(values);
+        listCharacters.setValue(names[0]);
     }
 }

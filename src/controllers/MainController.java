@@ -199,9 +199,9 @@ public class MainController implements IMainController {
 
     //########################################################
 
-   /* @Override
+
+   @Override
     public void addCharacter(String name){
-        knowledge.addCharacter(name);
+
     }
-    */
 }

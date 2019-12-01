@@ -28,5 +28,5 @@ public interface IKnowledge {
     void notifyQuestion();
     void notifySolution();
 
-    //void addCharacter(String name);
+    void addCharacter(String name);
 }
