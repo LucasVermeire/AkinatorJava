@@ -21,7 +21,8 @@ public class SpecificCharacterFXMLController implements Initializable {
 
     @FXML
     private void validate(){
-
+        //TODO
+        controller.switchView("CharacterNotFound");
     }
 
     @FXML
