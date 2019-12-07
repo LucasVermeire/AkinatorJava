@@ -2,42 +2,26 @@ package repository;
 
 import java.util.List;
 import java.util.Set;
-import models.IQuestion;
-import models.ICharacter;
+import model.IQuestion;
+import model.ICharacter;
 
 /**
  *
  */
-public class Repository implements IRepository {
+public class Repository {
 
     //##############################
-    private Data data;
-    private static Repository INSTANCE = new Repository();
-    private final String PATH_QUESTIONS = "rsc\\questions.json";
-    private final String PATH_CHARACTERS = "rsc\\personnages.txt";
+    private static Data data;
+    private static final String PATH_QUESTIONS = "rsc\\questions.json";
+    private static final String PATH_CHARACTERS = "rsc\\personnages.txt";
     //##############################
 
-    /**
-     *
-     */
-    private Repository() {
+
+    static{
         data = new Data();
     }
 
-    /**
-     *
-     * @return
-     */
-    public static Repository getInstance() {
-        return INSTANCE;
-    }
-
-    /**
-     *
-     * @param questions
-     */
-    @Override
-    public void exportQuestions(List<IQuestion> questions) {
+    public static void exportQuestions(List<IQuestion> questions) {
         data.exportQuestions(questions,PATH_QUESTIONS);
     }
 
@@ -45,8 +29,7 @@ public class Repository implements IRepository {
      *
      * @param characters
      */
-    @Override
-    public void exportCharacters(Set<ICharacter> characters) {
+    public static void exportCharacters(Set<ICharacter> characters) {
         data.exportCharacters(characters, PATH_CHARACTERS);
     }
 
@@ -54,8 +37,7 @@ public class Repository implements IRepository {
      *
      * @return
      */
-    @Override
-    public List<IQuestion> importQuestion() {
+    public static List<IQuestion> importQuestion() {
         return data.importQuestions(PATH_QUESTIONS);
     }
 
@@ -63,8 +45,7 @@ public class Repository implements IRepository {
      *
      * @return
      */
-    @Override
-    public Set<ICharacter> importCharacters() {
+    public static Set<ICharacter> importCharacters() {
         return data.importCharacters(PATH_CHARACTERS);
     }
 }

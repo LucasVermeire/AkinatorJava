@@ -10,13 +10,13 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
-import models.Character;
-import models.Question;
+import model.Character;
+import model.Question;
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import models.IQuestion;
-import models.ICharacter;
+import model.IQuestion;
+import model.ICharacter;
 
 
 public class Data {
@@ -121,7 +121,7 @@ public class Data {
         for (JsonValue item : arrayQuestions) {
             JsonObject object = (JsonObject) item;
 
-            Set<ICharacter> characterSet = new TreeSet<ICharacter>();
+            Set<ICharacter> characterSet = new HashSet<ICharacter>();
 
             setArrayCharacters(object,characterSet);
 
@@ -148,7 +148,7 @@ public class Data {
      * @return
      */
     public Set<ICharacter> importCharacters(String path){
-        Set<ICharacter> characters = new TreeSet<ICharacter>();
+        Set<ICharacter> characters = new HashSet<ICharacter>();
 
         try(BufferedReader br = new BufferedReader(new FileReader(path))){
             String line = br.readLine();
