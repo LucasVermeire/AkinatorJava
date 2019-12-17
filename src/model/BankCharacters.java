@@ -34,7 +34,6 @@ public class BankCharacters {
     public void addCharacter(ICharacter character) {
         if(character != null) {
             characters.add(character);
-            export();
         }
     }
 
@@ -44,12 +43,5 @@ public class BankCharacters {
      */
     private Set<ICharacter> load () {
         return Repository.importCharacters();
-    }
-
-    /**
-     *
-     */
-    public void export () {
-        Repository.exportCharacters(characters);
     }
 }

@@ -12,6 +12,7 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 import model.Character;
 import model.Question;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,46 +24,36 @@ public class Data {
 
     /**
      *
-     * @param bankQuestions
+     * @param questions
      * @param path
      */
-    public void exportQuestions(List<IQuestion> bankQuestions, String path) {
-        //TODO
-    }
+    public void exportBank(List<IQuestion> questions,IQuestion question, String path) {
+        JSONObject obj = new JSONObject();
+        JSONArray array = new JSONArray();
 
-    /**
-     *
-     * @param characters
-     * @param path
-     */
-    public void exportCharacters(Set<ICharacter> characters, String path) {
-
-        String[] arrayCharacters = charactersToArray(characters);
-
-        try {
-            File ff = new File("rsc/personnages.txt");
-            ff.createNewFile();
-            FileWriter ffw = new FileWriter(ff);
-
-            for (String item : arrayCharacters) {
-                ffw.write(new Character(item).getName()+";");
-            }
-            ffw.close();
-        }catch (Exception ex){
-            ex.printStackTrace();
+        for(IQuestion item : questions ){
+            JSONObject obj2 = new JSONObject();
+            obj2.put("statement",item.getStatementOfQuestions());
+            JSONArray array2 = getCharacters(question.getSetCharacters());
+            obj2.put("character",array2);
+            array.add(obj2);
         }
+
+        obj.put("questions",array);
+
+        save(path,obj);
     }
 
-    private String[] charactersToArray(Set<ICharacter> characters){
-        String[] arrayCharacters = new String [characters.size()];
-        int i = 0;
+    private JSONArray getCharacters(Set<ICharacter> characters){
+
+        JSONArray array2 = new JSONArray();
 
         for(ICharacter item : characters){
-            arrayCharacters[i] = item.getName();
-            i++;
+            array2.add(item.getName());
         }
-        return arrayCharacters;
+        return array2;
     }
+
 
     /**
      *
@@ -70,7 +61,8 @@ public class Data {
      * @param questionObj
      */
     private void save (String path,JSONObject questionObj) {
-        try(FileWriter file = new FileWriter(path)){
+        String desktopPath = System.getProperty("user.home") + "\\OneDrive\\Bureau";
+        try(FileWriter file = new FileWriter(new File(desktopPath,path))){
             file.write(toPrettyFormat(questionObj));
         }catch(IOException ex) {
             ex.printStackTrace();
@@ -98,9 +90,6 @@ public class Data {
         try (InputStream reader = new FileInputStream(path)) {
             JsonReader jsonReader = Json.createReader(reader);
             JsonObject readObject = jsonReader.readObject();
-
-            jsonReader.close();
-            reader.close();
 
             questionsToList(readObject,questions);
 
@@ -142,24 +131,32 @@ public class Data {
         }
     }
 
-    /**
-     *
-     * @param path
-     * @return
-     */
     public Set<ICharacter> importCharacters(String path){
         Set<ICharacter> characters = new HashSet<ICharacter>();
 
-        try(BufferedReader br = new BufferedReader(new FileReader(path))){
-            String line = br.readLine();
-            String [] charactersToList = line.split(";");
+        try (InputStream reader = new FileInputStream(path)) {
+            JsonReader jsonReader = Json.createReader(reader);
+            JsonObject readObject = jsonReader.readObject();
 
-            for(String item : charactersToList){
-                characters.add(new Character(item));
-            }
-        }catch (IOException ex){
-            ex.printStackTrace();
+            characterToList(readObject,characters);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return characters;
+    }
+
+    private void characterToList(JsonObject jsonObject, Set<ICharacter> characters) {
+        JsonArray arrayCharacters = jsonObject.getJsonArray("characters");
+
+        for (JsonValue item : arrayCharacters) {
+            JsonObject object = (JsonObject) item;
+
+            JsonArray arrayCharacters2 = object.getJsonArray("listCharacters");
+
+            for (JsonValue jsonValue : arrayCharacters2) {
+                characters.add(new Character(jsonValue.toString().replace("\"", "")));
+            }
+        }
     }
 }

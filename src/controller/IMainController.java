@@ -23,4 +23,5 @@ public interface IMainController {
     void notifySolution();
 
     void addCharacter(String name);
+    void exportFile();
 }

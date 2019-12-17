@@ -12,8 +12,8 @@ public class Repository {
 
     //##############################
     private static Data data;
-    private static final String PATH_QUESTIONS = "rsc\\questions.json";
-    private static final String PATH_CHARACTERS = "rsc\\personnages.txt";
+    private static final String PATH_BANK = "rsc\\bank.json";
+    private static final String PATH_BANK_EXPORT = "bank.json";
     //##############################
 
 
@@ -21,16 +21,12 @@ public class Repository {
         data = new Data();
     }
 
-    public static void exportQuestions(List<IQuestion> questions) {
-        data.exportQuestions(questions,PATH_QUESTIONS);
-    }
-
     /**
      *
-     * @param characters
+     * @param question
      */
-    public static void exportCharacters(Set<ICharacter> characters) {
-        data.exportCharacters(characters, PATH_CHARACTERS);
+    public static void exportBank(List<IQuestion> questions,IQuestion question) {
+        data.exportBank(questions,question, PATH_BANK_EXPORT);
     }
 
     /**
@@ -38,7 +34,7 @@ public class Repository {
      * @return
      */
     public static List<IQuestion> importQuestion() {
-        return data.importQuestions(PATH_QUESTIONS);
+        return data.importQuestions(PATH_BANK);
     }
 
     /**
@@ -46,6 +42,6 @@ public class Repository {
      * @return
      */
     public static Set<ICharacter> importCharacters() {
-        return data.importCharacters(PATH_CHARACTERS);
+        return data.importCharacters(PATH_BANK);
     }
 }

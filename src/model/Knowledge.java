@@ -1,5 +1,7 @@
 package model;
 
+import repository.Repository;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
@@ -143,5 +145,10 @@ public class Knowledge implements IKnowledge {
     @Override
     public void addCharacter(String name) {
         //TODO
+    }
+
+    @Override
+    public void export(){
+        Repository.exportBank(questions.getBankQuestions(),questions.getQuestionByIndex(0));
     }
 }

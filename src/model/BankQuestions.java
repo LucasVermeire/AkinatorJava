@@ -39,14 +39,11 @@ public class BankQuestions {
         return questions.get(index);
     }
 
-
-    /*
     public void addQuestion(Question question) {
         if(question != null) {
             questions.add(question);
-            //export();
         }
-    }*/
+    }
 
     /**
      *
@@ -68,10 +65,4 @@ public class BankQuestions {
     private List<IQuestion> load () {
         return Repository.importQuestion();
     }
-
-
-    /*
-    public void export() {
-        Repository.exportQuestions(questions);
-    }*/
 }

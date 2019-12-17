@@ -29,4 +29,8 @@ public class AdminFXMLController implements Initializable {
         controller.switchView("MainMenu");
     }
 
+    @FXML
+    private void export(){
+        controller.exportFile();
+    }
 }

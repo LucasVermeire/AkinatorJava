@@ -25,7 +25,7 @@ public class Jarvis extends Application {
             root = chargerFXML.load();
 
             primaryStage.setTitle("I'M JARVIS");
-            primaryStage.getIcons().add(new Image("/img/logo/MainMenu.PNG"));
+            primaryStage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/logo/MainMenu.PNG"))));
             Scene scene = new Scene(root,719,619);
             primaryStage.setScene(scene);
             primaryStage.show();

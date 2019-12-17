@@ -29,4 +29,5 @@ public interface IKnowledge {
     void notifySolution();
 
     void addCharacter(String name);
+    void export();
 }

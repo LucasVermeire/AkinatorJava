@@ -196,4 +196,9 @@ public class MainController implements IMainController {
     public void addCharacter(String name){
         //TODO
     }
+
+    @Override
+    public void exportFile(){
+        knowledge.export();
+    }
 }

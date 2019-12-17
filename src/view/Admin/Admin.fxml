@@ -33,7 +33,7 @@
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="windows7" stylesheets="@../window7.css" text="Exporter une banque de connaissance">
+                        <Button mnemonicParsing="false" onAction="#export" styleClass="windows7" stylesheets="@../window7.css" text="Exporter la banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="15.0" />
                             </VBox.margin>
