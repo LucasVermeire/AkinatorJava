@@ -21,6 +21,7 @@ public class CharacterNotFoundFXMLController implements Initializable {
 
     @FXML
     private void restart(){
+        controller.restart();
         controller.switchView("Question");
     }
 

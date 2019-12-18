@@ -37,6 +37,11 @@ public class Character implements ICharacter {
         return pathImg;
     }
 
+    @Override
+    public void setPathImg(String path){
+        pathImg = path;
+    }
+
     /**
      *
      * @param character

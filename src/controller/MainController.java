@@ -5,7 +5,6 @@ import view.*;
 import view.Admin.AdminFXMLController;
 import view.CharacterFound.CharacterFoundFXMLController;
 import view.CharacterNotFound.CharacterNotFoundFXMLController;
-import view.CharacterIdea.CharacterIdeaFXMLController;
 import view.ListOfCharacters.ListOfCharactersFXMLController;
 import view.MainMenu.MenuFXMLController;
 import view.Question.QuestionFXMLController;
@@ -24,7 +23,7 @@ public class MainController implements IMainController {
     //###############################
     private SwitchView view;
     private HashMap<String, Object> controllers;
-    private IKnowledge knowledge = new Knowledge();
+    private IKnowledge knowledge;
     //###############################
 
     /**
@@ -41,12 +40,12 @@ public class MainController implements IMainController {
         controllers.put(ViewEnum.Question.name(), new QuestionFXMLController(this));
         controllers.put(ViewEnum.QuestionOfSolution.name(), new QuestionOfSolutionFXMLController(this));
         controllers.put(ViewEnum.ListOfCharacters.name(), new ListOfCharactersFXMLController(this));
-        controllers.put(ViewEnum.CharacterIdea.name(), new CharacterIdeaFXMLController(this));
         controllers.put(ViewEnum.CharacterNotFound.name(), new CharacterNotFoundFXMLController(this));
         controllers.put(ViewEnum.CharacterFound.name(), new CharacterFoundFXMLController(this));
         controllers.put(ViewEnum.SpecificCharacter.name(), new SpecificCharacterFXMLController(this));
 
         this.view = view;
+        this.knowledge = new Knowledge();
     }
 
     //##########################################################
@@ -102,11 +101,17 @@ public class MainController implements IMainController {
      */
     @Override
     public void switchView(String fileFXML){
-        if(fileFXML.equals("Question")){
-            this.knowledge = new Knowledge();
-            knowledge.addPropertyChangeListener((QuestionFXMLController) controllers.get("Question"));
-        }
         view.loadView(fileFXML,controllers);
+        if(fileFXML.equals("Question")){
+            restart();
+        }
+    }
+
+    @Override
+    public void restart(){
+        knowledge.restart();
+        knowledge.addPropertyChangeListener((QuestionFXMLController) controllers.get("Question"));
+        notifyQuestion();
     }
 
     @Override
@@ -157,7 +162,7 @@ public class MainController implements IMainController {
         }else if(knowledge.knowNumberOfQuestions() == knowledge.getIndex() && knowledge.getSetFinal().size()>0){
             secondRemoveAndAddPropertyChangeListener("Question","ListOfCharacters");
         }else if(ifNoMoreCharacters()){
-            switchView("CharacterIdea");
+            switchView("SpecificCharacter");
         }
     }
 
@@ -193,9 +198,9 @@ public class MainController implements IMainController {
 
 
    @Override
-    public void addCharacter(String name){
-       knowledge.addCharacter(name);
-    }
+    public void addCharacter(String name,String path){
+       knowledge.addCharacter(name,path);
+   }
 
     @Override
     public void exportFile(){

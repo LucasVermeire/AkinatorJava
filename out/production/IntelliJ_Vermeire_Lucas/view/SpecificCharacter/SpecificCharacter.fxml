@@ -50,7 +50,7 @@
                               <Insets right="270.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="27.0" prefWidth="265.0">
+                        <TextField fx:id="name" alignment="CENTER" prefHeight="27.0" prefWidth="265.0">
                            <VBox.margin>
                               <Insets bottom="10.0" left="65.0" right="80.0" />
                            </VBox.margin></TextField>
@@ -69,7 +69,7 @@
                               <Insets right="30.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="169.0" />
+                        <TextField fx:id="img" prefHeight="25.0" prefWidth="169.0" />
                      </children>
                      <VBox.margin>
                         <Insets right="80.0" top="10.0" />

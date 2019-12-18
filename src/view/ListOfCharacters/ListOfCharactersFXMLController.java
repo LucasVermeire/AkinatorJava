@@ -17,9 +17,6 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
     private IMainController controller;
 
     @FXML
-    private Pagination pagination;
-
-    @FXML
     private ComboBox<String> listCharacters;
 
 
@@ -33,7 +30,6 @@ public class ListOfCharactersFXMLController implements Initializable, PropertyCh
     }
 
     public void addCharacter(){
-        controller.addCharacter(listCharacters.getSelectionModel().getSelectedItem());
         controller.switchView("CharacterNotFound");
     }
 

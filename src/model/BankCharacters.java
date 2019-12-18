@@ -17,7 +17,6 @@ public class BankCharacters {
      */
     public BankCharacters () {
         characters = load();
-        System.out.println(characters.size());
     }
 
     /**
@@ -30,11 +29,11 @@ public class BankCharacters {
 
     /**
      *
-     * @param character
+     * @param
      */
-    public void addCharacter(ICharacter character) {
-        if(character != null) {
-            characters.add(character);
+    public void addCharacter(String name) {
+        if(name != null) {
+            characters.add(new Character(name));
         }
     }
 

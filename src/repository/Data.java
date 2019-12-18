@@ -27,19 +27,26 @@ public class Data {
      * @param questions
      * @param path
      */
-    public void exportBank(List<IQuestion> questions,IQuestion question, String path) {
+    public void exportBank(List<IQuestion> questions,Set<ICharacter>characters,IQuestion question, String path) {
         JSONObject obj = new JSONObject();
-        JSONArray array = new JSONArray();
+        JSONArray arrayQuestions = new JSONArray();
 
         for(IQuestion item : questions ){
             JSONObject obj2 = new JSONObject();
             obj2.put("statement",item.getStatementOfQuestions());
             JSONArray array2 = getCharacters(question.getSetCharacters());
             obj2.put("character",array2);
-            array.add(obj2);
+            arrayQuestions.add(obj2);
         }
 
-        obj.put("questions",array);
+        JSONArray arrayCharacter = new JSONArray();
+
+        for(ICharacter item : characters){
+            arrayCharacter.add(item.getName());
+        }
+
+        obj.put("questions",arrayQuestions);
+        obj.put("characters",arrayCharacter);
 
         save(path,obj);
     }

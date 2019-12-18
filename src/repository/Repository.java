@@ -25,8 +25,8 @@ public class Repository {
      *
      * @param question
      */
-    public static void exportBank(List<IQuestion> questions,IQuestion question) {
-        data.exportBank(questions,question, PATH_BANK_EXPORT);
+    public static void exportBank(List<IQuestion> questions,Set<ICharacter> characters,IQuestion question) {
+        data.exportBank(questions,characters,question, PATH_BANK_EXPORT);
     }
 
     /**

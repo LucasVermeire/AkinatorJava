@@ -22,6 +22,7 @@ public interface IMainController {
     void notifyQuestion();
     void notifySolution();
 
-    void addCharacter(String name);
+    void addCharacter(String name,String path);
     void exportFile();
+    void restart();
 }

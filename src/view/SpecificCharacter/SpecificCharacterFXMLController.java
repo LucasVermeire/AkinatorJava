@@ -3,12 +3,20 @@ package view.SpecificCharacter;
 import controller.IMainController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SpecificCharacterFXMLController implements Initializable {
 
     private IMainController controller;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private TextField img;
 
     public SpecificCharacterFXMLController(IMainController controller) {
         this.controller = controller;
@@ -21,7 +29,7 @@ public class SpecificCharacterFXMLController implements Initializable {
 
     @FXML
     private void validate(){
-        //TODO
+        controller.addCharacter(name.getText(), img.getText());
         controller.switchView("CharacterNotFound");
     }
 

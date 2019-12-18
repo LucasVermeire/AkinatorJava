@@ -1,4 +1,9 @@
 {
+  "characters": [
+    {
+      "listCharacters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs","Emma Watson", "Michelle Obama", "Rihanna"]
+    }
+  ],
   "questions": [
     {
       "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs"],
@@ -31,11 +36,6 @@
     {
       "characters": ["Emma Watson","Marilyn Monroe"],
       "statement": "Est ce que votre personnage a joué dans un film ?"
-    }
-  ],
-  "characters": [
-    {
-      "listCharacters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs","Emma Watson", "Michelle Obama", "Rihanna"]
     }
   ]
 }

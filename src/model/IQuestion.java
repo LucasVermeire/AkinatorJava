@@ -7,4 +7,5 @@ public interface IQuestion {
     Set<ICharacter> answerYes (Set<ICharacter> characters);
     String getStatementOfQuestions();
     Set<ICharacter> getSetCharacters();
+    void addCharacter(String character);
 }

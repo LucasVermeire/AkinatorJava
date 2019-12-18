@@ -39,9 +39,12 @@ public class BankQuestions {
         return questions.get(index);
     }
 
-    public void addQuestion(Question question) {
-        if(question != null) {
-            questions.add(question);
+    public void addCharacterInQuestion(String nameCharacter,List<String> pastQuestions) {
+        int i = 0;
+
+        for(String item : pastQuestions){
+            if(item.equals("true")) questions.get(i).addCharacter(nameCharacter);
+            i++;
         }
     }
 

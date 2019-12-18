@@ -43,6 +43,11 @@ public class Question implements IQuestion {
     }
 
     @Override
+    public void addCharacter(String character){
+        characters.add(new Character(character));
+    }
+
+    @Override
     public boolean equals(Object question) {
         try{
             String statement = ((IQuestion) question).getStatementOfQuestions();
