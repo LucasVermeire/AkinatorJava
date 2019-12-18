@@ -17,6 +17,7 @@ public class BankCharacters {
      */
     public BankCharacters () {
         characters = load();
+        System.out.println(characters.size());
     }
 
     /**

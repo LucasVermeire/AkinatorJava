@@ -194,7 +194,7 @@ public class MainController implements IMainController {
 
    @Override
     public void addCharacter(String name){
-        //TODO
+       knowledge.addCharacter(name);
     }
 
     @Override

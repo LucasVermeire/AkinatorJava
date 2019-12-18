@@ -25,8 +25,8 @@ public class CharacterIdeaFXMLController implements Initializable {
     }
 
     @FXML
-    private void validate (){
-        //controller.addCharacter(name.getText());
+    private void addCharacter (){
+        controller.addCharacter(name.getText());
         controller.switchView("CharacterNotFound");
     }
 

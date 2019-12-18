@@ -26,7 +26,7 @@ public class Knowledge implements IKnowledge {
     public Knowledge () {
         questions = new BankQuestions();
         characters = new BankCharacters();
-        setFinal = characters.getBankCharacters();
+        setFinal = new HashSet<>(characters.getBankCharacters());
         answer = new Answer(setFinal);
         index = 0;
     }
@@ -144,11 +144,13 @@ public class Knowledge implements IKnowledge {
 
     @Override
     public void addCharacter(String name) {
-        //TODO
+        questions.getQuestionByIndex(index).getSetCharacters().add(new Character(name));
     }
 
     @Override
     public void export(){
-        Repository.exportBank(questions.getBankQuestions(),questions.getQuestionByIndex(0));
+        for(int i =0;i<knowNumberOfQuestions();i++){
+            Repository.exportBank(questions.getBankQuestions(),questions.getQuestionByIndex(i));
+        }
     }
 }
