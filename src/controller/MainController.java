@@ -203,7 +203,12 @@ public class MainController implements IMainController {
    }
 
     @Override
-    public void exportFile(){
-        knowledge.export();
+    public void exportBank(String path){
+        knowledge.exportBank(path);
+    }
+
+    @Override
+    public void importBank(String path){
+        knowledge.importBank(path);
     }
 }

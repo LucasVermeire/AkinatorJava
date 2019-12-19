@@ -24,7 +24,7 @@ public class DataTests {
 
             Knowledge knowledge = new Knowledge();
 
-            knowledge.export();
+            //knowledge.export();
 
             assertTrue(f.exists() && !f.isDirectory());
 

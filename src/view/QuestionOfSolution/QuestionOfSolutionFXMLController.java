@@ -40,10 +40,6 @@ public class QuestionOfSolutionFXMLController implements Initializable, Property
         controller.switchView("CharacterIdea");
     }
 
-    @FXML
-    private void continueQuestion(){
-
-    }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

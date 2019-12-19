@@ -16,7 +16,7 @@ public class BankCharacters {
      *
      */
     public BankCharacters () {
-        characters = load();
+        characters = Repository.importCharacters();
     }
 
     /**
@@ -35,13 +35,5 @@ public class BankCharacters {
         if(name != null) {
             characters.add(new Character(name));
         }
-    }
-
-    /**
-     *
-     * @return
-     */
-    private Set<ICharacter> load () {
-        return Repository.importCharacters();
     }
 }

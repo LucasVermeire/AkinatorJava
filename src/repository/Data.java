@@ -22,11 +22,7 @@ import model.ICharacter;
 
 public class Data {
 
-    /**
-     *
-     * @param questions
-     * @param path
-     */
+
     public void exportBank(List<IQuestion> questions,Set<ICharacter>characters,IQuestion question, String path) {
         JSONObject obj = new JSONObject();
         JSONArray arrayQuestions = new JSONArray();
@@ -68,8 +64,7 @@ public class Data {
      * @param questionObj
      */
     private void save (String path,JSONObject questionObj) {
-        String desktopPath = System.getProperty("user.home") + "\\OneDrive\\Bureau";
-        try(FileWriter file = new FileWriter(new File(desktopPath,path))){
+        try(FileWriter file = new FileWriter(new File(path))){
             file.write(toPrettyFormat(questionObj));
         }catch(IOException ex) {
             ex.printStackTrace();
@@ -91,6 +86,20 @@ public class Data {
      * @param path
      * @return
      */
+    public void importBank(String path, List<IQuestion> questions, Set<ICharacter> characters){
+
+        try (InputStream reader = new FileInputStream(path)) {
+            JsonReader jsonReader = Json.createReader(reader);
+            JsonObject readObject = jsonReader.readObject();
+
+            questionsToList(readObject,questions);
+            characterToList(readObject,characters);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public List<IQuestion> importQuestions(String path){
         List<IQuestion> questions = new ArrayList<IQuestion>();
 
@@ -105,6 +114,7 @@ public class Data {
         }
         return questions;
     }
+
 
     /**
      *
@@ -125,19 +135,6 @@ public class Data {
         }
     }
 
-    /**
-     *
-     * @param object
-     * @param characterSet
-     */
-    private void setArrayCharacters (JsonObject object, Set<ICharacter> characterSet ){
-        JsonArray arrayCharacters = object.getJsonArray("characters");
-
-        for (JsonValue jsonValue : arrayCharacters) {
-            characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
-        }
-    }
-
     public Set<ICharacter> importCharacters(String path){
         Set<ICharacter> characters = new HashSet<ICharacter>();
 
@@ -153,6 +150,20 @@ public class Data {
         return characters;
     }
 
+
+    /**
+     *
+     * @param object
+     * @param characterSet
+     */
+    private void setArrayCharacters (JsonObject object, Set<ICharacter> characterSet ){
+        JsonArray arrayCharacters = object.getJsonArray("characters");
+
+        for (JsonValue jsonValue : arrayCharacters) {
+            characterSet.add(new Character(jsonValue.toString().replace("\"", "")));
+        }
+    }
+
     private void characterToList(JsonObject jsonObject, Set<ICharacter> characters) {
         JsonArray arrayCharacters = jsonObject.getJsonArray("characters");
 
@@ -166,4 +177,5 @@ public class Data {
             }
         }
     }
+
 }

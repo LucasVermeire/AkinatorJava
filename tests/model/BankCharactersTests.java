@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import repository.Repository;
 
 class BankCharactersTests {
-
+/*
     @Test
     public void knowHisSetCharacters() {
 
@@ -21,4 +21,5 @@ class BankCharactersTests {
     public void addCharacter() {
 
     }
+    */
 }

@@ -29,6 +29,7 @@ public interface IKnowledge {
     void notifySolution();
 
     void addCharacter(String name, String path);
-    void export();
+    void exportBank(String path);
+    void importBank(String path);
     void restart();
 }

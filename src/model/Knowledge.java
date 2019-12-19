@@ -156,10 +156,15 @@ public class Knowledge implements IKnowledge {
     }
 
     @Override
-    public void export(){
+    public void exportBank(String path){
         for(int i =0;i<knowNumberOfQuestions();i++){
-            Repository.exportBank(questions.getBankQuestions(),characters.getBankCharacters(),questions.getQuestionByIndex(i));
+            Repository.exportBank(questions.getBankQuestions(),characters.getBankCharacters(),questions.getQuestionByIndex(i),path);
         }
+    }
+
+    @Override
+    public void importBank(String path){
+        Repository.importBank(path,questions.getBankQuestions(),characters.getBankCharacters());
     }
 
     @Override

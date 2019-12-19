@@ -36,17 +36,12 @@
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="120.0" right="50.0" top="30.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#continueQuestion" styleClass="windows7" stylesheets="@../window7.css" text="Continuer">
-                     <HBox.margin>
-                        <Insets left="50.0" top="30.0" />
+                        <Insets left="160.0" right="50.0" top="30.0" />
                      </HBox.margin>
                   </Button>
                    <Button mnemonicParsing="false" onAction="#characterFound" styleClass="windows7" stylesheets="@../window7.css" text="Oui">
                      <HBox.margin>
-                        <Insets left="90.0" top="30.0" />
+                        <Insets left="180.0" top="30.0" />
                      </HBox.margin></Button>
                </children>
             </HBox>

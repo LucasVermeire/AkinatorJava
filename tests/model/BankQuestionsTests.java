@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 import repository.Repository;
 
 class BankQuestionsTests {
-
+/*
     @Test
     public void knowHisSetQuestions() {
 
-        List<IQuestion> questions = Repository.importQuestion();
+       List<IQuestion> questions = Repository.importQuestion();
 
         BankQuestions bankQuestions = new BankQuestions();
 
@@ -89,5 +89,5 @@ class BankQuestionsTests {
         BankQuestions bankQuestions = new BankQuestions();
 
         assertEquals(null,bankQuestions.questionToString(135));
-    }
+    }*/
 }

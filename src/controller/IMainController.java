@@ -23,6 +23,7 @@ public interface IMainController {
     void notifySolution();
 
     void addCharacter(String name,String path);
-    void exportFile();
+    void exportBank(String path);
+    void importBank(String path);
     void restart();
 }

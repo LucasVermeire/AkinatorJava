@@ -13,7 +13,6 @@ public class Repository {
     //##############################
     private static Data data;
     private static final String PATH_BANK = "rsc\\bank.json";
-    private static final String PATH_BANK_EXPORT = "bank.json";
     //##############################
 
 
@@ -25,23 +24,25 @@ public class Repository {
      *
      * @param question
      */
-    public static void exportBank(List<IQuestion> questions,Set<ICharacter> characters,IQuestion question) {
-        data.exportBank(questions,characters,question, PATH_BANK_EXPORT);
+    public static void exportBank(List<IQuestion> questions,Set<ICharacter> characters,IQuestion question,String path) {
+       data.exportBank(questions,characters,question, path);
     }
 
     /**
      *
      * @return
      */
+    public static void importBank(String path , List<IQuestion> questions, Set<ICharacter> characters) {
+        data.importBank(path,questions,characters);
+    }
+
     public static List<IQuestion> importQuestion() {
         return data.importQuestions(PATH_BANK);
     }
 
-    /**
-     *
-     * @return
-     */
     public static Set<ICharacter> importCharacters() {
         return data.importCharacters(PATH_BANK);
     }
+
+
 }

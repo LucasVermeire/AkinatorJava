@@ -2,7 +2,12 @@ package view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 

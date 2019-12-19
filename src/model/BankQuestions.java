@@ -16,7 +16,7 @@ public class BankQuestions {
      *
      */
     public BankQuestions() {
-        questions = load();
+        questions = Repository.importQuestion();
     }
 
     /**
@@ -59,13 +59,5 @@ public class BankQuestions {
         }
         IQuestion question = questions.get(index);
         return question.getStatementOfQuestions();
-    }
-
-    /**
-     *
-     * @return
-     */
-    private List<IQuestion> load () {
-        return Repository.importQuestion();
     }
 }
