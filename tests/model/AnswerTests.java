@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class AnswerTests {
-
+/*
     @Test
     public void answerYesToTheFirstQuestion(){
         BankCharacters bankCharacters = new BankCharacters();
@@ -35,5 +35,5 @@ public class AnswerTests {
         Set<ICharacter> characterSet = bankCharacters.getBankCharacters();
 
         assertEquals(characterSet,setFinal);
-    }
+    }*/
 }

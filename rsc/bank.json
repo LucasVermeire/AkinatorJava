@@ -1,37 +1,37 @@
 {
   "characters": [
     {
-      "listCharacters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs","Emma Watson", "Michelle Obama", "Rihanna"]
+      "listCharacters": ["Chewbacca", "Dark Vador", "Hans Solo","Kylo Ren","Luke Skywalker","R2_D2", "Yoda", "C3PO","Finn","Rey","Dark Maul"]
     }
   ],
   "questions": [
     {
-      "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Steve Jobs"],
-      "statement": "Est ce que votre personnage est un homme ?"
+      "characters": ["Chewbacca","Hans Solo","Luke Skywalker","R2_D2", "Yoda", "C3PO","Finn","Rey"],
+      "statement": "Votre personnage est-il du côté de la force ?"
     },
     {
-      "characters": ["Bill Gates", "Elon Musk", "Jeff Bezos","Mark Zuckerberg","Emma Watson", "Michelle Obama", "Rihanna"],
-      "statement": "Est ce que votre personnage est vivant ?"
+      "characters": ["Chewbacca", "Yoda"],
+      "statement": "Votre personnage est-il une créature ?"
     },
     {
-      "characters": ["Bill Gates","Mark Zuckerberg","Michelle Obama", "Rihanna"],
-      "statement": "Est-t-il marié actuellement ?"
+      "characters": ["Hans Solo","Dark Vador"],
+      "statement": "Est ce que votre personnage a été assasiné par son propre fils ?"
     },
     {
-      "characters": ["Bill Gates","Jeff Bezos","Michelle Obama"],
-      "statement": "Est-ce que votre personnage a plus de 50 ans ?"
+      "characters": ["Luke Skywalker","Kylo Ren","R2_D2","Yoda"],
+      "statement": "Votre personnage a-t-il disparu des années ?"
     },
     {
-      "characters": ["Rihanna","Marilyn Monroe"],
-      "statement": "Est ce que votre personnage est une chanteuse ?"
+      "characters": ["R2_D2", "C3PO"],
+      "statement": "Est ce que votre personnage est un robot ?"
     },
     {
-      "characters": ["Emma Watson", "Rihanna", "Mark Zuckerberg"],
-      "statement": "Est-ce que votre personnage a moins de 40 ans ?"
+      "characters": ["Chewbacca"],
+      "statement": "Accompagne t-il Hans Solo pendant ses aventures ?"
     },
     {
-      "characters": ["Emma Watson","Marilyn Monroe"],
-      "statement": "Est ce que votre personnage a joué dans un film ?"
+      "characters": ["Rey"],
+      "statement": "Est-il une femme ?"
     }
   ]
 }

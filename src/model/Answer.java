@@ -8,11 +8,12 @@ import java.util.*;
  */
 public class Answer implements IAnswer{
 
-    private BankQuestions questions =  new BankQuestions();
+    private BankQuestions questions ;
     private Set<ICharacter> setFinal ;
 
-    public Answer(Set<ICharacter> characters) {
+    public Answer(Set<ICharacter> characters,BankQuestions questions) {
         this.setFinal = characters;
+        this.questions = questions;
     }
 
     @Override

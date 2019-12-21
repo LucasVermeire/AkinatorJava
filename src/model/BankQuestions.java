@@ -40,11 +40,14 @@ public class BankQuestions {
      * @param nameCharacter String
      * @param pastQuestions List<String>
      */
-    public void addCharacterInQuestion(String nameCharacter,List<String> pastQuestions) {
+    public void addCharacterInQuestion(String nameCharacter, List<String> pastQuestions) {
         int i = 0;
 
         for(String item : pastQuestions){
-            if(item.equals("true")) questions.get(i).addCharacter(nameCharacter);
+            if(item.equals("true")){
+                questions.get(i).addCharacter(nameCharacter);
+                System.out.println( questions.get(i).getSetCharacters().size());
+            }
             i++;
         }
     }
@@ -56,9 +59,10 @@ public class BankQuestions {
      */
     public String questionToString(int index) {
         if(index > questions.size() || index < 0){
-            return null;
+            return " ";
+        }else{
+            IQuestion question = questions.get(index);
+            return question.getStatementOfQuestions();
         }
-        IQuestion question = questions.get(index);
-        return question.getStatementOfQuestions();
     }
 }

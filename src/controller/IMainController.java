@@ -2,9 +2,6 @@ package controller;
 
 import model.BankCharacters;
 
-/**
- *
- */
 public interface IMainController {
     String getQuestion();
     String getPathImg();

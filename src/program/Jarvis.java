@@ -1,6 +1,7 @@
 package program;
 
 import java.io.IOException;
+import controller.IMainController;
 import controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ public class Jarvis extends Application {
         Parent root;
         try {
             FXMLLoader chargerFXML = new FXMLLoader (getClass().getResource("/view/MainMenu/MainMenu.fxml"));
-            MainController control = new MainController(new SwitchView(primaryStage));
+            IMainController control = new MainController(new SwitchView(primaryStage));
             MenuFXMLController FXMLControl = new MenuFXMLController(control);
 
             chargerFXML.setController(FXMLControl);

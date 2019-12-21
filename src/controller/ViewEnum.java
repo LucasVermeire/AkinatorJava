@@ -7,7 +7,6 @@ public enum ViewEnum {
     Question,
     QuestionOfSolution,
     ListOfCharacters,
-    CharacterIdea,
     CharacterNotFound,
     CharacterFound,
     SpecificCharacter;

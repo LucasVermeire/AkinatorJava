@@ -20,7 +20,7 @@
             </ImageView>
             <Label fx:id="label" textFill="WHITE">
                <font>
-                  <Font name="Verdana Bold" size="23.0" />
+                  <Font name="Verdana Bold" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets />

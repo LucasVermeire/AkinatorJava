@@ -1,9 +1,13 @@
 package model;
 
 import repository.Repository;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * This class knows the character bank, the question bank. This is the knowledge bank of my application.
@@ -14,7 +18,7 @@ public class Knowledge implements IKnowledge {
     private BankCharacters characters;
     private Set<ICharacter> setFinal;
     private Answer answer;
-    private PropertyChangeSupport myPcs =new PropertyChangeSupport(this); ;
+    private PropertyChangeSupport myPcs =new PropertyChangeSupport(this);;
     private int index;
     private List<String> pastQuestions;
 
@@ -22,24 +26,11 @@ public class Knowledge implements IKnowledge {
         questions = new BankQuestions();
         characters = new BankCharacters();
         setFinal = new HashSet<>(characters.getBankCharacters());
-        answer = new Answer(setFinal);
+        answer = new Answer(setFinal,questions);
         index = 0;
         pastQuestions = new ArrayList<>();
     }
 
-    @Override
-    public ICharacter getLastCharacter(){
-        if(knowCharacterFinal()){
-            List<ICharacter> characterArrayList = new ArrayList<ICharacter>(setFinal);
-
-            return characterArrayList.get(0);
-        }else return new Character("");
-    }
-
-    @Override
-    public String getImgLastCharacter(){
-        return getLastCharacter().getPathImg();
-    }
 
     @Override
     public String getQuestion(){
@@ -60,6 +51,21 @@ public class Knowledge implements IKnowledge {
     public BankCharacters getBankCharacter(){
         return characters;
     }
+
+    @Override
+    public ICharacter getLastCharacter(){
+        if(knowCharacterFinal()){
+            List<ICharacter> characterArrayList = new ArrayList<>(setFinal);
+
+            return characterArrayList.get(0);
+        }else return new Character("");
+    }
+
+    @Override
+    public String getImgLastCharacter(){
+        return getLastCharacter().getPathImg();
+    }
+
 
     @Override
     public void answerYes () {
@@ -102,12 +108,12 @@ public class Knowledge implements IKnowledge {
 
     @Override
     public String characterFinalToString(){
-        Set<ICharacter> list = new HashSet<ICharacter>(setFinal);
-        String characterFinal = "";
+        Set<ICharacter> list = new HashSet<>(setFinal);
+        StringBuilder characterFinal = new StringBuilder();
         for (ICharacter item : list) {
-            characterFinal += item.getName() + "\n";
+            characterFinal.append(item.getName()).append("\n");
         }
-        return characterFinal;
+        return characterFinal.toString();
     }
 
     @Override
@@ -150,7 +156,7 @@ public class Knowledge implements IKnowledge {
     @Override
     public void restart(){
         this.setFinal = new HashSet<>(characters.getBankCharacters());
-        this.answer = new Answer(setFinal);
+        this.answer = new Answer(setFinal,questions);
         this.index = 0;
         this.pastQuestions = new ArrayList<>();
         myPcs = new PropertyChangeSupport(this);

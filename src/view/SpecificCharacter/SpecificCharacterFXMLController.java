@@ -1,7 +1,6 @@
 package view.SpecificCharacter;
 
 import controller.IMainController;
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -34,7 +33,7 @@ public class SpecificCharacterFXMLController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        name.setText("Yoda");
+
     }
 
     @FXML
@@ -58,7 +57,7 @@ public class SpecificCharacterFXMLController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         Window stage =  chooseFile.getScene().getWindow();
         fileChooser.setTitle("Choisir son image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images","*.jpg","*.png"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images","*.jpg"));
 
         try{
             File file = fileChooser.showOpenDialog(stage);

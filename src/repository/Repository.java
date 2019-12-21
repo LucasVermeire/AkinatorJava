@@ -10,11 +10,8 @@ import model.ICharacter;
  */
 public class Repository {
 
-    //##############################
     private static Data data;
     private static final String PATH_BANK = "rsc\\bank.json";
-    //##############################
-
 
     static{
         data = new Data();

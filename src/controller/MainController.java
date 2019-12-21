@@ -11,7 +11,6 @@ import view.Question.QuestionFXMLController;
 import view.QuestionOfSolution.QuestionOfSolutionFXMLController;
 import view.SpecificCharacter.SpecificCharacterFXMLController;
 import view.Themes.ThemesFXMLController;
-
 import java.io.File;
 import java.util.*;
 
