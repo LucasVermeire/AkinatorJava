@@ -1,22 +1,18 @@
 package view.SpecificCharacter;
 
 import controller.IMainController;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.Window;
-
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.File;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 
 public class SpecificCharacterFXMLController implements Initializable {
@@ -32,23 +28,18 @@ public class SpecificCharacterFXMLController implements Initializable {
     @FXML
     private Label message;
 
-    private String pathImg;
-
-    private FileChooser fileChooser = new FileChooser();
-
-
-    public SpecificCharacterFXMLController(IMainController controller) {
+    public SpecificCharacterFXMLController(IMainController controller)  {
         this.controller = controller;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        name.setText("Yoda");
     }
 
     @FXML
-    private void validate(){
-        controller.addCharacter(name.getText(), pathImg);
+    private void validate() {
+        controller.addCharacter(name.getText());
         controller.switchView("CharacterNotFound");
     }
 
@@ -64,20 +55,21 @@ public class SpecificCharacterFXMLController implements Initializable {
 
     @FXML
     private void chooseFile(){
+        FileChooser fileChooser = new FileChooser();
         Window stage =  chooseFile.getScene().getWindow();
         fileChooser.setTitle("Choisir son image");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Images","*.jpg","*.png"));
 
         try{
             File file = fileChooser.showOpenDialog(stage);
+            int dotIndex = file.getAbsolutePath().lastIndexOf(".");
+            String ext = file.getAbsolutePath().substring(dotIndex);
             fileChooser.setInitialDirectory(file.getParentFile());
-            pathImg = file.getAbsolutePath();
-            Path sourceDirectory = Paths.get(pathImg);
-            Path targetDirectory = Paths.get("C:\\B2-info\\IntelliJ_Lucas_VERMEIRE_Akinator\\src\\img\\characters\\"+pathImg.substring((pathImg.lastIndexOf("\\"))));
-            Files.copy(sourceDirectory,targetDirectory);
-            Files.delete(targetDirectory);
+            File target = new File("src/img/characters/"+name.getText().replace(" ","_")+ ext);
+            Files.copy(file.toPath(),target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            message.setText("Fichier téléchargé !");
         }catch (Exception ex){
-            message.setText("Erreur d'image !");
+            ex.printStackTrace();
         }
     }
 }

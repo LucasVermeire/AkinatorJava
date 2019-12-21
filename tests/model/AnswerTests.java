@@ -1,17 +1,14 @@
 package model;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class AnswerTests {
 
-
     @Test
-    public void knowAnswerYes(){
+    public void answerYesToTheFirstQuestion(){
         BankCharacters bankCharacters = new BankCharacters();
 
         Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
@@ -26,7 +23,7 @@ public class AnswerTests {
     }
 
     @Test
-    public void knowAnswerNo(){
+    public void answerNoToTheFirstQuestion(){
         BankCharacters bankCharacters = new BankCharacters();
 
         Set<ICharacter> setFinal = bankCharacters.getBankCharacters();

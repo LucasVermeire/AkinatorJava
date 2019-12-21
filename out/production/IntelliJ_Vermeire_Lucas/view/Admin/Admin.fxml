@@ -28,16 +28,24 @@
                 </Label>
                 <VBox alignment="CENTER">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="297.0" styleClass="windows7" stylesheets="@../window7.css" text="Importer une banque de connaissance">
+                        <Button fx:id="importButton" mnemonicParsing="false" onAction="#importBank" prefHeight="26.0" prefWidth="297.0" styleClass="windows7" stylesheets="@../window7.css" text="Importer une banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#export" styleClass="windows7" stylesheets="@../window7.css" text="Exporter la banque de connaissance">
+                        <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportBank" styleClass="windows7" stylesheets="@../window7.css" text="Exporter la banque de connaissance">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="15.0" />
                             </VBox.margin>
                         </Button>
+                  <Label fx:id="message" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                         <Button mnemonicParsing="false" onAction="#mainMenu" styleClass="windows7" stylesheets="@../window7.css" text="Retour">
                             <VBox.margin>
                                 <Insets top="50.0" />

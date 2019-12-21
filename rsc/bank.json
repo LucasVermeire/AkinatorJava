@@ -22,10 +22,6 @@
       "statement": "Est-ce que votre personnage a plus de 50 ans ?"
     },
     {
-      "characters": ["Emma Watson", "Michelle Obama", "Rihanna","Marilyn Monroe"],
-      "statement": "Est ce que votre personnage est une femme ?"
-    },
-    {
       "characters": ["Rihanna","Marilyn Monroe"],
       "statement": "Est ce que votre personnage est une chanteuse ?"
     },

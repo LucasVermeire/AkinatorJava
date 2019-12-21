@@ -11,6 +11,8 @@ import view.Question.QuestionFXMLController;
 import view.QuestionOfSolution.QuestionOfSolutionFXMLController;
 import view.SpecificCharacter.SpecificCharacterFXMLController;
 import view.Themes.ThemesFXMLController;
+
+import java.io.File;
 import java.util.*;
 
 /**
@@ -20,11 +22,9 @@ import java.util.*;
  */
 public class MainController implements IMainController {
 
-    //###############################
     private SwitchView view;
     private HashMap<String, Object> controllers;
     private IKnowledge knowledge;
-    //###############################
 
     /**
      * Builder of my class
@@ -64,7 +64,7 @@ public class MainController implements IMainController {
 
     @Override
     public String getPathImg(){
-        return "img/characters/"+knowledge.getImgLastCharacter();
+        return "src" + File.separator + "img" + File.separator + "characters" + File.separator + knowledge.getImgLastCharacter();
     }
 
     @Override
@@ -86,16 +86,12 @@ public class MainController implements IMainController {
             i++;
         }
         return arrayFinalCharacters;
-
     }
-
-    //##########################################################
 
     /**
      * The void method SwitchView(String pathFXML) allows me to change the view according to its parameter
-     * by calling a method the SwitchView class.
-     *
-     * If the parameter corresponds to the fxml Question file, it means that the knowledge bank must be restarted.
+     * by calling a method the SwitchView class. If the parameter corresponds to the fxml Question file,
+     * it means that the knowledge bank must be restarted.
      *
      * @param fileFXML String
      */
@@ -182,8 +178,6 @@ public class MainController implements IMainController {
         switchView(listener2);
     }
 
-    //##########################################################
-
     @Override
     public void notifyQuestion() {
         knowledge.notifyQuestion();
@@ -194,12 +188,10 @@ public class MainController implements IMainController {
         knowledge.notifySolution();
     }
 
-    //########################################################
-
 
    @Override
-    public void addCharacter(String name,String path){
-       knowledge.addCharacter(name,path);
+    public void addCharacter(String name){
+       knowledge.addCharacter(name);
    }
 
     @Override

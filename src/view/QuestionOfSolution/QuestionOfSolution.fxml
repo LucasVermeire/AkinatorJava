@@ -31,7 +31,7 @@
                 </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                   <Button mnemonicParsing="false" onAction="#characterIdea" styleClass="windows7" stylesheets="@../window7.css" text="Non">
+                   <Button mnemonicParsing="false" onAction="#specificCharacter" styleClass="windows7" stylesheets="@../window7.css" text="Non">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>

@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class QuestionFXMLController implements Initializable , PropertyChangeListener {

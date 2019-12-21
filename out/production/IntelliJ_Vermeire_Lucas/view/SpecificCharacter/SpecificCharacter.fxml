@@ -30,7 +30,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Label text="Exemple : Henri IV" textFill="WHITE">
+            <Label text="Exemple : Dark Vador" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="40.0" top="10.0" />
                </VBox.margin>
@@ -63,13 +63,21 @@
                      <children>
                         <Label text="Image" textFill="WHITE">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Verdana" size="14.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="30.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="img" prefHeight="25.0" prefWidth="169.0" />
+                        <Button fx:id="chooseFile" mnemonicParsing="false" onAction="#chooseFile" text="Choisir un fichier">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin></Button>
+                        <Label fx:id="message" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Label>
                      </children>
                      <VBox.margin>
                         <Insets right="80.0" top="10.0" />

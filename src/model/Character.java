@@ -1,52 +1,28 @@
 package model;
 
 /**
- *
+ * This class is composed of a name for a character.
  */
 public class Character implements ICharacter {
 
-    //###################
     private String name;
     private String pathImg;
-    //###################
 
-    /**
-     *
-     * @param name
-     */
     public Character(String name) {
         this.name = name;
-        pathImg = (name + ".jpg").replace(" ","_");
+        pathImg = (name+".jpg").replace(" ","_");
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String getName(){
         return name;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String getPathImg(){
         return pathImg;
     }
 
-    @Override
-    public void setPathImg(String path){
-        pathImg = path;
-    }
-
-    /**
-     *
-     * @param character
-     * @return
-     */
     @Override
     public boolean equals(Object character) {
         try{
@@ -57,20 +33,11 @@ public class Character implements ICharacter {
         }
     }
 
-    /**
-     *
-     * @param character
-     * @return
-     */
     @Override
     public int compareTo(ICharacter character) {
         return name.compareTo(character.getName());
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public int hashCode() {
         return name.hashCode();

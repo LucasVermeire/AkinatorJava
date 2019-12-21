@@ -1,6 +1,5 @@
 package model;
 
-
 import org.junit.jupiter.api.Test;
 
 
@@ -31,7 +30,7 @@ class KnowledgeTests {
 
 	@Test
 	public void knowNumberOfQuestions() {
-		int size = 8;
+		int size = 7;
 
 		Knowledge knowledge = new Knowledge();
 

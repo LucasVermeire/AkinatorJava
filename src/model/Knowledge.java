@@ -1,41 +1,33 @@
 package model;
 
 import repository.Repository;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.*;
 
 /**
- *
+ * This class knows the character bank, the question bank. This is the knowledge bank of my application.
  */
 public class Knowledge implements IKnowledge {
 
-    //##########################################
     private BankQuestions questions;
     private BankCharacters characters;
     private Set<ICharacter> setFinal;
     private Answer answer;
-    private PropertyChangeSupport myPcs ;
+    private PropertyChangeSupport myPcs =new PropertyChangeSupport(this); ;
     private int index;
-    private List<String> pastQuestion;
-    //##########################################
+    private List<String> pastQuestions;
 
-    /**
-     *
-     */
     public Knowledge () {
         questions = new BankQuestions();
         characters = new BankCharacters();
         setFinal = new HashSet<>(characters.getBankCharacters());
         answer = new Answer(setFinal);
         index = 0;
-        pastQuestion = new ArrayList<>();
-        myPcs = new PropertyChangeSupport(this);
+        pastQuestions = new ArrayList<>();
     }
 
-    //##########################################
-
+    @Override
     public ICharacter getLastCharacter(){
         if(knowCharacterFinal()){
             List<ICharacter> characterArrayList = new ArrayList<ICharacter>(setFinal);
@@ -69,26 +61,23 @@ public class Knowledge implements IKnowledge {
         return characters;
     }
 
-
-    //##########################################
-
     @Override
     public void answerYes () {
         answer.answerYes(index);
-        pastQuestion.add(index,"true");
+        pastQuestions.add(index,"true");
         answerFirePropertyChange();
     }
 
     @Override
     public void answerNo() {
         answer.answerNo(index);
-        pastQuestion.add(index,"false");
+        pastQuestions.add(index,"false");
         answerFirePropertyChange();
     }
 
     @Override
     public void answerIDK() {
-        pastQuestion.add(index,"none");
+        pastQuestions.add(index,"none");
         answerFirePropertyChange();
     }
 
@@ -99,8 +88,6 @@ public class Knowledge implements IKnowledge {
             myPcs.firePropertyChange("Question",oldQuestion,getQuestion());
         }
     }
-
-    //##########################################
 
     @Override
     public int knowNumberOfQuestions(){
@@ -123,8 +110,6 @@ public class Knowledge implements IKnowledge {
         return characterFinal;
     }
 
-    //##########################################
-
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         myPcs.addPropertyChangeListener(listener);
@@ -133,8 +118,6 @@ public class Knowledge implements IKnowledge {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         myPcs.removePropertyChangeListener(listener);
     }
-
-    //##########################################
 
     @Override
     public void notifyQuestion() {
@@ -146,13 +129,10 @@ public class Knowledge implements IKnowledge {
         myPcs.firePropertyChange("Solution","", characterFinalToString());
     }
 
-    //#########################################
-
     @Override
-    public void addCharacter(String name,String path) {
+    public void addCharacter(String name) {
         characters.addCharacter(name);
-        questions.addCharacterInQuestion(name,pastQuestion);
-        System.out.println();
+        questions.addCharacterInQuestion(name, pastQuestions);
     }
 
     @Override
@@ -172,7 +152,7 @@ public class Knowledge implements IKnowledge {
         this.setFinal = new HashSet<>(characters.getBankCharacters());
         this.answer = new Answer(setFinal);
         this.index = 0;
-        this.pastQuestion = new ArrayList<>();
+        this.pastQuestions = new ArrayList<>();
         myPcs = new PropertyChangeSupport(this);
     }
 }
