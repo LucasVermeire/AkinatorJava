@@ -1,7 +1,9 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -103,7 +105,7 @@ class BankQuestionsTests {
 
         IQuestion question = bankQuestions.getQuestionByIndex(134);
 
-        assertEquals(null,question);
+        assertNull(question);
     }
 
     @Test
@@ -113,7 +115,7 @@ class BankQuestionsTests {
 
         IQuestion question = bankQuestions.getQuestionByIndex(-12);
 
-        assertEquals(null,question);
+        assertNull(question);
     }
 
     @Test
@@ -135,5 +137,83 @@ class BankQuestionsTests {
         BankQuestions bankQuestions = knowledge.getBankQuestion();
 
         assertEquals(" ",bankQuestions.questionToString(135));
+    }
+
+    @Test
+    public void knowQuestionToStringIndexNegated(){
+        Knowledge knowledge = new Knowledge();
+
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
+
+        assertEquals(" ",bankQuestions.questionToString(-2));
+    }
+
+    @Test
+    public void addCharacterOneTrue(){
+        Knowledge knowledge = new Knowledge();
+
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
+
+        List<String> pastQuestions = new ArrayList<>();
+        pastQuestions.add("true");
+        pastQuestions.add("false");
+        pastQuestions.add("none");
+        bankQuestions.addCharacterInQuestion("Lucas Vermeire",pastQuestions);
+
+        IQuestion question = bankQuestions.getQuestionByIndex(0);
+
+        Set<ICharacter> characters1 = question.getSetCharacters();
+
+        Set<ICharacter> characters2 = new HashSet<>();
+        characters2.add(new Character("Chewbacca"));
+        characters2.add(new Character("Hans Solo"));
+        characters2.add(new Character("Luke Skywalker"));
+        characters2.add(new Character("R2 D2"));
+        characters2.add(new Character("Yoda"));
+        characters2.add(new Character("C3PO"));
+        characters2.add(new Character("Finn"));
+        characters2.add(new Character("Rey"));
+        characters2.add(new Character("Lucas Vermeire"));
+
+        assertEquals(characters2,characters1);
+    }
+
+    @Test
+    public void addCharacterTwoTrue(){
+        Knowledge knowledge = new Knowledge();
+
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
+
+        List<String> pastQuestions = new ArrayList<>();
+        pastQuestions.add("true");
+        pastQuestions.add("true");
+        pastQuestions.add("none");
+        bankQuestions.addCharacterInQuestion("Lucas Vermeire",pastQuestions);
+
+        IQuestion question = bankQuestions.getQuestionByIndex(0);
+
+        Set<ICharacter> characters1 = question.getSetCharacters();
+
+        Set<ICharacter> characters2 = new HashSet<>();
+        characters2.add(new Character("Chewbacca"));
+        characters2.add(new Character("Hans Solo"));
+        characters2.add(new Character("Luke Skywalker"));
+        characters2.add(new Character("R2 D2"));
+        characters2.add(new Character("Yoda"));
+        characters2.add(new Character("C3PO"));
+        characters2.add(new Character("Finn"));
+        characters2.add(new Character("Rey"));
+        characters2.add(new Character("Lucas Vermeire"));
+
+        IQuestion question2 = bankQuestions.getQuestionByIndex(1);
+        Set<ICharacter> characters3 = question2.getSetCharacters();
+
+        Set<ICharacter> characters4 = new HashSet<>();
+        characters4.add(new Character("Chewbacca"));
+        characters4.add(new Character("Yoda"));
+        characters4.add(new Character("Lucas Vermeire"));
+
+        assertEquals(characters2,characters1);
+        assertEquals(characters4,characters3);
     }
 }

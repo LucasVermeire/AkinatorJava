@@ -35,7 +35,10 @@ public class Character implements ICharacter {
 
     @Override
     public int compareTo(ICharacter character) {
-        return name.compareTo(character.getName());
+        if(character.getName()!= null){
+            return name.compareTo(character.getName());
+        }
+        return -1;
     }
 
     @Override

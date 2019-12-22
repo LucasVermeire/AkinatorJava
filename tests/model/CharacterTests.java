@@ -29,15 +29,23 @@ class CharacterTests {
         Character character1 = new Character("Lucas");
         Character character2 = new Character("Lucas");
 
-        assertTrue(character1.equals(character2));
+        assertEquals(character1, character2);
     }
 
     @Test
     public void character1NotEqualsCharacter2() {
         Character character1 = new Character("Lucas");
         Character character2 = new Character("Tom");
-        assertFalse(character1.equals(character2));
+        assertNotEquals(character1, character2);
     }
+
+    @Test
+    public void character1NotEqualsNullCharacter() {
+        Character character1 = new Character("Lucas");
+        Character character2 = new Character(null);
+        assertNotEquals(character1, character2);
+    }
+
 
     @Test
     public void character1CompareToCharacter2() {
@@ -53,6 +61,14 @@ class CharacterTests {
         Character character4 = new Character("Lucas");
 
         assertEquals(0,character3.compareTo(character4));
+    }
+
+    @Test
+    public void character3CompareToNullCharacter() {
+        Character character3 = new Character("Lucas");
+        Character character4 = new Character(null);
+
+        assertEquals(-1,character3.compareTo(character4));
     }
 
     @Test

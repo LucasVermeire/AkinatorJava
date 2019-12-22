@@ -17,9 +17,9 @@ public class QuestionTests {
 
         Question q = new Question("Est ce que votre personnage est un homme?",characters);
 
-        String enonce = "Est ce que votre personnage est un homme?";
+        String statement = "Est ce que votre personnage est un homme?";
 
-        assertEquals(enonce,q.getStatementOfQuestions());
+        assertEquals(statement,q.getStatementOfQuestions());
     }
 
 

@@ -46,7 +46,6 @@ public class BankQuestions {
         for(String item : pastQuestions){
             if(item.equals("true")){
                 questions.get(i).addCharacter(nameCharacter);
-                System.out.println( questions.get(i).getSetCharacters().size());
             }
             i++;
         }
