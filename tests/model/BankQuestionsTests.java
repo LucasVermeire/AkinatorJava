@@ -13,30 +13,87 @@ class BankQuestionsTests {
 
     @Test
     public void knowHisListQuestions() {
-/*
-       List<IQuestion> questions = Repository.importQuestion();
+
+        Knowledge knowledge = new Knowledge();
 
         BankQuestions bankQuestions = new BankQuestions();
 
-        assertEquals(questions,bankQuestions.getBankQuestions());*/
+        Set<ICharacter> characters1 = new HashSet<>();
+        characters1.add(new Character("Chewbacca"));
+        characters1.add(new Character("Hans Solo"));
+        characters1.add(new Character("Luke Skywalker"));
+        characters1.add(new Character("R2 D2"));
+        characters1.add(new Character("Yoda"));
+        characters1.add(new Character("C3PO"));
+        characters1.add(new Character("Finn"));
+        characters1.add(new Character("Rey"));
+
+        bankQuestions.addQuestion("Votre personnage est-il du côté de la force ?",characters1);
+
+        Set<ICharacter> characters2 = new HashSet<>();
+        characters2.add(new Character("Chewbacca"));
+        characters2.add(new Character("Yoda"));
+
+        bankQuestions.addQuestion("Votre personnage est-il une créature ?",characters2);
+
+        Set<ICharacter> characters3 = new HashSet<>();
+        characters3.add(new Character("Dark Vador"));
+        characters3.add(new Character("Hans Solo"));
+
+        bankQuestions.addQuestion("Est ce que votre personnage a été assasiné par son propre fils ?",characters3);
+
+
+        Set<ICharacter> characters4 = new HashSet<>();
+        characters4.add(new Character("Luke Skywalker"));
+        characters4.add(new Character("Kylo Ren"));
+        characters4.add(new Character("R2 D2"));
+        characters4.add(new Character("Yoda"));
+
+
+        bankQuestions.addQuestion("Votre personnage a-t-il disparu des années ?",characters4);
+
+
+        Set<ICharacter> characters5 = new HashSet<>();
+        characters5.add(new Character("R2 D2"));
+        characters5.add(new Character("C3PO"));
+
+        bankQuestions.addQuestion("Est ce que votre personnage est un robot ?",characters5);
+
+        Set<ICharacter> characters6 = new HashSet<>();
+        characters6.add(new Character("Chewbacca"));
+
+        bankQuestions.addQuestion("Accompagne t-il Hans Solo pendant ses aventures ?",characters6);
+
+        Set<ICharacter> characters7 = new HashSet<>();
+        characters7.add(new Character("Rey"));
+
+        bankQuestions.addQuestion("Est-il une femme ?",characters7);
+
+        assertEquals(knowledge.getBankQuestion().getBankQuestions(),bankQuestions.getBankQuestions());
     }
 
     @Test
     public void knowQuestionByIndex(){
 
-        BankQuestions bankQuestions = new BankQuestions();
+        Knowledge knowledge = new Knowledge();
+
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
 
         IQuestion question = bankQuestions.getQuestionByIndex(0);
 
-        Set<ICharacter> characterSet = new HashSet<>();
+        Set<ICharacter> characters1 = new HashSet<>();
 
-        characterSet.add(new Character( "Bill Gates"));
-        characterSet.add(new Character( "Elon Musk"));
-        characterSet.add(new Character( "Jeff Bezos"));
-        characterSet.add(new Character( "Mark Zuckerberg"));
-        characterSet.add(new Character( "Steve Jobs"));
+        characters1.add(new Character("Chewbacca"));
+        characters1.add(new Character("Hans Solo"));
+        characters1.add(new Character("Luke Skywalker"));
+        characters1.add(new Character("R2 D2"));
+        characters1.add(new Character("Yoda"));
+        characters1.add(new Character("C3PO"));
+        characters1.add(new Character("Finn"));
+        characters1.add(new Character("Rey"));
 
-        assertEquals(new Question("Est ce que votre personnage est un homme ?",characterSet),question);
+
+        assertEquals(new Question("Votre personnage est-il du côté de la force ?",characters1),question);
     }
 
     @Test
@@ -45,14 +102,6 @@ class BankQuestionsTests {
         BankQuestions bankQuestions = new BankQuestions();
 
         IQuestion question = bankQuestions.getQuestionByIndex(134);
-
-        Set<ICharacter> characterSet = new HashSet<>();
-
-        characterSet.add(new Character( "Bill Gates"));
-        characterSet.add(new Character( "Elon Musk"));
-        characterSet.add(new Character( "Jeff Bezos"));
-        characterSet.add(new Character( "Mark Zuckerberg"));
-        characterSet.add(new Character( "Steve Jobs"));
 
         assertEquals(null,question);
     }
@@ -64,30 +113,27 @@ class BankQuestionsTests {
 
         IQuestion question = bankQuestions.getQuestionByIndex(-12);
 
-        Set<ICharacter> characterSet = new HashSet<>();
-
-        characterSet.add(new Character( "Bill Gates"));
-        characterSet.add(new Character( "Elon Musk"));
-        characterSet.add(new Character( "Jeff Bezos"));
-        characterSet.add(new Character( "Mark Zuckerberg"));
-        characterSet.add(new Character( "Steve Jobs"));
-
         assertEquals(null,question);
     }
 
     @Test
     public void knowQuestionToString(){
-        BankQuestions bankQuestions = new BankQuestions();
 
-        String statement = "Est ce que votre personnage est un homme ?";
+        Knowledge knowledge = new Knowledge();
+
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
+
+        String statement = "Votre personnage est-il du côté de la force ?";
 
         assertEquals(statement,bankQuestions.questionToString(0));
     }
 
     @Test
     public void knowQuestionToStringIndexOversize(){
-        BankQuestions bankQuestions = new BankQuestions();
+        Knowledge knowledge = new Knowledge();
 
-        assertEquals(null,bankQuestions.questionToString(135));
+        BankQuestions bankQuestions = knowledge.getBankQuestion();
+
+        assertEquals(" ",bankQuestions.questionToString(135));
     }
 }

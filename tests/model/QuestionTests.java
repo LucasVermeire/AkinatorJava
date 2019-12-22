@@ -33,11 +33,11 @@ public class QuestionTests {
         Question q = new Question("Est ce que votre personnage est un vieil homme?",characters);
 
 
-        Set<Character> personnages2 = new TreeSet<Character>();
+        Set<Character> personages2 = new TreeSet<Character>();
 
-        personnages2.add(new Character("Lucas"));
+        personages2.add(new Character("Lucas"));
 
-        assertEquals(personnages2,q.getSetCharacters());
+        assertEquals(personages2,q.getSetCharacters());
     }
 
 
@@ -65,5 +65,97 @@ public class QuestionTests {
         Question q2 = new Question("Est ce que votre personnage est grand",characters);
 
         assertFalse(q1.equals(q2));
+    }
+
+    @Test
+    public void answerYesTest() {
+
+        Set<ICharacter> characters1 = new TreeSet<ICharacter>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
+        characters1.add(new Character("Sam"));
+
+        Set<ICharacter>characters2 = new TreeSet<ICharacter>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
+
+
+        IQuestion question = new Question("Ceci est une question",characters1);
+
+        Set<ICharacter> intersection = question.answerYes(characters2);
+
+        assertTrue(intersection.contains(new Character("Lucas")));
+        assertFalse(intersection.contains(new Character("Bernard")));
+        assertFalse(intersection.contains(new Character("Yann")));
+        assertTrue(intersection.contains(new Character("Sam")));
+
+        assertTrue(intersection.contains(new Character("Lucas")));
+        assertFalse(intersection.contains(new Character("Bernard")));
+        assertFalse(intersection.contains(new Character("Yann")));
+        assertTrue(intersection.contains(new Character("Sam")));
+    }
+    @Test
+    public void answerNoTest() {
+
+        Set<ICharacter> characters1 = new TreeSet<>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
+
+        Set<ICharacter>characters2 = new TreeSet<>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
+
+        IQuestion question = new Question("Ceci est la 2ème question",characters1);
+
+        Set<ICharacter> difference = question.answerNo(characters2);
+
+        assertFalse(difference.contains(new Character("Lucas")));
+        assertFalse(difference.contains(new Character("Bernard")));
+        assertFalse(difference.contains(new Character("Yann")));
+        assertTrue(difference.contains(new Character("Sam")));
+    }
+
+    @Test
+    public void addCharacterTest() {
+
+        Set<ICharacter> characters1 = new TreeSet<>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
+
+        Set<ICharacter>characters2 = new TreeSet<>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
+
+        IQuestion question = new Question("Ceci est la 2ème question",characters2);
+
+        question.addCharacter("Yann");
+
+        assertTrue(characters2.contains(new Character("Sam")));
+        assertTrue(characters2.contains(new Character("Yann")));
+        assertFalse(characters2.contains(new Character("Bernard")));
+    }
+
+    @Test
+    public void addNullCharacterTest() {
+
+        Set<ICharacter> characters1 = new TreeSet<>();
+        characters1.add(new Character("Lucas"));
+        characters1.add(new Character("Bernard"));
+        characters1.add(new Character("Yann"));
+
+        Set<ICharacter>characters2 = new TreeSet<>();
+        characters2.add(new Character("Lucas"));
+        characters2.add(new Character("Sam"));
+
+        IQuestion question = new Question("Ceci est la 2ème question",characters2);
+
+        question.addCharacter(null);
+
+        assertTrue(characters2.contains(new Character("Sam")));
+        assertFalse(characters2.contains(new Character("Yann")));
+        assertFalse(characters2.contains(new Character("Bernard")));
     }
 }

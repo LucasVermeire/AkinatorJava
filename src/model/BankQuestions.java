@@ -65,4 +65,14 @@ public class BankQuestions {
             return question.getStatementOfQuestions();
         }
     }
+
+    /**
+     * This method allows the addition of a question with the statement and character set in parameter
+     * @param statement String
+     * @param characters Set<ICharacter>
+     */
+    public void addQuestion(String statement,Set<ICharacter> characters){
+        if(statement != null)
+            questions.add(new Question(statement,characters));
+    }
 }

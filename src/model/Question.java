@@ -29,7 +29,9 @@ public class Question implements IQuestion {
 
     @Override
     public void addCharacter(String character){
-        characters.add(new Character(character));
+        if(character != null){
+            characters.add(new Character(character));
+        }
     }
 
     @Override

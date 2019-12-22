@@ -6,7 +6,7 @@
   ],
   "questions": [
     {
-      "characters": ["Chewbacca","Hans Solo","Luke Skywalker","R2_D2", "Yoda", "C3PO","Finn","Rey"],
+      "characters": ["Chewbacca","Hans Solo","Luke Skywalker","R2 D2", "Yoda", "C3PO","Finn","Rey"],
       "statement": "Votre personnage est-il du côté de la force ?"
     },
     {
@@ -18,11 +18,11 @@
       "statement": "Est ce que votre personnage a été assasiné par son propre fils ?"
     },
     {
-      "characters": ["Luke Skywalker","Kylo Ren","R2_D2","Yoda"],
+      "characters": ["Luke Skywalker","Kylo Ren","R2 D2","Yoda"],
       "statement": "Votre personnage a-t-il disparu des années ?"
     },
     {
-      "characters": ["R2_D2", "C3PO"],
+      "characters": ["R2 D2", "C3PO"],
       "statement": "Est ce que votre personnage est un robot ?"
     },
     {

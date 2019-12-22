@@ -53,7 +53,9 @@ public class Knowledge implements IKnowledge {
     }
 
     @Override
-    public BankQuestions getBankQuestion(){return questions;};
+    public BankQuestions getBankQuestion(){
+        return questions;
+    }
 
     @Override
     public ICharacter getLastCharacter(){
