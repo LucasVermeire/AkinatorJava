@@ -28,7 +28,6 @@ public class Character implements ICharacter {
         try{
             return name.equals(((Character)character).getName());
         }catch (IllegalArgumentException ex){
-            ex.printStackTrace();
             return false;
         }
     }

@@ -52,16 +52,15 @@ public class Data {
         try(FileWriter file = new FileWriter(new File(path))){
             file.write(toPrettyFormat(questionObj));
         }catch(IOException ex) {
-            ex.printStackTrace();
+            ex.getMessage();
         }
     }
 
 
     private String toPrettyFormat(JSONObject json) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String prettyJson = gson.toJson(json);
 
-        return prettyJson;
+        return gson.toJson(json);
     }
 
     public void importBank(String path, List<IQuestion> questions, Set<ICharacter> characters){
@@ -74,7 +73,7 @@ public class Data {
             characterToList(readObject,characters);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 
@@ -84,7 +83,7 @@ public class Data {
         for (JsonValue item : arrayQuestions) {
             JsonObject object = (JsonObject) item;
 
-            Set<ICharacter> characterSet = new HashSet<ICharacter>();
+            Set<ICharacter> characterSet = new HashSet<>();
 
             setArrayCharacters(object,characterSet);
 

@@ -60,7 +60,7 @@ public class SpecificCharacterFXMLController {
             Files.copy(file.toPath(),target.toPath(), StandardCopyOption.REPLACE_EXISTING);
             message.setText("Fichier téléchargé !");
         }catch (Exception ex){
-            ex.printStackTrace();
+            ex.getMessage();
         }
     }
 }

@@ -23,7 +23,7 @@ public class SwitchView {
             root = chargerFXML.load();
             stage.getScene().setRoot(root);
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 }

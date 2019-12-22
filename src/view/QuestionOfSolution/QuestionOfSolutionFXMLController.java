@@ -59,7 +59,7 @@ public class QuestionOfSolutionFXMLController implements Initializable, Property
             imgCharacter.setImage(image);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 }

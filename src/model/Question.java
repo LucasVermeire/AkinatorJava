@@ -50,7 +50,6 @@ public class Question implements IQuestion {
             String statement = ((IQuestion) question).getStatementOfQuestions();
             return statement.equals(getStatementOfQuestions());
         }catch (IllegalArgumentException ex){
-            ex.printStackTrace();
             return false;
         }
     }

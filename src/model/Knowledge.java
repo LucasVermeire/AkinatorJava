@@ -31,7 +31,6 @@ public class Knowledge implements IKnowledge {
         importBank("rsc/bank.json");
     }
 
-
     @Override
     public String getQuestion(){
         return questions.questionToString(index);

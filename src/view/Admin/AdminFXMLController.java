@@ -48,7 +48,7 @@ public class AdminFXMLController {
             controller.exportBank(file.getAbsolutePath());
             message.setText("Fichier sauvegardé avec succès !");
         }catch (Exception ignored){
-            message.setText("Erreur de fichier !");
+            message.setText("Exportation échouée !");
         }
     }
 
@@ -68,7 +68,7 @@ public class AdminFXMLController {
             controller.importBank(target.getPath());
             message.setText("Fichier importé avec succès !");
         }catch (Exception ignored){
-            message.setText("Erreur de fichier !");
+            message.setText("Importation échouée !");
         }
     }
 }
