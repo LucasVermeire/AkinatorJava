@@ -11,6 +11,8 @@ import javafx.stage.Window;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 
 /**
@@ -67,14 +69,18 @@ public class AdminFXMLController implements Initializable {
 
     @FXML
     private void importBank(){
-        Window stage =  exportButton.getScene().getWindow();
+        Window stage =  importButton.getScene().getWindow();
         fileChooser.setTitle("Importer une banque de connnaissance");
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("files","*.json"));
 
         try{
             File file = fileChooser.showOpenDialog(stage);
             fileChooser.setInitialDirectory(file.getParentFile());
-            controller.importBank(file.getAbsolutePath());
+            int dotIndex = file.getAbsolutePath().lastIndexOf("\\");
+            String name = file.getAbsolutePath().substring(dotIndex);
+            File target = new File("rsc/"+name);
+            Files.copy(file.toPath(),target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            controller.importBank(target.getPath());
             message.setText("Fichier importé avec succès !");
         }catch (Exception ignored){
             message.setText("Erreur de fichier !");

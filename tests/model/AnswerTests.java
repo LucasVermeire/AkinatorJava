@@ -6,14 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class AnswerTests {
-/*
+
     @Test
     public void answerYesToTheFirstQuestion(){
         BankCharacters bankCharacters = new BankCharacters();
 
+        Knowledge knowledge = new Knowledge();
+
         Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
 
-        Answer answer = new Answer(setFinal);
+        Answer answer = new Answer(setFinal,knowledge.getBankQuestion());
 
         answer.answerYes(0);
 
@@ -25,15 +27,16 @@ public class AnswerTests {
     @Test
     public void answerNoToTheFirstQuestion(){
         BankCharacters bankCharacters = new BankCharacters();
+        Knowledge knowledge = new Knowledge();
 
         Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
 
-        Answer answer = new Answer(setFinal);
+        Answer answer = new Answer(setFinal,knowledge.getBankQuestion());
 
         answer.answerNo(0);
 
         Set<ICharacter> characterSet = bankCharacters.getBankCharacters();
 
         assertEquals(characterSet,setFinal);
-    }*/
+    }
 }

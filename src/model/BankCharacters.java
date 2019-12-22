@@ -12,7 +12,7 @@ public class BankCharacters {
     private Set<ICharacter> characters;
 
     public BankCharacters () {
-        characters = Repository.importCharacters();
+        characters = new HashSet<>();
     }
 
     /**

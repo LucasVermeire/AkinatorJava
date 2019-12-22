@@ -1,7 +1,6 @@
 package model;
 
 import repository.Repository;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ public class Knowledge implements IKnowledge {
         answer = new Answer(setFinal,questions);
         index = 0;
         pastQuestions = new ArrayList<>();
+        importBank("rsc\\bank.json");
     }
 
 
@@ -51,6 +51,9 @@ public class Knowledge implements IKnowledge {
     public BankCharacters getBankCharacter(){
         return characters;
     }
+
+    @Override
+    public BankQuestions getBankQuestion(){return questions;};
 
     @Override
     public ICharacter getLastCharacter(){
@@ -143,7 +146,7 @@ public class Knowledge implements IKnowledge {
 
     @Override
     public void exportBank(String path){
-        for(int i =0;i<knowNumberOfQuestions();i++){
+        for(int i =0;i<knowNumberOfQuestions();++i){
             Repository.exportBank(questions.getBankQuestions(),characters.getBankCharacters(),questions.getQuestionByIndex(i),path);
         }
     }

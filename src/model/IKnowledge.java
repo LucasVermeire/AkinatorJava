@@ -29,6 +29,8 @@ public interface IKnowledge extends IKnowledgeData {
      */
     BankCharacters getBankCharacter();
 
+    BankQuestions getBankQuestion();
+
     /**
      * This method returns the last character
      * @return ICharacter

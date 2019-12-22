@@ -57,12 +57,6 @@ public class Data {
         return array2;
     }
 
-
-    /**
-     *
-     * @param path
-     * @param questionObj
-     */
     private void save (String path,JSONObject questionObj) {
         try(FileWriter file = new FileWriter(new File(path))){
             file.write(toPrettyFormat(questionObj));
@@ -79,13 +73,6 @@ public class Data {
         return prettyJson;
     }
 
-    //#################################################
-
-    /**
-     *
-     * @param path
-     * @return
-     */
     public void importBank(String path, List<IQuestion> questions, Set<ICharacter> characters){
 
         try (InputStream reader = new FileInputStream(path)) {
@@ -100,27 +87,6 @@ public class Data {
         }
     }
 
-    public List<IQuestion> importQuestions(String path){
-        List<IQuestion> questions = new ArrayList<IQuestion>();
-
-        try (InputStream reader = new FileInputStream(path)) {
-            JsonReader jsonReader = Json.createReader(reader);
-            JsonObject readObject = jsonReader.readObject();
-
-            questionsToList(readObject,questions);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return questions;
-    }
-
-
-    /**
-     *
-     * @param jsonObject
-     * @param questions
-     */
     private void questionsToList(JsonObject jsonObject, List<IQuestion> questions) {
         JsonArray arrayQuestions = jsonObject.getJsonArray("questions");
 
@@ -135,27 +101,6 @@ public class Data {
         }
     }
 
-    public Set<ICharacter> importCharacters(String path){
-        Set<ICharacter> characters = new HashSet<ICharacter>();
-
-        try (InputStream reader = new FileInputStream(path)) {
-            JsonReader jsonReader = Json.createReader(reader);
-            JsonObject readObject = jsonReader.readObject();
-
-            characterToList(readObject,characters);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return characters;
-    }
-
-
-    /**
-     *
-     * @param object
-     * @param characterSet
-     */
     private void setArrayCharacters (JsonObject object, Set<ICharacter> characterSet ){
         JsonArray arrayCharacters = object.getJsonArray("characters");
 

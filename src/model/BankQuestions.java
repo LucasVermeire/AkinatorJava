@@ -12,7 +12,7 @@ public class BankQuestions {
     private List<IQuestion> questions;
 
     public BankQuestions() {
-        questions = Repository.importQuestion();
+        questions = new ArrayList<>();
     }
 
     /**
