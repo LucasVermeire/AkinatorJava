@@ -1,7 +1,6 @@
 package model;
 
 import java.util.*;
-import repository.Repository;
 
 /**
  * This class imports the application questions from the json file in the knowledge bank.

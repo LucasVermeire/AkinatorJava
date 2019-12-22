@@ -19,18 +19,19 @@ import com.google.gson.GsonBuilder;
 import model.IQuestion;
 import model.ICharacter;
 
-
 public class Data {
 
-
-    public void exportBank(List<IQuestion> questions,Set<ICharacter>characters,IQuestion question, String path) {
+    public void exportBank(List<IQuestion> questions,Set<ICharacter>characters, String path) {
         JSONObject obj = new JSONObject();
         JSONArray arrayQuestions = new JSONArray();
 
         for(IQuestion item : questions ){
             JSONObject obj2 = new JSONObject();
             obj2.put("statement",item.getStatementOfQuestions());
-            JSONArray array2 = getCharacters(question.getSetCharacters());
+            JSONArray array2 = new JSONArray();
+            for(ICharacter item2 : item.getSetCharacters()){
+                array2.add(item2.getName());
+            }
             obj2.put("character",array2);
             arrayQuestions.add(obj2);
         }
@@ -45,16 +46,6 @@ public class Data {
         obj.put("characters",arrayCharacter);
 
         save(path,obj);
-    }
-
-    private JSONArray getCharacters(Set<ICharacter> characters){
-
-        JSONArray array2 = new JSONArray();
-
-        for(ICharacter item : characters){
-            array2.add(item.getName());
-        }
-        return array2;
     }
 
     private void save (String path,JSONObject questionObj) {

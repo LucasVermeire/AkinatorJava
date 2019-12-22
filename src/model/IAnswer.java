@@ -15,4 +15,6 @@ public interface IAnswer {
      * @param index
      */
     void answerNo (int index);
+
+    void answerIDK(int index);
 }

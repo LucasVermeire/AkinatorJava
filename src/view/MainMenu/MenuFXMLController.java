@@ -1,14 +1,9 @@
 package view.MainMenu;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.net.URL;
-import java.util.ResourceBundle;
 import controller.IMainController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 
-public class MenuFXMLController implements Initializable, PropertyChangeListener {
+public class MenuFXMLController {
 
     private IMainController controller;
 
@@ -16,10 +11,6 @@ public class MenuFXMLController implements Initializable, PropertyChangeListener
         this.controller = controller;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-    }
     @FXML
     private void start (){
         controller.switchView("Themes");
@@ -33,10 +24,5 @@ public class MenuFXMLController implements Initializable, PropertyChangeListener
     @FXML
     private void admin(){
         controller.switchView("Admin");
-    }
-
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-
     }
 }

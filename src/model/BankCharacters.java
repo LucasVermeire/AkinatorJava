@@ -1,7 +1,6 @@
 package model;
 
 import java.util.*;
-import repository.Repository;
 
 /**
  * This class imports the characters of the application from the json file of the knowledge bank.

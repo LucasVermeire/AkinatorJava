@@ -2,21 +2,13 @@ package view.CharacterNotFound;
 
 import controller.IMainController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class CharacterNotFoundFXMLController implements Initializable {
+public class CharacterNotFoundFXMLController  {
 
     private IMainController controller;
 
     public CharacterNotFoundFXMLController(IMainController controller) {
         this.controller = controller;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @FXML

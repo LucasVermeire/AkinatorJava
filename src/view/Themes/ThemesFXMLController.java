@@ -1,11 +1,8 @@
 package view.Themes;
 
 import controller.IMainController;
-import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ThemesFXMLController implements Initializable  {
+public class ThemesFXMLController {
 
     private IMainController controller;
 
@@ -19,10 +16,5 @@ public class ThemesFXMLController implements Initializable  {
 
     public void backToMenu(){
         controller.switchView("MainMenu");
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

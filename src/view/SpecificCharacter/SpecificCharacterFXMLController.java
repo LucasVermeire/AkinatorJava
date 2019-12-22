@@ -2,19 +2,16 @@ package view.SpecificCharacter;
 
 import controller.IMainController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import java.io.*;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.ResourceBundle;
 
-public class SpecificCharacterFXMLController implements Initializable {
+public class SpecificCharacterFXMLController {
 
     private IMainController controller;
 
@@ -29,11 +26,6 @@ public class SpecificCharacterFXMLController implements Initializable {
 
     public SpecificCharacterFXMLController(IMainController controller)  {
         this.controller = controller;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @FXML

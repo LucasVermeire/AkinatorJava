@@ -3,22 +3,15 @@ package view.Admin;
 import controller.IMainController;
 import controller.MainController;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
-
 import java.io.File;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.ResourceBundle;
 
-/**
- *
- */
-public class AdminFXMLController implements Initializable {
+public class AdminFXMLController {
 
     private IMainController controller;
 
@@ -33,17 +26,9 @@ public class AdminFXMLController implements Initializable {
 
     private FileChooser fileChooser = new FileChooser();
 
-
-
     public AdminFXMLController(MainController controller) {
         this.controller = controller;
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
 
     @FXML
     private void mainMenu(){

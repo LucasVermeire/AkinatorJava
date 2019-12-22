@@ -1,6 +1,7 @@
 package model;
 
 import java.beans.PropertyChangeListener;
+import java.util.List;
 import java.util.Set;
 
 public interface IKnowledge extends IKnowledgeData {
@@ -42,6 +43,8 @@ public interface IKnowledge extends IKnowledgeData {
      * @return String pathImage
      */
     String getImgLastCharacter();
+
+    List<String> getPastQuestions();
 
     /**
      * This method returns the number of questions

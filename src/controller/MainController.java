@@ -153,9 +153,9 @@ public class MainController implements IMainController {
      */
     private void knowSolution(){
         if(knowledge.knowCharacterFinal()){
-            firstRemoveAndAddPropertyChangeListener("Question","QuestionOfSolution");
+            firstRemoveAndAddPropertyChangeListener();
         }else if(knowledge.knowNumberOfQuestions() == knowledge.getIndex() && knowledge.getSetFinal().size()>0){
-            secondRemoveAndAddPropertyChangeListener("Question","ListOfCharacters");
+            secondRemoveAndAddPropertyChangeListener();
         }else if(ifNoMoreCharacters()){
             switchView("SpecificCharacter");
         }
@@ -165,16 +165,16 @@ public class MainController implements IMainController {
         return knowledge.getSetFinal().size() == 0;
     }
 
-    private void firstRemoveAndAddPropertyChangeListener(String listener1, String listener2){
-        knowledge.removePropertyChangeListener((QuestionFXMLController)controllers.get(listener1));
-        knowledge.addPropertyChangeListener((QuestionOfSolutionFXMLController)controllers.get(listener2));
-        switchView(listener2);
+    private void firstRemoveAndAddPropertyChangeListener(){
+        knowledge.removePropertyChangeListener((QuestionFXMLController)controllers.get("Question"));
+        knowledge.addPropertyChangeListener((QuestionOfSolutionFXMLController)controllers.get("QuestionOfSolution"));
+        switchView("QuestionOfSolution");
     }
 
-    private void secondRemoveAndAddPropertyChangeListener(String listener1,String listener2){
-        knowledge.removePropertyChangeListener((QuestionFXMLController)controllers.get(listener1));
-        knowledge.addPropertyChangeListener((ListOfCharactersFXMLController)controllers.get(listener2));
-        switchView(listener2);
+    private void secondRemoveAndAddPropertyChangeListener(){
+        knowledge.removePropertyChangeListener((QuestionFXMLController)controllers.get("Question"));
+        knowledge.addPropertyChangeListener((ListOfCharactersFXMLController)controllers.get("ListOfCharacters"));
+        switchView("ListOfCharacters");
     }
 
     @Override

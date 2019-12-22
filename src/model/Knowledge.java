@@ -17,7 +17,7 @@ public class Knowledge implements IKnowledge {
     private BankCharacters characters;
     private Set<ICharacter> setFinal;
     private Answer answer;
-    private PropertyChangeSupport myPcs =new PropertyChangeSupport(this);;
+    private PropertyChangeSupport myPcs =new PropertyChangeSupport(this);
     private int index;
     private List<String> pastQuestions;
 
@@ -25,10 +25,10 @@ public class Knowledge implements IKnowledge {
         questions = new BankQuestions();
         characters = new BankCharacters();
         setFinal = new HashSet<>(characters.getBankCharacters());
-        answer = new Answer(setFinal,questions);
         index = 0;
         pastQuestions = new ArrayList<>();
-        importBank("rsc\\bank.json");
+        answer = new Answer(setFinal,questions,pastQuestions);
+        importBank("rsc/bank.json");
     }
 
 
@@ -71,24 +71,26 @@ public class Knowledge implements IKnowledge {
         return getLastCharacter().getPathImg();
     }
 
+    @Override
+    public List<String> getPastQuestions(){
+        return pastQuestions;
+    }
 
     @Override
     public void answerYes () {
         answer.answerYes(index);
-        pastQuestions.add(index,"true");
         answerFirePropertyChange();
     }
 
     @Override
     public void answerNo() {
         answer.answerNo(index);
-        pastQuestions.add(index,"false");
         answerFirePropertyChange();
     }
 
     @Override
     public void answerIDK() {
-        pastQuestions.add(index,"none");
+        answer.answerIDK(index);
         answerFirePropertyChange();
     }
 
@@ -99,6 +101,7 @@ public class Knowledge implements IKnowledge {
             myPcs.firePropertyChange("Question",oldQuestion,getQuestion());
         }
     }
+
 
     @Override
     public int knowNumberOfQuestions(){
@@ -148,9 +151,7 @@ public class Knowledge implements IKnowledge {
 
     @Override
     public void exportBank(String path){
-        for(int i =0;i<knowNumberOfQuestions();++i){
-            Repository.exportBank(questions.getBankQuestions(),characters.getBankCharacters(),questions.getQuestionByIndex(i),path);
-        }
+        Repository.exportBank(questions.getBankQuestions(),characters.getBankCharacters(),path);
     }
 
     @Override
@@ -161,9 +162,9 @@ public class Knowledge implements IKnowledge {
     @Override
     public void restart(){
         this.setFinal = new HashSet<>(characters.getBankCharacters());
-        this.answer = new Answer(setFinal,questions);
         this.index = 0;
         this.pastQuestions = new ArrayList<>();
+        this.answer = new Answer(setFinal,questions,pastQuestions);
         myPcs = new PropertyChangeSupport(this);
     }
 }

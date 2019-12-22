@@ -2,7 +2,9 @@ package model;
 
 import org.junit.jupiter.api.Test;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,6 +23,26 @@ class KnowledgeTests {
 		Knowledge knowledge = new Knowledge();
 
 		assertEquals(new HashSet<>(),new HashSet<>(knowledge.getSetFinal()));
+	}
+
+	@Test
+	public void knowListPastQuestions() {
+		Knowledge knowledge = new Knowledge();
+
+		List<String> pastQuestions = new ArrayList<>();
+
+		assertEquals(pastQuestions,knowledge.getPastQuestions());
+	}
+
+	@Test
+	public void knowSetCharacters() {
+		Knowledge knowledge = new Knowledge();
+
+		BankCharacters characters = knowledge.getBankCharacter();
+
+		Set<ICharacter> characterSet = characters.getBankCharacters();
+
+		assertEquals(characterSet,knowledge.getBankCharacter().getBankCharacters());
 	}
 
 	@Test
@@ -48,11 +70,9 @@ class KnowledgeTests {
 
 	@Test
 	public void knowIndex() {
-		int index = 1;
+		int index = 0;
 
 		Knowledge knowledge = new Knowledge();
-
-		knowledge.answerIDK();
 
 		assertEquals(index,knowledge.getIndex());
 	}
@@ -60,7 +80,6 @@ class KnowledgeTests {
 	@Test
 	public void answerYes(){
 		BankCharacters bankCharacters = new BankCharacters();
-
 		Knowledge knowledge = new Knowledge();
 
 		Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
@@ -75,7 +94,6 @@ class KnowledgeTests {
 	@Test
 	public void answerNo(){
 		BankCharacters bankCharacters = new BankCharacters();
-
 		Knowledge knowledge = new Knowledge();
 
 		Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
@@ -90,7 +108,6 @@ class KnowledgeTests {
 	@Test
 	public void answerIDK(){
 		BankCharacters bankCharacters = new BankCharacters();
-
 		Knowledge knowledge = new Knowledge();
 
 		Set<ICharacter> setFinal = bankCharacters.getBankCharacters();
@@ -154,8 +171,10 @@ class KnowledgeTests {
 	public void addCharacter(){
 		Knowledge knowledge = new Knowledge();
 
+		knowledge.addCharacter("Lucas Vermeire");
 
+		Set<ICharacter> characters = knowledge.getBankCharacter().getBankCharacters();
 
-
+		assertTrue(characters.contains(new Character("Lucas Vermeire")));
 	}
 }
